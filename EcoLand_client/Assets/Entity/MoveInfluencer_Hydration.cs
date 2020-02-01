@@ -10,12 +10,15 @@ namespace EntitySystem
         [SerializeField]
         private float maxDistance;
         public float MaxDistance { get { return maxDistance; } }
+        public float Strength;
 
         // Entity will only attempt to get to tiles within it's livable values
         public float minHydration;
         public float maxHydration;
 
         private List<Josh.Cell> neighborTiles = new List<Josh.Cell>();
+
+        
 
         public Vector3 GetInfluenceVector() {
             Vector3 maxVector = Vector3.zero;
@@ -44,7 +47,7 @@ namespace EntitySystem
                 maxVector *= 10;
             }
 
-            return maxVector;
+            return maxVector * Strength;
         }
 
         public void Setup(List<Entity> neighbors) {

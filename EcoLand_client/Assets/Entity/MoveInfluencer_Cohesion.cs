@@ -11,17 +11,16 @@ namespace EntitySystem
         private float maxDistance;
         public float MaxDistance  { get {return maxDistance;} }
 
-        public int   Type        = 0;
-        public float Strength    = 0;
+        public int   Type          = 0;
+        public float SeekStrength  = 0;
+        public float RepelStrength = 0;
 
         List<Vector3> _toInfluencer = new List<Vector3>();
         Vector3       _influence = new Vector3();
 
         public void Setup(List<Entity> neighbors)
         {
-            //_influencers.Clear();
             _toInfluencer.Clear();
-            if (Strength == 0) return; // Don't add any work if strength is 0;
 
             // Filter based on radius
             float sqrMax = MaxDistance*MaxDistance;
@@ -44,7 +43,17 @@ namespace EntitySystem
             _influence.Set(0,0,0);
             for(int i=0; i<_toInfluencer.Count; ++i)
             {
-                _influence += _toInfluencer[i];
+                var dist = _toInfluencer[i].magnitude;
+                var nrmDir = (_toInfluencer[i] / dist);
+                if (dist < MinDistance)
+                {
+                    float tooClose = (MinDistance - dist) / MinDistance;
+                    _influence += -nrmDir * tooClose * RepelStrength;
+                }
+                else
+                {
+                    _influence += nrmDir * (dist - MinDistance) * SeekStrength;
+                }
             }
             if(_toInfluencer.Count > 0)
                 _influence /= _toInfluencer.Count;
