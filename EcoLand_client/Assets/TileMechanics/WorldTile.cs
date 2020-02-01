@@ -38,6 +38,7 @@ namespace Josh
             RunTemperatureSimulation();
             RunHydrationSimulation();
             RunHumiditySimulation();
+            UpdateAnimator();
         }
 
         private void RunTemperatureSimulation() {
@@ -98,6 +99,12 @@ namespace Josh
 
             humidity -= humidityLossToAdjacentTile * 8;
             humidity -= rainfall;
+        }
+
+        private void UpdateAnimator() {
+            Animator animator = myCell.cellObject.GetComponentInChildren<Animator>();
+            animator.SetFloat("Wetness", hydration);
+            animator.SetFloat("Fertility", fertility);
         }
 
         public void RegisterEntity(EntitySystem.Entity entity) {
