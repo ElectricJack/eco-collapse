@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,8 +14,17 @@ namespace EntitySystem
 	    public int          currentAge;
 	    public int          deathAge;
         public int          stomachFullness;
-        ISteppable[] stepables;
 
+        public bool         isDead = false;
+        
+        public ISteppable[] stepables;
+        
+        public IStatusStep[] StatusSteps;
+
+        public IMoveStep[] MoveSteps;
+
+        public IEatStep[] EatSteps;
+        
         public Josh.WorldTile currentTile;
 
         void Awake() {

@@ -1,6 +1,6 @@
 ﻿namespace EntitySystem
 {
-    interface ISteppable
+    public interface ISteppable
     {
         void Step();
     }

@@ -8,17 +8,14 @@ namespace EntitySystem
     {
         public Camera          mainCamera;
         public EntityProfile[] entityTypes = new EntityProfile[10];
-        private List<Entity>   entities    = new List<Entity>();
+        public List<Entity>   entities    = new List<Entity>();
+
+        public List<Entity> pendingDeath = new List<Entity>();
 
         // Update is called once per frame
         void Update()
         {
             AddEntitiesHACK();
-
-            // Temp, for now we step the entities
-            foreach(var entity in entities)
-                entity.Step();
-                
         }
 
         void AddEntitiesHACK()
