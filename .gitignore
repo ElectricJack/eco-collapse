@@ -5,3 +5,4 @@ EcoLand_client/obj/Debug
 EcoLand_client/Logs
 EcoLand_client/.vs
 *.sln
+*.csproj
