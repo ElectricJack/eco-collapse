@@ -11,6 +11,8 @@ namespace Josh
         public int worldSize;
 
         public World world;
+
+        public AnimationCurve Curve;
         
         public void Awake()
         {
