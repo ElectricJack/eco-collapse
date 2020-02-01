@@ -20,7 +20,14 @@ namespace Josh
             {
                 var cell = cellPair.Value;
 
-                GameObject.Instantiate(CellPrefab, new Vector3(cell.location.location.x, Random.Range(-1f, 2f), cell.location.location.y), Quaternion.identity);
+                var scalarX = 7f * ((float) cell.location.location.x) / worldSize;
+                var scalarY = 7f * ((float) cell.location.location.y) / worldSize;
+                GameObject.Instantiate(CellPrefab, 
+                    new Vector3(
+                        cell.location.location.x, 
+                        -2 + (5f * Mathf.PerlinNoise(scalarX, scalarY)),
+                        cell.location.location.y), 
+                    Quaternion.identity);
             }
         }
 
@@ -32,6 +39,8 @@ namespace Josh
 
     public class World
     {
+        
+        
         public Dictionary<Vector2Int, Cell> cells = new Dictionary<Vector2Int, Cell>();
 
         public int worldSize;
