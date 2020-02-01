@@ -128,6 +128,21 @@ namespace Josh
             
         }
 
+        public List<Cell> GatherNeighborCells(Vector2 position, int radius) {
+            Cell centerCell = GetCellFromPosition(position);
+            List<Cell> neighborCells = new List<Cell>();
+
+            neighborCells.Add(centerCell);
+
+            for (int i = centerCell.location.location.x - radius; i < centerCell.location.location.x + radius; i++) {
+                for (int j = centerCell.location.location.y - radius; j < centerCell.location.location.y + radius; j++) {
+                    neighborCells.Add(GetCellFromPosition(new Vector2(i, j)));
+                }
+            }
+
+            return neighborCells;
+        }
+
         public void GatherEntities(WorldTile origin, float radius, ref List<Entity> entities)
         {
             var nRad = (int)Math.Ceiling(radius);
