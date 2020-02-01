@@ -28,7 +28,7 @@ namespace EntitySystem
             }
 
             foreach(Josh.Cell cell in neighborTiles) {
-                Vector3 distance = cell.cellObject.transform.position;
+                Vector3 distance = cell.cellObject.transform.position - entity.transform.position;
                 float hydration = cell.GetWorldTile().hydration;
 
                 if(hydration > minHydration && hydration < maxHydration) {

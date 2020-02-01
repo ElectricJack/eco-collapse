@@ -1,7 +1,8 @@
 ﻿namespace EntitySystem
 {
-    interface IEdible
+    public interface IEdible
     {
+        float GetFilling();
         void OnEaten(Entity predator);
     }
 }

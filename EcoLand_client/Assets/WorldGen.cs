@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
@@ -119,30 +119,21 @@ namespace Josh
 
         // Helper functions
         public Cell GetCellFromPosition(Vector3 position) {
-            return cells[new Vector2Int((int)Mathf.Round(position.x), (int)Mathf.Round(position.z))];
+            float x1 = position.x;
+            float y1 = position.z;
+
+            x1 = Mathf.Clamp(x1, 0, worldSize - 1);
+            y1 = Mathf.Clamp(y1, 0, worldSize - 1);
+
+            return cells[new Vector2Int((int)Mathf.Round(x1), (int)Mathf.Round(y1))];
         }
+        
         public Cell GetCellFromPosition(Vector2 position) {
             Vector2Int roundedPosition = new Vector2Int((int)Mathf.Round(position.x), (int)Mathf.Round(position.y));
-            //Debug.Log(roundedPosition);
+            
             var c = cells[roundedPosition];
-            //Debug.Log(c.location.location);
-            //Debug.Log(cells.Any(x => x.Key == roundedPosition));
             return c;
-        }
-
-        public List<Cell> GatherNeighborCells(Vector2 position, int radius) {
-            Cell centerCell = GetCellFromPosition(position);
-            List<Cell> neighborCells = new List<Cell>();
-
-            neighborCells.Add(centerCell);
-
-            for (int i = centerCell.location.location.x - radius; i < centerCell.location.location.x + radius; i++) {
-                for (int j = centerCell.location.location.y - radius; j < centerCell.location.location.y + radius; j++) {
-                    neighborCells.Add(GetCellFromPosition(new Vector2(i, j)));
-                }
-            }
-
-            return neighborCells;
+            
         }
 
         public void GatherEntities(WorldTile origin, float radius, ref List<Entity> entities)

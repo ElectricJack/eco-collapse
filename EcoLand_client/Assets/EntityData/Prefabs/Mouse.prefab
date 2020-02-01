@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7791700321382821720}
   - component: {fileID: 2137903744934077747}
   - component: {fileID: 3529625124134323850}
-  - component: {fileID: -4476085135627568914}
+  - component: {fileID: 1853605747500766944}
   - component: {fileID: -4067445786535281985}
   m_Layer: 0
   m_Name: Mouse
@@ -99,7 +99,7 @@ MonoBehaviour:
   maxDistance: 6
   Type: 1
   Strength: 1
---- !u!114 &-4476085135627568914
+--- !u!114 &1853605747500766944
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,12 +108,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1260857102332598017}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 216a0b02c5c4d8349adf43524f74eaed, type: 3}
+  m_Script: {fileID: 11500000, guid: 645cf18050f761b4880ac1998776767a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MinDistance: 1
   maxDistance: 6
-  Type: 1
-  Strength: 0.75
+  minHydration: 0.2
+  maxHydration: 0.9
 --- !u!114 &-4067445786535281985
 MonoBehaviour:
   m_ObjectHideFlags: 0

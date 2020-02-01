@@ -1,49 +1,65 @@
-﻿namespace EntitySystem
+﻿using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
+
+namespace EntitySystem
 {
-    enum VoreType
+    public enum VoreType
     {
         herbivore,
         carnivore,
         omnivore
     }
-    class Eats : BaseComponent, ISteppable
+    
+    public class Eats : BaseComponent, IEatStep
     {
         public    VoreType    edibleType;
-        public    int         howFilling;
-        
-        public void Step()
+
+        [MinMax(0.01f, 4f)] public Vector2 EdibleSizeRange;
+
+        public void EatStep()
         {
-            //@TODO - Is there something close enough to eat?
+            // TODO: Is there Something close enough to eat;
         }
 
-        public void OnEats(Entity prey)
+        public IEdible WillEat(Entity prey)
         {
-            var edibles = prey.instance.GetComponents<IEdible>();
-            if (edibles == null)
-                return;
+            if (prey.Edibles == null)
+                return null;
             
-            
-            foreach(var edible in edibles)
+            foreach(var edible in prey.Edibles)
             {
                 switch(edibleType)
                 {
                     case VoreType.carnivore:
-                        if(edible.GetType() == typeof(Fauna))
-                            edible.OnEaten(entity);
+                        if (edible.GetType() == typeof(Fauna))
+                            return edible;
                         break;
                     case VoreType.herbivore:
                         if(edible.GetType() == typeof(Flora))
-                            edible.OnEaten(entity);
+                            return edible;
                         break;
-                    default:
-                        edible.OnEaten(entity);
-                        break;
+                    case VoreType.omnivore:
+                        return edible;
                 }
-                
             }
-                
 
-            entity.stomachFullness += howFilling;
+            return null;
+        }
+
+        public void OnEat(Entity prey)
+        {
+            var target = WillEat(prey);
+            if (target != null)
+            {
+                target.OnEaten(entity);
+                entity.stomachFullness += target.GetFilling();
+            }
+
+        }
+
+        public void Step()
+        {
+            // TODO: Do i need to step?
         }
     }
 
