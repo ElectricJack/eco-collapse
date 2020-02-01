@@ -15,6 +15,8 @@ namespace EntitySystem
 
         public int          stomachFullness;
 
+        public Josh.WorldTile currentTile;
+
 
         public virtual void Step()
         {
@@ -41,13 +43,24 @@ namespace EntitySystem
 
         //public virtual void MoveTile(WorldTile tile)
         //{
-        //    // Unregister with old tile
-        //    // Register with new tile
+        //    UpdateTile();
         //}
+
+        private void UpdateTile() {
+            if(Josh.World.worldInstance != null) {
+                Vector2 myPosition = new Vector2(transform.position.x, transform.position.z);
+                Josh.WorldTile newWorldTile = Josh.World.worldInstance.GetCellFromPosition(myPosition).GetWorldTile();
+                if (newWorldTile != currentTile) {
+                    currentTile.UnregisterEntity(this);
+                    newWorldTile.RegisterEntity(this);
+                    currentTile = newWorldTile;
+                }
+            }
+        }
 
         public virtual void OnDestroy()
         {
-            // Unregister with current tile
+            currentTile.UnregisterEntity(this);
         }
     }
 }

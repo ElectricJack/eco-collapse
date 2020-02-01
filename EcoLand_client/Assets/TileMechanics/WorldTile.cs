@@ -15,7 +15,7 @@ namespace Josh
 
         public Cell myCell;
 
-        private List<Entity> entities = new List<Entity>();
+        private List<EntitySystem.Entity> entities = new List<EntitySystem.Entity>();
 
         public WorldTile(Cell cell) {
             myCell = cell;
@@ -44,15 +44,15 @@ namespace Josh
             temperature -= tempLossToAdjacentTile * 8;
         }
 
-        public void RegisterEntity(Entity entity) {
+        public void RegisterEntity(EntitySystem.Entity entity) {
             entities.Add(entity);
         }
 
-        public void UnregisterEntity(Entity entity) {
+        public void UnregisterEntity(EntitySystem.Entity entity) {
             entities.Remove(entity);
         }
 
-        public List<Entity> GetRegisteredEntities() {
+        public List<EntitySystem.Entity> GetRegisteredEntities() {
             return entities;
         }
     }
