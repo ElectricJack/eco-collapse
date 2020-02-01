@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3529625124134323850}
   - component: {fileID: -6631891883196743254}
   - component: {fileID: -4152154887505371048}
+  - component: {fileID: -4501665983245332427}
   m_Layer: 0
   m_Name: Fax
   m_TagString: Untagged
@@ -59,6 +60,7 @@ MonoBehaviour:
   energyDecay: 0
   isDead: 0
   cohesion: {fileID: 0}
+  alignment: {fileID: 0}
   eats: {fileID: 0}
   maxNeighborRadius: 0
 --- !u!114 &7791700321382821720
@@ -100,8 +102,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MinDistance: 0
   maxDistance: 1
-  type: 4
-  strength: 0.1
+  Type: 0
+  Strength: 0
 --- !u!114 &-6631891883196743254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,6 +147,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   edibleType: 1
   EdibleSizeRange: {x: 0.2, y: 0.9}
+--- !u!114 &-4501665983245332427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260857102332598017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 990fd12042d24a74fad4a3a456ae9368, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7022338794895197108
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,7 +267,7 @@ PrefabInstance:
     - target: {fileID: 4670675026054494248, guid: 455f60fda8a960c4286feb9f4e021c28,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 4670675026054494248, guid: 455f60fda8a960c4286feb9f4e021c28,
         type: 3}
