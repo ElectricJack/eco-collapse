@@ -111,11 +111,14 @@ namespace Josh
         }
 
         private void UpdateAnimator() {
+            //cellMaterial.SetFloat("Water Strength", hydration);
+            //cellMaterial.SetFloat("Earth Strength", fertility);
+
             return;//TODO
-            cellMaterial.SetFloat("hydration", hydration);
+            
             cellMaterial.SetFloat("temperature", temperature);
             cellMaterial.SetFloat("humidity", humidity);
-            cellMaterial.SetFloat("fertility", fertility);
+            
             cellMaterial.SetFloat("brightness", brightness);
             cellMaterial.SetFloat("elevation", elevation);
         }
