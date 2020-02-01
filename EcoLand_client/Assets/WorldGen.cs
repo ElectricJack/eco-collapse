@@ -76,7 +76,7 @@ namespace Josh
 
         // Helper functions
         public Cell GetCellFromPosition(Vector2 position) {
-            Vector2 roundedPosition = new Vector2(Mathf.Round(position.x), Mathf.Round(position.y));
+            Vector2Int roundedPosition = new Vector2Int((int)Mathf.Round(position.x), (int)Mathf.Round(position.y));
             return cells[roundedPosition];
         }
     }
