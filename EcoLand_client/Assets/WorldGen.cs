@@ -77,6 +77,8 @@ namespace Josh
     {
         public Dictionary<Vector2Int, Cell> cells = new Dictionary<Vector2Int, Cell>(new V2IComparator());
 
+        public Cell[] cellArray;
+        
         public int worldSize;
 
         public static World worldInstance;
@@ -87,12 +89,15 @@ namespace Josh
             
             this.worldSize = worldSize;
             
+            this.cellArray = new Cell[worldSize*worldSize];
+            
             for(int x = 0; x < worldSize; x++)
             {
                 for (int y = 0; y < worldSize; y++)
                 {
                     var cell = new Cell(x,y);
-                    
+
+                    cellArray[x + y * worldSize] = cell;
                     cells.Add(cell.location.location, cell);
                 }
             }
