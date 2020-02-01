@@ -39,9 +39,23 @@ namespace Josh
         }
     }
 
+    public class V2IComparator : IEqualityComparer<Vector2Int>
+    {
+        private IEqualityComparer<Vector2Int> _equalityComparerImplementation;
+        public bool Equals(Vector2Int x, Vector2Int y)
+        {
+            return x == y;
+        }
+
+        public int GetHashCode(Vector2Int obj)
+        {
+            return obj.x + (obj.y << 8);
+        }
+    }
+    
     public class World
     {
-        public Dictionary<Vector2Int, Cell> cells = new Dictionary<Vector2Int, Cell>();
+        public Dictionary<Vector2Int, Cell> cells = new Dictionary<Vector2Int, Cell>(new V2IComparator());
 
         public int worldSize;
 
@@ -79,7 +93,9 @@ namespace Josh
         // Helper functions
         public Cell GetCellFromPosition(Vector2 position) {
             Vector2Int roundedPosition = new Vector2Int((int)Mathf.Round(position.x), (int)Mathf.Round(position.y));
-            return cells[roundedPosition];
+            var c = cells[roundedPosition];
+            return c;
+            
         }
     }
 

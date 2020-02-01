@@ -28,21 +28,21 @@ public class PlayerCamera : MonoBehaviour
 
     private void ZoomOnperformed(InputAction.CallbackContext obj)
     {
-        var val = -obj.ReadValue<int>() / 100f;
+        var val = (obj.ReadValue<float>()) / 100f;
 
         const float min = -30;
         const float max = 5;
         
-        _camera.transform.position += Vector3.forward * val;
+        _camera.transform.localPosition += Vector3.forward * val;
 
-        if (_camera.transform.position.z > max)
+        if (_camera.transform.localPosition.z > max)
         {
-            _camera.transform.position = Vector3.forward * max;
+            _camera.transform.localPosition = Vector3.forward * max;
         }
 
-        if (_camera.transform.position.z < min)
+        if (_camera.transform.localPosition.z < min)
         {
-            _camera.transform.position = Vector3.forward * min;
+            _camera.transform.localPosition = Vector3.forward * min;
         }
     }
 
