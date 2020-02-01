@@ -56,9 +56,11 @@ MonoBehaviour:
   currentAge: 0
   deathAge: 0
   stomachFullness: 0
+  energyDecay: 0
   isDead: 0
   cohesion: {fileID: 0}
   alignment: {fileID: 0}
+  eats: {fileID: 0}
   maxNeighborRadius: 0
 --- !u!114 &7791700321382821720
 MonoBehaviour:
@@ -72,6 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69deaa6d8498ebb4782900b4eee8a04d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HowFilling: 0
 --- !u!114 &2137903744934077747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,7 +175,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7022338794895197108}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3172506387247168712}
