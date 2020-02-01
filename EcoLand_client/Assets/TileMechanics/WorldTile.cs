@@ -34,7 +34,7 @@ namespace Josh
             }
 
             // Radiate temperature into space based on elevation and hydration
-            float temperatureLossToSpace = (temperature * 0.001f * elevation) / (1 - Mathf.Log(hydration + 1)); // Hydration = 0 : (1 - Mathf.Log(hydration + 1)) = 1 // Hydration = 0 : (1 - Mathf.Log(hydration + 1)) = 0.7
+            float temperatureLossToSpace = (temperature * 0.001f * elevation) * (1 - Mathf.Log(hydration + 1)); // Hydration = 0 : (1 - Mathf.Log(hydration + 1)) = 1 // Hydration = 1 : (1 - Mathf.Log(hydration + 1)) = 0.7
 
             // Gain temperature based on brightness
             float temperatureGainDueToBrightness = (1 - temperature) * 0.001f * brightness;
@@ -42,6 +42,20 @@ namespace Josh
             temperature += temperatureGainDueToBrightness;
             temperature -= temperatureLossToSpace;
             temperature -= tempLossToAdjacentTile * 8;
+        }
+
+        private void RunHydrationSimulation() {
+            // Water bleeds out, but only downhill, and only if it's warm enough
+            float waterFlowLoss = 0f;
+            if (temperature > 0.32) {
+                float waterLossToAdjacentTile = hydration * 0.002f;
+                foreach (Cell neighbor in myCell.GetNeighbors().Values) {
+                    if (neighbor.GetWorldTile().elevation - elevation > 0) {
+                        neighbor.GetWorldTile().hydration += waterLossToAdjacentTile * (neighbor.GetWorldTile().elevation - elevation);
+                    }
+                }
+            }
+            
         }
 
         public void RegisterEntity(EntitySystem.Entity entity) {
