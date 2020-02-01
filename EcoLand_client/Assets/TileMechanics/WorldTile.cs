@@ -17,6 +17,8 @@ namespace Josh
         private const float rainfallSpeed =                     0.001f;
         private const float humidityTransferSpeed =             0.001f;
 
+        private Material cellMaterial;
+
 
         // Tile stats from 0 - 1
         public float temperature = 0f;
@@ -32,6 +34,13 @@ namespace Josh
 
         public WorldTile(Cell cell) {
             myCell = cell;
+        }
+
+        private void Awake() {
+            cellMaterial = myCell.cellObject.GetComponent<Material>();
+            if(cellMaterial == null) {
+                Debug.LogError("Cell is missing a material! check your prefabs!");
+            }
         }
 
         public void RunCellularAutomata() {
@@ -102,9 +111,12 @@ namespace Josh
         }
 
         private void UpdateAnimator() {
-            Animator animator = myCell.cellObject.GetComponentInChildren<Animator>();
-            animator.SetFloat("Wetness", hydration);
-            animator.SetFloat("Fertility", fertility);
+            cellMaterial.SetFloat("hydration", hydration);
+            cellMaterial.SetFloat("temperature", temperature);
+            cellMaterial.SetFloat("humidity", humidity);
+            cellMaterial.SetFloat("fertility", fertility);
+            cellMaterial.SetFloat("brightness", brightness);
+            cellMaterial.SetFloat("elevation", elevation);
         }
 
         public void RegisterEntity(EntitySystem.Entity entity) {
