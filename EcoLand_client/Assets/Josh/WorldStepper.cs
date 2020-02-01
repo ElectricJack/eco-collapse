@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Threading.Tasks;
 using System.Threading;
+using Josh;
 
 public class WorldStepper : MonoBehaviour
 {
@@ -13,34 +14,44 @@ public class WorldStepper : MonoBehaviour
     
     public void Update()
     {
-        foreach (var statusStep in EntityManager.entities.SelectMany(x => x.StatusSteps))
+        if (Time.frameCount % 5 == 0)
         {
-            statusStep.StatusStep();;
+            foreach (var cell in World.worldInstance.cells)
+            {
+                cell.Value.GetWorldTile().Step();
+            }
         }
+        else
+        {
+            foreach (var statusStep in EntityManager.entities.SelectMany(x => x.StatusSteps))
+            {
+                statusStep.StatusStep();;
+            }
         
-        foreach (var move in EntityManager.entities.SelectMany(x => x.MoveSteps))
-        {
-            move.MoveStep();
-        }
+            foreach (var move in EntityManager.entities.SelectMany(x => x.MoveSteps))
+            {
+                move.MoveStep();
+            }
 
-        foreach (var eat in EntityManager.entities.SelectMany(x => x.EatSteps))
-        {
-            eat.EatStep();
-        }
+            foreach (var eat in EntityManager.entities.SelectMany(x => x.EatSteps))
+            {
+                eat.EatStep();
+            }
 
-        var deads = EntityManager.entities
-            .Where(x => x.isDead).AsParallel();
+            var deads = EntityManager.entities
+                .Where(x => x.isDead).AsParallel();
 
-        foreach (var dead in deads)
-        {
-            EntityManager.entities.Remove(dead);
+            foreach (var dead in deads)
+            {
+                EntityManager.entities.Remove(dead);
+            }
         }
     }
 }
 
 public interface IStepable
 {
-    
+    void Step();
 }
 
 public interface IMoveStep : IStepable
