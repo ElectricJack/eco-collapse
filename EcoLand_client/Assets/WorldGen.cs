@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
@@ -24,13 +25,32 @@ namespace Josh
 
                 var scalarX = 7f * ((float) cell.location.location.x) / worldSize;
                 var scalarY = 7f * ((float) cell.location.location.y) / worldSize;
-                GameObject.Instantiate(CellPrefab, 
+                GameObject clone = GameObject.Instantiate(CellPrefab, 
                     new Vector3(
                         cell.location.location.x, 
                         -2 + (5f * Mathf.PerlinNoise(scalarX, scalarY)),
                         cell.location.location.y), 
                     Quaternion.identity);
+
+                cell.cellObject = clone;
+                SetUpCell(cell, scalarX, scalarY);
             }
+        }
+
+        private void SetUpCell(Cell cell, float scalarX, float scalarY) {
+            float startingElevation = Mathf.PerlinNoise(scalarX, scalarY); // elevation normalized between 0-1
+            float startingTemperature = Mathf.PerlinNoise(scalarX + 1000, scalarY + 1000);
+            float startingHydration = Mathf.PerlinNoise(scalarX - 1000, scalarY - 1000);
+            float startingBrightness = Mathf.PerlinNoise(scalarX/10 + 10000, scalarY/10 + 10000);
+            float startingHumidity = 0.0001f;
+            float startingFertility = 0.0001f;
+
+            cell.GetWorldTile().elevation = startingElevation;
+            cell.GetWorldTile().temperature = startingTemperature;
+            cell.GetWorldTile().hydration = startingHydration;
+            cell.GetWorldTile().brightness = startingBrightness;
+            cell.GetWorldTile().humidity = startingHumidity;
+            cell.GetWorldTile().fertility = startingFertility;
         }
 
         public void OnDestroy()
@@ -93,7 +113,10 @@ namespace Josh
         // Helper functions
         public Cell GetCellFromPosition(Vector2 position) {
             Vector2Int roundedPosition = new Vector2Int((int)Mathf.Round(position.x), (int)Mathf.Round(position.y));
+            Debug.Log(roundedPosition);
             var c = cells[roundedPosition];
+            Debug.Log(c.location.location);
+            Debug.Log(cells.Any(x => x.Key == roundedPosition));
             return c;
             
         }
@@ -154,11 +177,14 @@ namespace Josh
 
         private WorldTile tile;
 
+        public GameObject cellObject;
+
         public Loc location;
         
         public Cell(int x, int y)
         {
             location = new Loc(new Vector2Int(x, y));
+            tile = new WorldTile(this);
         }
         
         public void SetNeighbor(Direction dir, Cell neighbor)
