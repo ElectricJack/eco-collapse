@@ -48,7 +48,11 @@ namespace EntitySystem
                 .GetWorldTile();
             currentTile?.RegisterEntity(this);
         
-            stepables           = GetComponents<ISteppable>();
+            stepables    = GetComponents<ISteppable>();
+            StatusSteps  = GetComponents<IStatusStep>();
+            MoveSteps    = GetComponents<IMoveStep>();
+            EatSteps     = GetComponents<IEatStep>();
+
             movementInfluencers = GetComponents<IMoveInfluencer>();
 
             // Calculate the maximum neighbor radius from the largest influencing distance
