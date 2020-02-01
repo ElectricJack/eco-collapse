@@ -146,11 +146,14 @@ namespace Josh
         {
             return neighbors[dir];
         }
-    }
 
-    public class WorldTile
-    {
-        
+        public Dictionary<Direction, Cell> GetNeighbors() {
+            return neighbors;
+        }
+
+        public WorldTile GetWorldTile() {
+            return tile;
+        }
     }
     
     public enum Direction
