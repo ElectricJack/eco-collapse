@@ -20,7 +20,7 @@ namespace Josh
             {
                 var cell = cellPair.Value;
 
-                GameObject.Instantiate(CellPrefab, new Vector3(cell.location.location.x, Random.Range(-2f, 6f), cell.location.location.y), Quaternion.identity);
+                GameObject.Instantiate(CellPrefab, new Vector3(cell.location.location.x, Random.Range(-1f, 2f), cell.location.location.y), Quaternion.identity);
             }
         }
 
