@@ -15,8 +15,6 @@ namespace EntitySystem
         Vector3 GetInfluenceVector();
     }
 
-
-
     public class Entity : MonoBehaviour, IMoveStep
     {
         public GameObject    instance;
@@ -36,8 +34,9 @@ namespace EntitySystem
         public IEatStep[]    EatSteps;
         
 
-        IMoveInfluencer[]              movementInfluencers;
-        public MoveInfluencer_Cohesion cohesion;
+        IMoveInfluencer[]               movementInfluencers;
+        public MoveInfluencer_Cohesion  cohesion;
+        public MoveInfluencer_Alignment alignment;
 
         List<Entity> _neighbors = new List<Entity>();
 
@@ -57,6 +56,7 @@ namespace EntitySystem
 
             movementInfluencers = GetComponents<IMoveInfluencer>();
             cohesion            = GetComponent<MoveInfluencer_Cohesion>();
+            alignment           = GetComponent<MoveInfluencer_Alignment>();
 
             // Calculate the maximum neighbor radius from the largest influencing distance
             foreach(var moveInfluencer in movementInfluencers)
@@ -85,6 +85,7 @@ namespace EntitySystem
                 if (pos.x > size) pos.x -= size;
                 if (pos.z < 0)    pos.z += size;
                 if (pos.z > size) pos.z -= size;
+
                 transform.position = pos;
             }
         }

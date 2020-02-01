@@ -118,14 +118,16 @@ namespace Josh
         }
 
         // Helper functions
+        public Cell GetCellFromPosition(Vector3 position) {
+            return cells[new Vector2Int((int)Mathf.Round(position.x), (int)Mathf.Round(position.z))];
+        }
         public Cell GetCellFromPosition(Vector2 position) {
             Vector2Int roundedPosition = new Vector2Int((int)Mathf.Round(position.x), (int)Mathf.Round(position.y));
-            Debug.Log(roundedPosition);
+            //Debug.Log(roundedPosition);
             var c = cells[roundedPosition];
-            Debug.Log(c.location.location);
-            Debug.Log(cells.Any(x => x.Key == roundedPosition));
+            //Debug.Log(c.location.location);
+            //Debug.Log(cells.Any(x => x.Key == roundedPosition));
             return c;
-            
         }
 
         public List<Cell> GatherNeighborCells(Vector2 position, int radius) {
