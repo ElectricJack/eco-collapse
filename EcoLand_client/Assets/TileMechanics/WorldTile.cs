@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Josh
 {
-    public class WorldTile
+    public class WorldTile : IStepable
     {
         private const float temperatureConvectionSpeed =        0.001f;
         private const float temperatureSpaceRadiationSpeed =    0.001f;
@@ -38,6 +38,7 @@ namespace Josh
             RunTemperatureSimulation();
             RunHydrationSimulation();
             RunHumiditySimulation();
+            UpdateAnimator();
         }
 
         private void RunTemperatureSimulation() {
@@ -100,6 +101,12 @@ namespace Josh
             humidity -= rainfall;
         }
 
+        private void UpdateAnimator() {
+            Animator animator = myCell.cellObject.GetComponentInChildren<Animator>();
+            animator.SetFloat("Wetness", hydration);
+            animator.SetFloat("Fertility", fertility);
+        }
+
         public void RegisterEntity(EntitySystem.Entity entity) {
             entities.Add(entity);
         }
@@ -110,6 +117,11 @@ namespace Josh
 
         public List<EntitySystem.Entity> GetRegisteredEntities() {
             return entities;
+        }
+
+        public void Step()
+        {
+            RunCellularAutomata();
         }
     }
 }

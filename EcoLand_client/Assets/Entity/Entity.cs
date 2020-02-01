@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Josh;
@@ -15,25 +16,36 @@ namespace EntitySystem
     }
 
 
+
     public class Entity : MonoBehaviour
     {
         public GameObject    instance;
         public Vector3       position;
         public Vector3       velocity;
         public EntityProfile typeInfo;
-	    public int                     currentAge;
-	    public int                     deathAge;
-        public int                     stomachFullness;
-        ISteppable[]                   stepables;
+
+	    public int           currentAge;
+	    public int           deathAge;
+        public int           stomachFullness;
+
+        public bool          isDead = false;
+        
+        public ISteppable[]  stepables;
+        public IStatusStep[] StatusSteps;
+        public IMoveStep[]   MoveSteps;
+        public IEatStep[]    EatSteps;
+        
+
         IMoveInfluencer[]              movementInfluencers;
         public MoveInfluencer_Cohesion cohesion;
 
-        public WorldTile    currentTile;
-        public float        maxNeighborRadius = 0;
-        
+        public WorldTile     currentTile;
+        public float         maxNeighborRadius = 0;
 
         void Awake() {
-            currentTile = World.worldInstance.GetCellFromPosition(new Vector2(transform.position.x, transform.position.z)).GetWorldTile();
+            currentTile = Josh.World.worldInstance
+                .GetCellFromPosition(new Vector2(transform.position.x, transform.position.z))
+                .GetWorldTile();
             currentTile?.RegisterEntity(this);
         
             stepables           = GetComponents<ISteppable>();
