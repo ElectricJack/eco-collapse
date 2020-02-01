@@ -8,13 +8,14 @@
     }
     class Eats : BaseComponent, ISteppable
     {
-        public    VoreType edibleType;
+        public    VoreType    edibleType;
         public    int         howFilling;
         
         public void Step()
         {
-            // Is there something close enough to eat?
+            //@TODO - Is there something close enough to eat?
         }
+
         public void OnEats(Entity prey)
         {
             var edibles = prey.instance.GetComponents<IEdible>();

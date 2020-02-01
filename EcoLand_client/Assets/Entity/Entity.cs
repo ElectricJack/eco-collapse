@@ -12,14 +12,16 @@ namespace EntitySystem
 
 	    public int          currentAge;
 	    public int          deathAge;
-
         public int          stomachFullness;
+        ISteppable[] stepables;
 
         public Josh.WorldTile currentTile;
 
         void Awake() {
             currentTile = Josh.World.worldInstance.GetCellFromPosition(new Vector2(transform.position.x, transform.position.z)).GetWorldTile();
             currentTile.RegisterEntity(this);
+        
+            stepables = GetComponents<ISteppable>();
         }
 
         public virtual void Step()
@@ -33,6 +35,9 @@ namespace EntitySystem
             else if (currentAge > deathAge)
                 return;
 
+            foreach(var stepable in stepables)
+                stepable.Step();
+                    
             // Update our active neighbors
             // @Todo ask the world what our neighbors are
 
