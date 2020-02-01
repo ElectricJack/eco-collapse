@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5270645071513692670}
   - component: {fileID: 7791700321382821720}
   - component: {fileID: 2137903744934077747}
+  - component: {fileID: 3529625124134323850}
   m_Layer: 0
   m_Name: Mouse
   m_TagString: Untagged
@@ -49,9 +50,13 @@ MonoBehaviour:
   instance: {fileID: 0}
   position: {x: 0, y: 0, z: 0}
   velocity: {x: 0, y: 0, z: 0}
+  typeInfo: {fileID: 0}
   currentAge: 0
   deathAge: 0
   stomachFullness: 0
+  isDead: 0
+  cohesion: {fileID: 0}
+  maxNeighborRadius: 0
 --- !u!114 &7791700321382821720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,6 +81,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d64281a331811946beafe2867a2fc76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3529625124134323850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260857102332598017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9b1f3bb360b3184f81917defce932bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MinDistance: 0
+  maxDistance: 20
+  type: 1
+  strength: 0.25
 --- !u!1 &7022338794895197108
 GameObject:
   m_ObjectHideFlags: 0

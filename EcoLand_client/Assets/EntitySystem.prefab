@@ -46,7 +46,7 @@ MonoBehaviour:
   mainCamera: {fileID: 0}
   entityTypes:
   - {fileID: 11400000, guid: eef871170893f5e43a2eebe524588109, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: bc186714d057c7a4c8c5e5f1f576c4bf, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
