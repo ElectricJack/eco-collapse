@@ -159,6 +159,7 @@ namespace Josh
         public Cell(int x, int y)
         {
             location = new Loc(new Vector2Int(x, y));
+            tile = new WorldTile();
         }
         
         public void SetNeighbor(Direction dir, Cell neighbor)
