@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Land
-  m_Shader: {fileID: -6465566751694194690, guid: 0e1e2c8e622ca4242a7d6adcb99258bb,
+  m_Shader: {fileID: -6465566751694194690, guid: b0f6799a60755402d973b03ea63fa476,
     type: 3}
   m_ShaderKeywords: _GLOSSYREFLECTIONS_OFF
   m_LightmapFlags: 4
@@ -25,6 +25,14 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CityLightMap:
+        m_Texture: {fileID: 2800000, guid: 46ee122979e0b634b9765be1b62cfcb2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CloudMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -49,7 +57,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 6830c978b5a81a94cbb760a166fd5f7c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -68,11 +76,20 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SpecularMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_8C9A3741: 1
     - Vector1_D0DAB728: 3
     - _AlphaClip: 0
+    - _AtmosphereDensity: 0
     - _Blend: 0
     - _BumpScale: 1
+    - _CityLightIntensity: 0
+    - _CloudMapSpecularity: 0
+    - _CloudPanSpeed: 0
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
@@ -81,15 +98,18 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _LightStretch: 0
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _QueueOffset: 0
     - _ReceiveShadows: 1
+    - _RingLighten: 0
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
+    - _Specularity: 0
     - _SrcBlend: 1
     - _Surface: 0
     - _UVSec: 0
@@ -97,14 +117,17 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_52F78342: {r: 0.99971855, g: 1, b: 0.08018869, a: 1}
+    - Color_52F78342: {r: 0.012865782, g: 1, b: 0, a: 1}
     - Color_A888D450: {r: 0.5093005, g: 0.9690052, b: 0.990566, a: 0}
-    - Color_F587FDED: {r: 1, g: 0.9235792, b: 0, a: 0}
+    - Color_F587FDED: {r: 0, g: 0.73850524, b: 0.9150943, a: 0}
+    - _AtmosphereColor: {r: 0.4411765, g: 0.6300204, b: 1, a: 1}
     - _BaseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _CityLightColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0.509434, g: 0.16100036, b: 0.16100036, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _HueVariation: {r: 1, g: 0.5, b: 0, a: 0.1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+    - _TextureColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
 --- !u!114 &8303383174796750227
 MonoBehaviour:
   m_ObjectHideFlags: 11
