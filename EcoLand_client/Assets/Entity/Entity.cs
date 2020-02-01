@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,8 +24,10 @@ namespace EntitySystem
 
 	    public int           currentAge;
 	    public int           deathAge;
-        public int           stomachFullness;
-
+        public float         stomachFullness;
+        public float         energyDecay;
+        
+        [HideInInspector]
         public bool          isDead = false;
         
         public ISteppable[]  stepables;
@@ -38,7 +40,13 @@ namespace EntitySystem
         public MoveInfluencer_Cohesion  cohesion;
         public MoveInfluencer_Alignment alignment;
 
+        [HideInInspector]
+        public Eats eats;
+        [HideInInspector]
+        public IEdible[] Edibles;
+        
         List<Entity> _neighbors = new List<Entity>();
+        
 
         public WorldTile     currentTile;
         public float         maxNeighborRadius = 0;
@@ -57,6 +65,9 @@ namespace EntitySystem
             movementInfluencers = GetComponents<IMoveInfluencer>();
             cohesion            = GetComponent<MoveInfluencer_Cohesion>();
             alignment           = GetComponent<MoveInfluencer_Alignment>();
+
+            eats = GetComponent<Eats>();
+            Edibles = GetComponents<IEdible>();
 
             // Calculate the maximum neighbor radius from the largest influencing distance
             foreach(var moveInfluencer in movementInfluencers)
@@ -85,7 +96,6 @@ namespace EntitySystem
                 if (pos.x > size) pos.x -= size;
                 if (pos.z < 0)    pos.z += size;
                 if (pos.z > size) pos.z -= size;
-
                 transform.position = pos;
             }
         }
