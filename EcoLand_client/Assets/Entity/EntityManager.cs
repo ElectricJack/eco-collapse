@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -38,7 +39,7 @@ namespace EntitySystem
             if (entityType == null)
                 return;
 
-            Debug.Log("ADD");
+            //Debug.Log("ADD");
                 
             RaycastHit hit;
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
@@ -48,7 +49,12 @@ namespace EntitySystem
                 
                 var instance = Instantiate(entityType.prefab, objectHit, Quaternion.identity);
                 instance.transform.parent = this.transform;
-                entities.Add(instance.GetComponent<Entity>());
+                var ent = instance.GetComponent<Entity>();
+                ent.deathAge        = Random.Range(entityType.minLife, entityType.maxLife);
+                ent.typeInfo        = entityType;
+                ent.stomachFullness = entityType.stomachSize;
+
+                entities.Add(ent);
             }
         }
 

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657934, g: 0.4964133, b: 0.57481885, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657928, g: 0.49641335, b: 0.57481885, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -322,8 +322,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: -2.3404263e-24, y: 2.3937171e-21, z: -3.0590932e+31,
-    w: NaN}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -493,6 +492,12 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 220358980}
+    - target: {fileID: 4069498035202448500, guid: 99477c86e043be44da192fab01a63858,
+        type: 3}
+      propertyPath: entityTypes.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: a2ac8f3209f35409681ba0189211200e,
+        type: 2}
     - target: {fileID: 4069498035202448501, guid: 99477c86e043be44da192fab01a63858,
         type: 3}
       propertyPath: m_LocalPosition.x

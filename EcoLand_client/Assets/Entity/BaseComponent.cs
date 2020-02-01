@@ -3,7 +3,7 @@ using Josh;
 
 namespace EntitySystem
 {
-    class BaseComponent : MonoBehaviour
+    public class BaseComponent : MonoBehaviour
     {
         protected Entity    entity;
         protected WorldTile tile;

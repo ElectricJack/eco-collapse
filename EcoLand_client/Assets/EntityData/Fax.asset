@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e40b9904e560f00478fbf8f376e6f791, type: 3}
-  m_Name: Mouse
+  m_Name: Fax
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1260857102332598017, guid: 45fe2a1893412094b88a63ad579d68d5, type: 3}
+  prefab: {fileID: 1260857102332598017, guid: af0f4944d1ce64a229bc95ccb0f7705e, type: 3}
   stomachSize: 10
   hungryThreshold: 5
   minLife: 5000

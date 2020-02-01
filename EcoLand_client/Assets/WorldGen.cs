@@ -2,6 +2,8 @@
 using System.Linq;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
+using EntitySystem;
+using System;
 
 namespace Josh
 {
@@ -116,14 +118,58 @@ namespace Josh
         }
 
         // Helper functions
+        public Cell GetCellFromPosition(Vector3 position) {
+            return cells[new Vector2Int((int)Mathf.Round(position.x), (int)Mathf.Round(position.z))];
+        }
         public Cell GetCellFromPosition(Vector2 position) {
             Vector2Int roundedPosition = new Vector2Int((int)Mathf.Round(position.x), (int)Mathf.Round(position.y));
-            Debug.Log(roundedPosition);
+            //Debug.Log(roundedPosition);
             var c = cells[roundedPosition];
-            Debug.Log(c.location.location);
-            Debug.Log(cells.Any(x => x.Key == roundedPosition));
+            //Debug.Log(c.location.location);
+            //Debug.Log(cells.Any(x => x.Key == roundedPosition));
             return c;
-            
+        }
+
+        public List<Cell> GatherNeighborCells(Vector2 position, int radius) {
+            Cell centerCell = GetCellFromPosition(position);
+            List<Cell> neighborCells = new List<Cell>();
+
+            neighborCells.Add(centerCell);
+
+            for (int i = centerCell.location.location.x - radius; i < centerCell.location.location.x + radius; i++) {
+                for (int j = centerCell.location.location.y - radius; j < centerCell.location.location.y + radius; j++) {
+                    neighborCells.Add(GetCellFromPosition(new Vector2(i, j)));
+                }
+            }
+
+            return neighborCells;
+        }
+
+        public void GatherEntities(WorldTile origin, float radius, ref List<Entity> entities)
+        {
+            var nRad = (int)Math.Ceiling(radius);
+            //origin.myCell.location.location;
+
+            int x0 = origin.myCell.location.location.x - nRad;
+            int x1 = origin.myCell.location.location.x + nRad;
+            int y0 = origin.myCell.location.location.y - nRad;
+            int y1 = origin.myCell.location.location.y + nRad;
+
+            x0 = Mathf.Clamp(x0,0,worldSize-1);
+            x1 = Mathf.Clamp(x1,0,worldSize-1);
+            y0 = Mathf.Clamp(y0,0,worldSize-1);
+            y1 = Mathf.Clamp(y1,0,worldSize-1);
+
+            entities.Clear();
+            for(int y=y0; y<=y1; ++y)
+            {
+                int rowOffset = y*worldSize;
+                for(int x=x0; x<=x1; ++x)
+                {
+                    var tile = cellArray[rowOffset + x].GetWorldTile();
+                    entities.AddRange(tile.GetRegisteredEntities());
+                }
+            }
         }
     }
 
