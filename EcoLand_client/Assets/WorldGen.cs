@@ -119,15 +119,16 @@ namespace Josh
 
         // Helper functions
         public Cell GetCellFromPosition(Vector3 position) {
-            return cells[new Vector2Int((int)Mathf.Round(position.x), (int)Mathf.Round(position.z))];
+            float x1 = position.x;
+            float y1 = position.z;
+
+            x1 = Mathf.Clamp(x1, 0, worldSize - 1);
+            y1 = Mathf.Clamp(y1, 0, worldSize - 1);
+
+            return cells[new Vector2Int((int)Mathf.Round(x1), (int)Mathf.Round(y1))];
         }
         public Cell GetCellFromPosition(Vector2 position) {
-            Vector2Int roundedPosition = new Vector2Int((int)Mathf.Round(position.x), (int)Mathf.Round(position.y));
-            //Debug.Log(roundedPosition);
-            var c = cells[roundedPosition];
-            //Debug.Log(c.location.location);
-            //Debug.Log(cells.Any(x => x.Key == roundedPosition));
-            return c;
+            return GetCellFromPosition(new Vector3(position.x, 0, position.y));
         }
 
         public List<Cell> GatherNeighborCells(Vector2 position, int radius) {
@@ -136,8 +137,18 @@ namespace Josh
 
             neighborCells.Add(centerCell);
 
-            for (int i = centerCell.location.location.x - radius; i < centerCell.location.location.x + radius; i++) {
-                for (int j = centerCell.location.location.y - radius; j < centerCell.location.location.y + radius; j++) {
+            int x0 = centerCell.location.location.x - radius;
+            int x1 = centerCell.location.location.x + radius;
+            int y0 = centerCell.location.location.y - radius;
+            int y1 = centerCell.location.location.y + radius;
+
+            x0 = Mathf.Clamp(x0, 0, worldSize - 1);
+            x1 = Mathf.Clamp(x1, 0, worldSize - 1);
+            y0 = Mathf.Clamp(y0, 0, worldSize - 1);
+            y1 = Mathf.Clamp(y1, 0, worldSize - 1);
+
+            for (int i = x0; i <= x1; i++) {
+                for (int j = y0; j <= y1; j++) {
                     neighborCells.Add(GetCellFromPosition(new Vector2(i, j)));
                 }
             }
