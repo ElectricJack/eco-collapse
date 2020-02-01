@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
+using EntitySystem;
+using System;
 
 namespace Josh
 {
@@ -96,6 +98,21 @@ namespace Josh
             var c = cells[roundedPosition];
             return c;
             
+        }
+
+        public List<Entity> GatherEntities(WorldTile origin, float radius)
+        {
+            var nRad = (int)Math.Ceiling(radius);
+            //origin.myCell.location.location;
+
+            int x0 = origin.myCell.location.location.x - nRad;
+            int x1 = origin.myCell.location.location.x + nRad;
+            int y0 = origin.myCell.location.location.y - nRad;
+            int y1 = origin.myCell.location.location.y + nRad;
+
+            //startIndex = x0 + y0*numAcross;
+            //@TODO
+            return null;
         }
     }
 

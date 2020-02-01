@@ -14,8 +14,8 @@ namespace Josh
         private const float waterFreezingTemperature =          0.32f;
         private const float waterEvaporationSpeed =             0.001f;
 
-        private const float rainfallSpeed =                     0.001;
-        private const float humidityTransferSpeed =             0.001;
+        private const float rainfallSpeed =                     0.001f;
+        private const float humidityTransferSpeed =             0.001f;
 
 
         // Tile stats from 0 - 1
