@@ -121,7 +121,7 @@ namespace Josh
 
         public void Step()
         {
-            
+            RunCellularAutomata();
         }
     }
 }
