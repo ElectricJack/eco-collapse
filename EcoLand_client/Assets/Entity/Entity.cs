@@ -19,7 +19,8 @@ namespace EntitySystem
 
         void Awake() {
             currentTile = Josh.World.worldInstance
-                .GetCellFromPosition(new Vector2(transform.position.x, transform.position.z)).GetWorldTile();
+                .GetCellFromPosition(new Vector2(transform.position.x, transform.position.z))
+                .GetWorldTile();
             currentTile.RegisterEntity(this);
         
             stepables = GetComponents<ISteppable>();
