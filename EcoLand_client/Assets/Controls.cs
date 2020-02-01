@@ -25,6 +25,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Zoom"",
+                    ""type"": ""Value"",
+                    ""id"": ""22d373fa-b5a0-4c59-a525-67e0c0e2f434"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -82,6 +90,17 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""04a7aee5-de18-4958-9178-61dc9e456ef2"",
+                    ""path"": ""<Mouse>/scroll/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Default"",
+                    ""action"": ""Zoom"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -97,6 +116,7 @@ public class @Controls : IInputActionCollection, IDisposable
         // GamePlay
         m_GamePlay = asset.FindActionMap("GamePlay", throwIfNotFound: true);
         m_GamePlay_Move = m_GamePlay.FindAction("Move", throwIfNotFound: true);
+        m_GamePlay_Zoom = m_GamePlay.FindAction("Zoom", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -147,11 +167,13 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputActionMap m_GamePlay;
     private IGamePlayActions m_GamePlayActionsCallbackInterface;
     private readonly InputAction m_GamePlay_Move;
+    private readonly InputAction m_GamePlay_Zoom;
     public struct GamePlayActions
     {
         private @Controls m_Wrapper;
         public GamePlayActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_GamePlay_Move;
+        public InputAction @Zoom => m_Wrapper.m_GamePlay_Zoom;
         public InputActionMap Get() { return m_Wrapper.m_GamePlay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -164,6 +186,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Move.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMove;
+                @Zoom.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnZoom;
+                @Zoom.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnZoom;
+                @Zoom.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnZoom;
             }
             m_Wrapper.m_GamePlayActionsCallbackInterface = instance;
             if (instance != null)
@@ -171,6 +196,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
+                @Zoom.started += instance.OnZoom;
+                @Zoom.performed += instance.OnZoom;
+                @Zoom.canceled += instance.OnZoom;
             }
         }
     }
@@ -187,5 +215,6 @@ public class @Controls : IInputActionCollection, IDisposable
     public interface IGamePlayActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnZoom(InputAction.CallbackContext context);
     }
 }

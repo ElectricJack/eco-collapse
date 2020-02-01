@@ -17,11 +17,33 @@ public class PlayerCamera : MonoBehaviour
     {
         Input = GetComponent<PlayerInput>();
         
-        _camera = GetComponent<Camera>();
+        _camera = GetComponentInChildren<Camera>();
 
         input = new Controls();;
         input.Enable();
         input.GamePlay.Move.Enable();
+        input.GamePlay.Zoom.Enable();
+        input.GamePlay.Zoom.performed += ZoomOnperformed;
+    }
+
+    private void ZoomOnperformed(InputAction.CallbackContext obj)
+    {
+        var val = -obj.ReadValue<int>() / 100f;
+
+        const float min = -30;
+        const float max = 5;
+        
+        _camera.transform.position += Vector3.forward * val;
+
+        if (_camera.transform.position.z > max)
+        {
+            _camera.transform.position = Vector3.forward * max;
+        }
+
+        if (_camera.transform.position.z < min)
+        {
+            _camera.transform.position = Vector3.forward * min;
+        }
     }
 
     public void Update()
