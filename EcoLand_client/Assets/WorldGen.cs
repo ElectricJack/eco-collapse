@@ -39,8 +39,6 @@ namespace Josh
 
     public class World
     {
-        
-        
         public Dictionary<Vector2Int, Cell> cells = new Dictionary<Vector2Int, Cell>();
 
         public int worldSize;
@@ -141,7 +139,12 @@ namespace Josh
         
         public void SetNeighbor(Direction dir, Cell neighbor)
         {
-            
+            neighbors.Add(dir, neighbor);
+        }
+
+        public Cell GetNeighbor(Direction dir)
+        {
+            return neighbors[dir];
         }
     }
 
@@ -152,10 +155,10 @@ namespace Josh
     
     public enum Direction
     {
-        North,
-        West, //
+        North, // y+1
+        West, // x-1
         South, // y-1
-        East, // x-1
+        East, // x+1
         NorthWest,
         NorthEast,
         SouthWest,
