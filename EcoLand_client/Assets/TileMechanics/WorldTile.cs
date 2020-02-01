@@ -15,12 +15,15 @@ namespace Josh
 
         public Cell myCell;
 
+        private List<Entity> entities = new List<Entity>();
+
         public WorldTile(Cell cell) {
             myCell = cell;
         }
 
         public void RunCellularAutomata() {
             RunTemperatureSimulation();
+            // Do the other simulation layers
         }
 
         private void RunTemperatureSimulation() {
@@ -39,6 +42,18 @@ namespace Josh
             temperature += temperatureGainDueToBrightness;
             temperature -= temperatureLossToSpace;
             temperature -= tempLossToAdjacentTile * 8;
+        }
+
+        public void RegisterEntity(Entity entity) {
+            entities.Add(entity);
+        }
+
+        public void UnregisterEntity(Entity entity) {
+            entities.Remove(entity);
+        }
+
+        public List<Entity> GetRegisteredEntities() {
+            return entities;
         }
     }
 }
