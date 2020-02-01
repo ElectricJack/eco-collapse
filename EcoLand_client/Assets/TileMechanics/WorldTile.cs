@@ -111,6 +111,7 @@ namespace Josh
         }
 
         private void UpdateAnimator() {
+            return;//TODO
             cellMaterial.SetFloat("hydration", hydration);
             cellMaterial.SetFloat("temperature", temperature);
             cellMaterial.SetFloat("humidity", humidity);

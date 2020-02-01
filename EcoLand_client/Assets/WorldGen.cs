@@ -138,11 +138,16 @@ namespace Josh
             int y0 = origin.myCell.location.location.y - nRad;
             int y1 = origin.myCell.location.location.y + nRad;
 
+            x0 = Mathf.Clamp(x0,0,worldSize-1);
+            x1 = Mathf.Clamp(x1,0,worldSize-1);
+            y0 = Mathf.Clamp(y0,0,worldSize-1);
+            y1 = Mathf.Clamp(y1,0,worldSize-1);
+
             entities.Clear();
-            for(int y=y0; y<y1; ++y)
+            for(int y=y0; y<=y1; ++y)
             {
                 int rowOffset = y*worldSize;
-                for(int x=x0; x<x1; ++x)
+                for(int x=x0; x<=x1; ++x)
                 {
                     var tile = cellArray[rowOffset + x].GetWorldTile();
                     entities.AddRange(tile.GetRegisteredEntities());
