@@ -128,7 +128,7 @@ namespace Josh
             
         }
 
-        public List<Entity> GatherEntities(WorldTile origin, float radius)
+        public void GatherEntities(WorldTile origin, float radius, ref List<Entity> entities)
         {
             var nRad = (int)Math.Ceiling(radius);
             //origin.myCell.location.location;
@@ -138,9 +138,16 @@ namespace Josh
             int y0 = origin.myCell.location.location.y - nRad;
             int y1 = origin.myCell.location.location.y + nRad;
 
-            //startIndex = x0 + y0*numAcross;
-            //@TODO
-            return null;
+            entities.Clear();
+            for(int y=y0; y<y1; ++y)
+            {
+                int rowOffset = y*worldSize;
+                for(int x=x0; x<x1; ++x)
+                {
+                    var tile = cellArray[rowOffset + x].GetWorldTile();
+                    entities.AddRange(tile.GetRegisteredEntities());
+                }
+            }
         }
     }
 

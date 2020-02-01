@@ -39,7 +39,7 @@ namespace EntitySystem
             if (entityType == null)
                 return;
 
-            Debug.Log("ADD");
+            //Debug.Log("ADD");
                 
             RaycastHit hit;
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);

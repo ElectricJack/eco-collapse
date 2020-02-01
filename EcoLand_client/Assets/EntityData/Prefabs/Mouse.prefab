@@ -50,9 +50,11 @@ MonoBehaviour:
   instance: {fileID: 0}
   position: {x: 0, y: 0, z: 0}
   velocity: {x: 0, y: 0, z: 0}
+  typeInfo: {fileID: 0}
   currentAge: 0
   deathAge: 0
   stomachFullness: 0
+  isDead: 0
   cohesion: {fileID: 0}
   maxNeighborRadius: 0
 --- !u!114 &7791700321382821720
@@ -91,6 +93,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9b1f3bb360b3184f81917defce932bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MinDistance: 0
+  maxDistance: 20
   type: 1
   strength: 0.25
 --- !u!1 &7022338794895197108

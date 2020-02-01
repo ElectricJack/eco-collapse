@@ -5,8 +5,10 @@ namespace EntitySystem
 {
     public class MoveInfluencer_Cohesion : BaseComponent, IMoveInfluencer
     {
-        public float MinDistance  {get;}
-        public float MaxDistance  {get;}
+        public float MinDistance;
+        [SerializeField]
+        private float maxDistance;
+        public float MaxDistance  { get {return maxDistance;} }
 
         public int   type        = 0;
         public float strength    = 0;
@@ -43,7 +45,8 @@ namespace EntitySystem
             {
                 _influence += _toInfluencer[i];
             }
-            _influence /= _toInfluencer.Count;
+            if(_toInfluencer.Count > 0)
+                _influence /= _toInfluencer.Count;
 
             return _influence;
         }
