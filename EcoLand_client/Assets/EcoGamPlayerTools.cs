@@ -53,7 +53,7 @@ public class EcoGamPlayerTools : MonoBehaviour
     
     public void Update()
     {
-        if (!Stepper.isReady || Stepper.enabled)
+        if (!Stepper.isReady || !Stepper.enabled)
             return;
 
         if (Input.GetMouseButtonDown(0))
