@@ -8,9 +8,10 @@ namespace EntitySystem
     {
         public float hydrationRetention = 0.0001f;
         public float minHydration = 0f; // Minimum hydration needed for plant to grow and survive
+        public float maxHydration = 0f;
 
         public void Step() {
-            if (entity.currentTile.hydration > minHydration) {
+            if (entity.currentTile.hydration > minHydration && entity.currentTile.hydration < maxHydration) {
                 foreach(Josh.Cell cell in entity.currentTile.myCell.GetNeighbors().Values) {
                     float hydrationRetained = cell.GetWorldTile().hydration * hydrationRetention;
                     entity.currentTile.hydration += hydrationRetained;
