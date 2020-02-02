@@ -109,8 +109,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761b8410e51745142b36be56b51377c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fertilityConsumptionRate: 0.01
-  minFertility: 0
+  fertilityConsumptionRate: 0.009
+  minFertility: 0.01
 --- !u!114 &3048263944917320386
 MonoBehaviour:
   m_ObjectHideFlags: 0
