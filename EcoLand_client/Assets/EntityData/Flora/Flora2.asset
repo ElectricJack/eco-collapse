@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e40b9904e560f00478fbf8f376e6f791, type: 3}
-  m_Name: Mouse
+  m_Name: Flora2
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5723248721208489582, guid: 373c29e4232064bf9a894ac6d1a5ed15, type: 3}
-  stomachSize: 10
-  minLife: 5000
-  maxLife: 10000
-  matureAge: 0
-  speedRange: {x: 0, y: 3}
-  finalGrowthScalar: {x: 1, y: 1.2}
-  birthScale: 0.4
-  edibleSize: 0.4
-  energyDecay: 0.01
+  prefab: {fileID: 0}
+  stomachSize: 0
+  minLife: 1000
+  maxLife: 1000
+  matureAge: 100
+  speedRange: {x: 0, y: 0}
+  finalGrowthScalar: {x: 0, y: 0}
+  birthScale: 0.1
+  edibleSize: 0
+  energyDecay: 0
