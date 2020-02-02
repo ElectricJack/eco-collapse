@@ -974,7 +974,7 @@ MonoBehaviour:
     ToolDescription: Simple seeds sow strong environments. Support small mammals
       and larger plants with grass.
     mouseIcon: {fileID: 21300000, guid: c681fe5690a594d3097139d8a928b926, type: 3}
-    ENERGY_REQUIREMENT: 0
+    ENERGY_REQUIREMENT: 10
     UI_Link: {fileID: 2004843163}
     targetEntity: {fileID: 11400000, guid: d794d4c8aad6e4bc590fc49d044f4520, type: 2}
   - ToolName: Mushroom
@@ -982,14 +982,14 @@ MonoBehaviour:
       speckled back. Improved soil, food for hearty animals, water filtration, and
       more are benefits from this fungi.
     mouseIcon: {fileID: 21300000, guid: fc57aa7a3c28c4e21b59be553516ce6e, type: 3}
-    ENERGY_REQUIREMENT: 0
+    ENERGY_REQUIREMENT: 20
     UI_Link: {fileID: 2004843162}
     targetEntity: {fileID: 11400000, guid: eef871170893f5e43a2eebe524588109, type: 2}
   - ToolName: Flower
     ToolDescription: It takes a lot to maintain these beautiful blooms, but they
       sustain the rest of the environment.
     mouseIcon: {fileID: 21300000, guid: aa7742b4807d9461b897d5a5d09c456d, type: 3}
-    ENERGY_REQUIREMENT: 0
+    ENERGY_REQUIREMENT: 50
     UI_Link: {fileID: 2004843161}
     targetEntity: {fileID: 11400000, guid: 0ab184a568a2440cdb72bbf3cf6b98e5, type: 2}
   - ToolName: Birch Tree
@@ -998,7 +998,7 @@ MonoBehaviour:
       the environments. These trees take less water but more light to thrive in this
       ecosystem.
     mouseIcon: {fileID: 21300000, guid: aeea3d469a24547a6842339206771a42, type: 3}
-    ENERGY_REQUIREMENT: 0
+    ENERGY_REQUIREMENT: 80
     UI_Link: {fileID: 2004843160}
     targetEntity: {fileID: 11400000, guid: daa6e8805abcf42768ccc030c048beea, type: 2}
   - ToolName: Pine Tree
@@ -1006,7 +1006,7 @@ MonoBehaviour:
       Air filtration, shade, and  homes for small animals are all contibuted from
       the environements. However these big rewards cost a lot of water!
     mouseIcon: {fileID: 21300000, guid: 59348de4166ec42f1919795d6bad324a, type: 3}
-    ENERGY_REQUIREMENT: 0
+    ENERGY_REQUIREMENT: 100
     UI_Link: {fileID: 2004843159}
     targetEntity: {fileID: 11400000, guid: d6805665c4fb8984ca3ff3ff2e16a2f7, type: 2}
   FaunaTools:
@@ -1036,14 +1036,14 @@ MonoBehaviour:
     ToolDescription: The agile fox is often found in cool shady environments, but
       beware when the fox gets hungry. No small prey is safe!
     mouseIcon: {fileID: 21300000, guid: 888a0ce5cc1b840599c7dc7e2e697167, type: 3}
-    ENERGY_REQUIREMENT: 40
+    ENERGY_REQUIREMENT: 80
     UI_Link: {fileID: 2004843165}
     targetEntity: {fileID: 11400000, guid: a2ac8f3209f35409681ba0189211200e, type: 2}
   - ToolName: Bird
     ToolDescription: Safe in the skies these avian flocks hunt small insects and
       mammals for nourishment, but they become prey when they land.
     mouseIcon: {fileID: 21300000, guid: e7992ba9e1433411e90ecf364a8b2c4d, type: 3}
-    ENERGY_REQUIREMENT: 80
+    ENERGY_REQUIREMENT: 10
     UI_Link: {fileID: 2004843164}
     targetEntity: {fileID: 11400000, guid: c8f97d07f69154e3eadca31892e75b1a, type: 2}
   Manager: {fileID: 1806486333}
