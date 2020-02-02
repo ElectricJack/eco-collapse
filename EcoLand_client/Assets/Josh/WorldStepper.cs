@@ -39,11 +39,12 @@ public class WorldStepper : MonoBehaviour
             }
 
             var deads = EntityManager.entities
-                .Where(x => x.isDead).AsParallel();
+                .Where(x => x.isDead);
 
             foreach (var dead in deads)
             {
                 EntityManager.entities.Remove(dead);
+                Destroy(dead.gameObject);
             }
         }
     }

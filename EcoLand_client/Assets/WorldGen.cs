@@ -43,7 +43,7 @@ namespace Josh
             float startingElevation = Mathf.PerlinNoise(scalarX, scalarY); // elevation normalized between 0-1
             float startingTemperature = Mathf.PerlinNoise(scalarX + 1000, scalarY + 1000);
             float startingHydration = Mathf.PerlinNoise(scalarX - 1000, scalarY - 1000);
-            float startingBrightness = Mathf.PerlinNoise(scalarX/10 + 10000, scalarY/10 + 10000);
+            float startingBrightness = Mathf.PerlinNoise(scalarX/2 + 10000, scalarY/2 + 10000);
             float startingHumidity = 0.0001f;
             float startingFertility = 0.1f;
 
