@@ -32,12 +32,12 @@ public class EcoGamPlayerTools : MonoBehaviour
 
     public void Awake()
     {
-        foreach (var faunaTool in FaunaTools)
+        for(int f = 0; f < FaunaTools.Count; f++)
         {
-            var l = faunaTool.targetEntity;
-            faunaTool.UI_Link.onClick.AddListener(() =>
+            
+            FaunaTools[f].UI_Link.onClick.AddListener(() =>
             {
-                
+                UpdateTool(FaunaTools[f]);
             });
         }
     }
