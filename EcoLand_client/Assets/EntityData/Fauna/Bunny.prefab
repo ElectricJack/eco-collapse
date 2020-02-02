@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: -4476085135627568914}
   - component: {fileID: -6127749144385773677}
   - component: {fileID: 1520580998661446358}
+  - component: {fileID: -1820193111446775250}
   - component: {fileID: -8062592648456766203}
   m_Layer: 0
   m_Name: Bunny
@@ -247,6 +248,23 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-1820193111446775250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260857102332598017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed95acbbc91feba42bb15d07566f1e4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MinDistance: 0
+  maxDistance: 3
+  Strength: 0.15
+  minTemperature: 0.4
+  maxTemperature: 0.8
 --- !u!114 &-8062592648456766203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,7 +339,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a5437b05819430d45a7506af009abb54, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
