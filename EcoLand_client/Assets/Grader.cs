@@ -9,7 +9,7 @@ public class Grader : MonoBehaviour
         foreach(EntitySystem.Entity entity in EntitySystem.EntityManager.instance.entities) {
             switch(entity.typeInfo.name) {
                 case "Bunny":
-                    score += 1f;
+                    score += 1.5f;
                     break;
                 case "Bug":
                     score += 0.5f;
@@ -21,37 +21,35 @@ public class Grader : MonoBehaviour
                     score += 0.8f;
                     break;
                 case "Fox":
-                    score += 10f;
+                    score += 30f;
                     break;
                 case "BirchTree":
-                    score += 0.5f;
+                    score += 2f;
                     break;
                 case "flower":
                     score += 3f;
                     break;
                 case "Mushroom":
-                    score += 0.2f;
+                    score += 0.5f;
                     break;
                 case "PineTree":
-                    score += 2f;
+                    score += 3f;
                     break;
                 case "Grass":
-                    score += 0.01f;
+                    score += 0.1f;
                     break;
             }
         }
 
-        Debug.LogWarning("Final score:" + score);
-
         Grade grade;
 
-        if(score > 900) {
+        if(score > 800) {
             grade = Grade.A;
-        } else if(score > 750) {
+        } else if(score > 650) {
             grade = Grade.B;
-        } else if (score > 600) {
+        } else if (score > 450) {
             grade = Grade.C;
-        } else if (score > 300) {
+        } else if (score > 200) {
             grade = Grade.D;
         } else {
             grade = Grade.F;
