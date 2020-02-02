@@ -95,7 +95,7 @@ Material:
     m_Floats:
     - Vector1_2D0918E3: 0
     - Vector1_89BE9873: 0
-    - Vector1_8C9A3741: 1
+    - Vector1_8C9A3741: 1.39
     - Vector1_A417EF8: 0.05
     - Vector1_AA80838E: 0.13
     - Vector1_B2CD07B4: 0.09
@@ -104,10 +104,10 @@ Material:
     - Vector1_D0DAB728: 3
     - Vector1_E1AB31CA: 0
     - Vector1_E36D8942: 0
-    - Vector1_fertility: 0
-    - Vector1_hydration: 0
-    - Vector1_sand: 0
-    - Vector1_snow: 0
+    - Vector1_fertility: 0.553
+    - Vector1_hydration: 0.807
+    - Vector1_sand: 1
+    - Vector1_snow: 0.421
     - _AlphaClip: 0
     - _AtmosphereDensity: 0
     - _Blend: 0

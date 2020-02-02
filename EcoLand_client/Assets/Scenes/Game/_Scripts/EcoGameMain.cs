@@ -42,7 +42,6 @@ public class EcoGameMain : MonoBehaviour
         // Show Gameover Dialog and Look at Ecosystem
         
         EndGameScreen.SetActive(true);
-        
     }
 }
 

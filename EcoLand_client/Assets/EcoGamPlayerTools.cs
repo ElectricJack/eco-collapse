@@ -60,7 +60,7 @@ public class EcoGamPlayerTools : MonoBehaviour
         {
             if (!IsPointerOverUIElement())
             {
-                if (PlayerEnergy.current >= activeTool.ENERGY_REQUIREMENT && activeTool != null)
+                if (activeTool != null && PlayerEnergy.current >= activeTool.ENERGY_REQUIREMENT)
                 {
                     RaycastHit hit;
                     Ray ray = camera.ScreenPointToRay(Input.mousePosition);
