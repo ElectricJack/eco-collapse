@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conceiveProbability: 0.5
   conceiveRadius: 1
-  requiredFertilityPerChild: 0.01
+  requiredFertilityPerChild: 0.075
 --- !u!114 &2137903744934077747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,9 +137,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MinDistance: 2
-  maxDistance: 6
+  maxDistance: 5
   Type: 1
-  SeekStrength: 1.5
+  SeekStrength: 0.75
   RepelStrength: 3
 --- !u!114 &5828982184087872511
 MonoBehaviour:
@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 216a0b02c5c4d8349adf43524f74eaed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistance: 6
+  maxDistance: 5
   Type: 1
   Strength: 0.25
 --- !u!114 &-4476085135627568914
@@ -169,8 +169,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MinDistance: 1
-  maxDistance: 6
-  Strength: 0.25
+  maxDistance: 3
+  Strength: 0.1
   minHydration: 0.2
   maxHydration: 0.9
 --- !u!114 &-6127749144385773677
@@ -262,8 +262,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MinDistance: 0
-  maxDistance: 3
-  Strength: 0.25
+  maxDistance: 3.5
+  Strength: 0.4
   minTemperature: 0.4
   maxTemperature: 0.8
 --- !u!114 &-8062592648456766203

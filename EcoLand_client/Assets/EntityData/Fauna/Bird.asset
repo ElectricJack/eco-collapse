@@ -18,7 +18,7 @@ MonoBehaviour:
   maxLife: 100000
   matureAge: 1000
   speedRange: {x: 0, y: 10}
-  finalGrowthScalar: {x: 0.8, y: 1.2}
-  birthScale: 0.1
+  finalGrowthScalar: {x: 1, y: 1.2}
+  birthScale: 0.5
   edibleSize: 0.5
   energyDecay: 0.005

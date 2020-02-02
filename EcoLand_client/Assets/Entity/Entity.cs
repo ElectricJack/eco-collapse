@@ -100,6 +100,12 @@ namespace EntitySystem
 
             World.worldInstance.GatherEntities(currentTile, maxNeighborRadius, ref _neighbors);
             _neighbors.Remove(this);
+
+            // Randomly choose 5
+            while(_neighbors.Count > 5)
+                _neighbors.RemoveAt((int)UnityEngine.Random.Range(0.0f,_neighbors.Count - 0.1f));
+            
+
             foreach(var moveInfluencer in movementInfluencers)
                 moveInfluencer.Setup(_neighbors);
             
