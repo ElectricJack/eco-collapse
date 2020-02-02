@@ -98,8 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conceiveProbability: 0.01
-  conceiveRadius: 4
-  requiredFertilityPerChild: 0.01
+  conceiveRadius: 2
+  requiredFertilityPerChild: 0.03
   reproAlert: {fileID: 8775984135485307867, guid: d14d4b324eb44904b82034f29349531f,
     type: 3}
 --- !u!114 &2137903744934077747
@@ -445,6 +445,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4249672048020734037, guid: db2d79f44ad2f154086472c6c6453500,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db2d79f44ad2f154086472c6c6453500, type: 3}
