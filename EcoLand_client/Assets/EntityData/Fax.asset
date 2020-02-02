@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 1260857102332598017, guid: af0f4944d1ce64a229bc95ccb0f7705e, type: 3}
   stomachSize: 10
-  hungryThreshold: 5
   minLife: 5000
   maxLife: 10000
+  matureAge: 0
   speedRange: {x: 0, y: 8}
-  size: 1
+  finalGrowthScalar: {x: 0, y: 0}
+  birthScale: 0.1
+  edibleSize: 0

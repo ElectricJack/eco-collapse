@@ -12,8 +12,7 @@ namespace EntitySystem
         // Entities are defined by behaviors on the prefab
         public GameObject prefab;
 
-        public int        stomachSize;
-        public int        hungryThreshold;
+        public float        stomachSize;
                           
         public int        minLife;
 	    public int        maxLife;

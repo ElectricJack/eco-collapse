@@ -1,5 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Josh;
+using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
+using Random = UnityEngine.Random;
 
 namespace EntitySystem
 {
@@ -19,15 +24,38 @@ namespace EntitySystem
         public float MaxDistance  { get {return maxDistance;} }
         
         [MinMax(0.01f, 4f)] public Vector2 EdibleSizeRange;
+
+        private List<Entity> neighbors = new List<Entity>();
         
         public void EatStep()
-        {
+        {    
+            World.worldInstance.GatherEntities(
+                entity.currentTile, 
+                maxDistance,
+                ref neighbors);
+
             
+            foreach (var target in neighbors.Select(x => WillEat(x)))
+            {
+                if(target == null)
+                    continue;
+                
+                var myHunger = entity.stomachFullness / entity.typeInfo.stomachSize;
+                var eatChance = Random.Range(0.5f, 1f);
+
+                if (myHunger < eatChance)
+                {
+                    OnEat(target);
+                }
+            }
         }
 
-        public IEdible WillEat(Entity prey)
+        public Tuple<Entity, IEdible> WillEat(Entity prey)
         {
             if (prey.Edibles == null)
+                return null;
+
+            if (prey.isDead)
                 return null;
             
             foreach(var edible in prey.Edibles)
@@ -36,27 +64,26 @@ namespace EntitySystem
                 {
                     case VoreType.carnivore:
                         if (edible.GetType() == typeof(Fauna))
-                            return edible;
+                            return Tuple.Create(prey, edible);
                         break;
                     case VoreType.herbivore:
                         if(edible.GetType() == typeof(Flora))
-                            return edible;
+                            return Tuple.Create(prey, edible);
                         break;
                     case VoreType.omnivore:
-                        return edible;
+                        return Tuple.Create(prey, edible);
                 }
             }
 
             return null;
         }
 
-        public void OnEat(Entity prey)
+        public void OnEat(Tuple<Entity, IEdible> target)
         {
-            var target = WillEat(prey);
             if (target != null)
             {
-                target.OnEaten(entity);
-                entity.stomachFullness += target.GetFilling();
+                target.Item2.OnEaten(entity);
+                entity.stomachFullness += target.Item2.GetFilling();
             }
 
         }
