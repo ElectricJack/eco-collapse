@@ -159,13 +159,17 @@ namespace EntitySystem
         public void StatusStep()
         {
             // First check if we have died of old age
-            ++currentAge;
-            if(currentAge >= deathAge)
+            if(deathAge > 0)
             {
-                Die();
+                ++currentAge;
+                if(currentAge >= deathAge)
+                {
+                    Die();
+                }
+                else if (currentAge > deathAge)
+                    return;
             }
-            else if (currentAge > deathAge)
-                return;
+
 
             float stomachDelta = Time.deltaTime * velocity.magnitude * typeInfo.energyDecay;
             stomachFullness -= stomachDelta;
