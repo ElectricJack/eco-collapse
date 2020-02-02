@@ -44,6 +44,7 @@ public class WorldStepper : MonoBehaviour
             foreach (var dead in deads)
             {
                 EntityManager.entities.Remove(dead);
+                Destroy(dead.gameObject);
             }
         }
     }
