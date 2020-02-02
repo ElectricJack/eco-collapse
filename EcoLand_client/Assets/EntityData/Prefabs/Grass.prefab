@@ -57,6 +57,7 @@ MonoBehaviour:
   stomachFullness: 0
   energyDecay: 0
   fertilityReservoir: 0
+  wasteReservoir: 0
   isDead: 0
   cohesion: {fileID: 0}
   alignment: {fileID: 0}
@@ -130,8 +131,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761b8410e51745142b36be56b51377c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fertilityConsumptionRate: 0.0001
-  minFertility: 0.01
+  fertilityConsumptionRate: 0.005
+  minFertility: 0.02
 --- !u!1001 &7526505160868699858
 PrefabInstance:
   m_ObjectHideFlags: 0
