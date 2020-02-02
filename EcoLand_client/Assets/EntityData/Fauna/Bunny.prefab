@@ -169,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MinDistance: 1
   maxDistance: 6
-  Strength: 0.15
+  Strength: 0.25
   minHydration: 0.2
   maxHydration: 0.9
 --- !u!114 &-6127749144385773677
@@ -262,7 +262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MinDistance: 0
   maxDistance: 3
-  Strength: 0.15
+  Strength: 0.25
   minTemperature: 0.4
   maxTemperature: 0.8
 --- !u!114 &-8062592648456766203
