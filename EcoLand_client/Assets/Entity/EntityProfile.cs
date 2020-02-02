@@ -26,6 +26,9 @@ namespace EntitySystem
 
         [Range(0.1f, 10f)]
         public float   edibleSize;
+        
+        [Range(0.0001f, 0.05f)]
+        public float         energyDecay;
     }
 
 }
