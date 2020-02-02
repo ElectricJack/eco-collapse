@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -377,6 +377,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 442003547}
+  - component: {fileID: 442003548}
   m_Layer: 5
   m_Name: CreditMenu
   m_TagString: Untagged
@@ -406,6 +407,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &442003548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442003546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcf105c297f5741c88deeb4cf560b6d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &460573823
 GameObject:
   m_ObjectHideFlags: 0
@@ -1345,6 +1358,7 @@ MonoBehaviour:
   PlayButton: {fileID: 1631550480}
   CreditsButton: {fileID: 1049456069}
   ExitGameButton: {fileID: 1439031292}
+  CreditScreen: {fileID: 442003546}
 --- !u!1 &1371462107
 GameObject:
   m_ObjectHideFlags: 0

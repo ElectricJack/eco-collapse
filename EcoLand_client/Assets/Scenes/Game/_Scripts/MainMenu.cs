@@ -10,6 +10,8 @@ public class MainMenu : MonoBehaviour
     public Button CreditsButton;
 
     public Button ExitGameButton;
+
+    public GameObject CreditScreen;
         
     // Start is called before the first frame update
     void Start()
@@ -35,18 +37,12 @@ public class MainMenu : MonoBehaviour
 
     void CreditsButtonClick()
     {
-        DisableButtons();
+        CreditScreen.SetActive(true);
     }
 
     void DisableButtons()
     {
         PlayButton.interactable = false;
         CreditsButton.interactable = false;
-    }
-    
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
