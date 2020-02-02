@@ -4,6 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using Josh;
 using System;
+using System.Numerics;
+using Quaternion = UnityEngine.Quaternion;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 namespace EntitySystem
 {
@@ -73,6 +77,7 @@ namespace EntitySystem
             foreach(var moveInfluencer in movementInfluencers)
                 maxNeighborRadius = Math.Max(maxNeighborRadius, moveInfluencer.MaxDistance);
         }
+        
         public void MoveStep()
         {
             World.worldInstance.GatherEntities(currentTile, maxNeighborRadius, ref _neighbors);
@@ -86,7 +91,13 @@ namespace EntitySystem
 
             velocity += totalInfluence * Time.deltaTime;
             velocity.y = 0;
+
+            if (velocity.sqrMagnitude > typeInfo.speedRange.y * typeInfo.speedRange.y)
+            {
+                velocity = velocity.normalized * typeInfo.speedRange.y;
+            }
             transform.position += velocity * Time.deltaTime;
+            transform.rotation = Quaternion.FromToRotation(Vector3.forward, velocity);
 
             if (World.worldInstance != null)
             {
