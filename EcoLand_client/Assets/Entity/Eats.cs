@@ -25,6 +25,8 @@ namespace EntitySystem
         [MinMax(0.01f, 4f)] public Vector2 EdibleSizeRange;
 
         private List<Entity> neighbors = new List<Entity>();
+
+        public AlertBehavior eatAlert;
         
         public void EatStep()
         {    
@@ -93,6 +95,7 @@ namespace EntitySystem
                 entity.stomachFullness += target.Item2.GetFilling();
 
                 entity.fertilityReservoir += target.Item1.fertilityReservoir / 2;
+                AlertManager.instance.SpawnAlertForEntity(entity, eatAlert);
             }
         }
     }

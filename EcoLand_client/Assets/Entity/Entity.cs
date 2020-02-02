@@ -186,7 +186,7 @@ namespace EntitySystem
         {
             isDead = true;
             if(deathAlert != null)
-                AlertManager.instance.SpawnAlertForEntity(this, deathAlert);
+                AlertManager.instance.SpawnAlertForEntity(this, deathAlert, 10f);
         }
 
         private void UpdateTile() {
