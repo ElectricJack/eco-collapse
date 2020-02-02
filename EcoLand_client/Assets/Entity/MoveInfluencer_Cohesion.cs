@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace EntitySystem
 {
+
     public class MoveInfluencer_Cohesion : BaseComponent, IMoveInfluencer
     {
         public float MinDistance;
@@ -10,17 +11,16 @@ namespace EntitySystem
         private float maxDistance;
         public float MaxDistance  { get {return maxDistance;} }
 
-        public int   type        = 0;
-        public float strength    = 0;
+        public int   Type          = 0;
+        public float SeekStrength  = 0;
+        public float RepelStrength = 0;
 
         List<Vector3> _toInfluencer = new List<Vector3>();
         Vector3       _influence = new Vector3();
 
         public void Setup(List<Entity> neighbors)
         {
-            //_influencers.Clear();
             _toInfluencer.Clear();
-            if (strength == 0) return; // Don't add any work if strength is 0;
 
             // Filter based on radius
             float sqrMax = MaxDistance*MaxDistance;
@@ -29,7 +29,7 @@ namespace EntitySystem
                 var toNeighbor = neighbor.position - entity.position;
                 if (toNeighbor.sqrMagnitude < sqrMax && 
                     neighbor.cohesion != null && 
-                    neighbor.cohesion.type == type)
+                    neighbor.cohesion.Type == Type)
                 {
                     //Filter based on type
                     //_influencers.Add(neighbor);
@@ -43,7 +43,17 @@ namespace EntitySystem
             _influence.Set(0,0,0);
             for(int i=0; i<_toInfluencer.Count; ++i)
             {
-                _influence += _toInfluencer[i];
+                var dist = _toInfluencer[i].magnitude;
+                var nrmDir = (_toInfluencer[i] / dist);
+                if (dist < MinDistance)
+                {
+                    float tooClose = (MinDistance - dist) / MinDistance;
+                    _influence += -nrmDir * tooClose * RepelStrength;
+                }
+                else
+                {
+                    _influence += nrmDir * (dist - MinDistance) * SeekStrength;
+                }
             }
             if(_toInfluencer.Count > 0)
                 _influence /= _toInfluencer.Count;
