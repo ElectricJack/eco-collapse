@@ -13,6 +13,8 @@ namespace EntitySystem
             if (entity.currentTile.fertility > minFertility) {
                 entity.fertilityReservoir += fertilityConsumptionRate;
                 entity.currentTile.fertility -= fertilityConsumptionRate;
+            } else {
+                entity.deathAge--;
             }
         }
     }
