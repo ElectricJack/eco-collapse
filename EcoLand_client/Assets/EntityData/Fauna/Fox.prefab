@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3172506387247168712}
   - component: {fileID: 5270645071513692670}
   - component: {fileID: 7791700321382821720}
+  - component: {fileID: -4344486970737880971}
   - component: {fileID: 2137903744934077747}
   - component: {fileID: 3529625124134323850}
   - component: {fileID: -6631891883196743254}
@@ -81,6 +82,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HowFilling: 0
+--- !u!114 &-4344486970737880971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260857102332598017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72130681b2e7354f9ef1deafc32d940, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conceiveProbability: 0.01
+  conceiveRadius: 2
+  requiredFertilityPerChild: 0.01
+  reproAlert: {fileID: 8775984135485307867, guid: d14d4b324eb44904b82034f29349531f,
+    type: 3}
 --- !u!114 &2137903744934077747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,7 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MinDistance: 1
   maxDistance: 4
-  Type: 2
+  Type: 5
   SeekStrength: 0.2
   RepelStrength: 4
 --- !u!114 &-6631891883196743254
@@ -174,7 +192,7 @@ MonoBehaviour:
   Strength: 0.15
   minHydration: 0.2
   maxHydration: 0.9
-  sadAlert: {fileID: 0}
+  sadAlert: {fileID: 640374358119746768, guid: 27d99f643bb9fb345a7f3674ed7391ed, type: 3}
 --- !u!114 &-4152154887505371048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,8 +207,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   edibleType: 1
   maxDistance: 1
-  EdibleSizeRange: {x: 0.2, y: 0.5}
-  eatAlert: {fileID: 8775984135485307867, guid: d14d4b324eb44904b82034f29349531f,
+  EdibleSizeRange: {x: 0.2, y: 1.2}
+  eatAlert: {fileID: 4730499141382618375, guid: abe33a833e5191f49b17e77915fb81fe,
     type: 3}
 --- !u!114 &-4501665983245332427
 MonoBehaviour:
