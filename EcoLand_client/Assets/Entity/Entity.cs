@@ -132,19 +132,12 @@ namespace EntitySystem
                 return;
 
             stomachFullness -= Time.deltaTime * velocity.magnitude * typeInfo.energyDecay;
-            
-            
         }
 
         public virtual void Die(Entity killer = null)
         {
            isDead = true;
         }
-
-        //public virtual void MoveTile(WorldTile tile)
-        //{
-        //    UpdateTile();
-        //}
 
         private void UpdateTile() {
             if(Josh.World.worldInstance != null) {

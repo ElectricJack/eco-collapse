@@ -344,10 +344,10 @@ namespace Josh
     
     public enum Direction
     {
-        North, // y+1
-        West, // x-1
-        South, // y-1
-        East, // x+1
+        North, // z+1
+        West,  // x-1
+        South, // z-1
+        East,  // x+1
         NorthWest,
         NorthEast,
         SouthWest,
