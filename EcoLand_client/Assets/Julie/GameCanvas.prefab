@@ -278,6 +278,7 @@ GameObject:
   - component: {fileID: 7637554174995724908}
   - component: {fileID: 7637554174995724899}
   - component: {fileID: 4878266707076316158}
+  - component: {fileID: 4686939778240692151}
   m_Layer: 5
   m_Name: GameCanvas
   m_TagString: Untagged
@@ -350,7 +351,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -384,6 +385,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce6d83f5079104e7d8ae724c7d47b323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Stepper: {fileID: 0}
+--- !u!114 &4686939778240692151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7637554174995724898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5fffe8f072c44bd96c86f0c8f579fdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  current: 0
+  max: 100
+  regen: 20
+  Stepper: {fileID: 0}
 --- !u!1 &7637554175011961167
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,15 +464,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7637554175045972292}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.00016065965}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7637554175129781833}
   m_Father: {fileID: 7637554174995724910}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
@@ -493,7 +511,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 321, y: -91}
+  m_AnchoredPosition: {x: 321, y: 91}
   m_SizeDelta: {x: 570, y: 135}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7637554175129781835
