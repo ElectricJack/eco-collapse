@@ -16,7 +16,7 @@ public class MouserManager : MonoBehaviour
         {
             mouser.gameObject.SetActive(true);
 
-            mouser.img = tool.mouseIcon;
+            mouser.img.sprite = tool.mouseIcon;
         }
     }
 }

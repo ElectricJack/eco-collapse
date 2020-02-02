@@ -7,7 +7,9 @@ public class EcoGameMain : MonoBehaviour
 {
     public WorldStepper Stepper;
 
-    public float TimeRemainging = 1000f * 60f * 5f;
+    public const float GameLength = 60f * 5f;
+    public float TimeRemainging => GameLength - (Time.timeSinceLevelLoad - TimeAtStart);
+    private float TimeAtStart = 0f;
     
     public void Start()
     {
@@ -21,20 +23,18 @@ public class EcoGameMain : MonoBehaviour
             yield return null;
         }
 
+        TimeAtStart = Time.timeSinceLevelLoad;
+
         StartCoroutine(PlayGame());
     }
 
     public IEnumerator PlayGame()
     {
-        // Enable Buttons
-        
-        TimeRemainging = 1000f*60f * 5f;
-        while (TimeRemainging >= 0)
+
+        while (Time.timeSinceLevelLoad - TimeAtStart < GameLength)
         {
             yield return null;
-            TimeRemainging -= Time.time;
         }
-
         Stepper.enabled = false;
         // Game Over
         // Show Gameover Dialog and Look at Ecosystem
