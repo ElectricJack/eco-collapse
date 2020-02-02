@@ -26,10 +26,9 @@ namespace EntitySystem
         {
             _influencers.Clear();
             _toInfluencer.Clear();
-            if (strengthForHunger.Evaluate(entity.stomachFullness) <= 0) 
+            if (strengthForHunger.Evaluate(entity.stomachFullness/entity.typeInfo.stomachSize) <= 0) 
                 return; // Don't add any work if strength is 0;
 
-            
             // Filter based on radius
             float sqrMax = MaxDistance * MaxDistance;
             foreach(var neighbor in neighbors)
@@ -37,9 +36,7 @@ namespace EntitySystem
                 var toNeighbor = neighbor.position - entity.position;
                 if (toNeighbor.sqrMagnitude < sqrMax
                     && entity.eats != null
-                    && entity.eats.WillEat(neighbor) != null
-                    && entity.eats.EdibleSizeRange.x < neighbor.typeInfo.edibleSize                                 
-                    && entity.eats.EdibleSizeRange.y > neighbor.typeInfo.edibleSize)
+                    && entity.eats.WillEat(neighbor) != null)
                 {
                     //Filter based on type
                     _influencers.Add(neighbor);
