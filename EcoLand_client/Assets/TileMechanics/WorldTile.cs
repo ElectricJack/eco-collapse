@@ -6,8 +6,8 @@ namespace Josh
 {
     public class WorldTile : IStatusStep
     {
-        private const float temperatureConvectionSpeed =        0.001f;
-        private const float temperatureSpaceRadiationSpeed =    0.001f;
+        private const float temperatureConvectionSpeed =        0.0001f;
+        private const float temperatureSpaceRadiationSpeed =    0.0005f;
         private const float temperatureSunWarmingSpeed =        0.001f;
 
         private const float waterTileFlowSpeed =                0.01f;
@@ -58,7 +58,7 @@ namespace Josh
             }
 
             // Radiate temperature into space based on elevation and hydration
-            float temperatureLossToSpace = (temperature * temperatureSpaceRadiationSpeed * elevation) * (1 - Mathf.Log(hydration + 1)); // Hydration = 0 : (1 - Mathf.Log(hydration + 1)) = 1 // Hydration = 1 : (1 - Mathf.Log(hydration + 1)) = 0.7
+            float temperatureLossToSpace = Mathf.Clamp((temperature * temperatureSpaceRadiationSpeed * Mathf.Pow(0.75f + elevation, 5)) * (1 - Mathf.Log(hydration + 1)), 0f, temperature / 2); // Hydration = 0 : (1 - Mathf.Log(hydration + 1)) = 1 // Hydration = 1 : (1 - Mathf.Log(hydration + 1)) = 0.7
 
             // Gain temperature based on brightness
             float temperatureGainDueToBrightness = (1 - temperature) * temperatureSunWarmingSpeed * brightness;
@@ -122,6 +122,7 @@ namespace Josh
             cellMaterial.SetFloat("Vector1_hydration", Mathf.Clamp(hydration - 1, 0f, 1f));
             cellMaterial.SetFloat("Vector1_fertility", fertility);
             cellMaterial.SetFloat("Vector1_sand", Mathf.Clamp(0.1f - hydration, 0f, 1f));
+            cellMaterial.SetFloat("Vector1_snow", Mathf.Clamp((1 - temperature) - (1 - waterFreezingTemperature), 0f, 1f));
 
 
             return;//TODO
