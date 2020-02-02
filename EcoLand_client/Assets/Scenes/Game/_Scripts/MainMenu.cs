@@ -8,6 +8,8 @@ public class MainMenu : MonoBehaviour
 {
     public Button PlayButton;
     public Button CreditsButton;
+
+    public Button ExitGameButton;
         
     // Start is called before the first frame update
     void Start()
@@ -20,6 +22,8 @@ public class MainMenu : MonoBehaviour
 
         PlayButton.onClick.AddListener(PlayButtonClick);
         CreditsButton.onClick.AddListener(CreditsButtonClick);
+        
+        ExitGameButton.onClick.AddListener(()=>Application.Quit());
     }
 
     void PlayButtonClick()
