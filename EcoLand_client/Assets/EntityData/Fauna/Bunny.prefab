@@ -66,6 +66,8 @@ MonoBehaviour:
   energyDecay: 0
   fertilityReservoir: 0
   wasteReservoir: 0
+  deathAlert: {fileID: 6773221667766759600, guid: 6e1e599324a557841beaee97222bd768,
+    type: 3}
   isDead: 0
   cohesion: {fileID: 0}
   alignment: {fileID: 0}
