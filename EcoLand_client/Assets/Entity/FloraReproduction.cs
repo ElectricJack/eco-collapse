@@ -64,7 +64,19 @@ namespace EntitySystem
             if (!tooClose)
             {
                 Debug.Log("New seedling!");
-                EntityManager.instance.SpawnEntity(seedLocation, entity.typeInfo);
+                
+            }
+        }
+
+        public void SpawnChild(Vector3 seedLocation) {
+            FloraFertilityInteraction floraFert = GetComponent<FloraFertilityInteraction>();
+            if (floraFert != null && entity.fertilityReservoir > floraFert.fertilityConsumptionRate / 10) {
+                entity.fertilityReservoir -= floraFert.fertilityConsumptionRate / 10;
+                Entity newEnt = EntityManager.instance.SpawnEntity(seedLocation, entity.typeInfo);
+                newEnt.fertilityReservoir += floraFert.fertilityConsumptionRate / 10;
+            } else if(floraFert == null) {
+                // This plant ignores fertility for some reason, spawn it, I guess
+                Entity newEnt = EntityManager.instance.SpawnEntity(seedLocation, entity.typeInfo);
             }
         }
     }

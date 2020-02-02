@@ -91,6 +91,8 @@ namespace EntitySystem
             {
                 target.Item2.OnEaten(entity);
                 entity.stomachFullness += target.Item2.GetFilling();
+
+                entity.fertilityReservoir += target.Item1.fertilityReservoir / 2;
             }
         }
     }

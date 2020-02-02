@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e40b9904e560f00478fbf8f376e6f791, type: 3}
   m_Name: Mushroom
   m_EditorClassIdentifier: 
-  prefab: {fileID: 381000376545328680, guid: 28dcd6fff1e6d7f4b81807799f7a1ab6, type: 3}
+  prefab: {fileID: 3048263944917320415, guid: 215e42bf8fb1744478916613b1b3c3c7, type: 3}
   stomachSize: 0
-  hungryThreshold: 0
-  minLife: 20
-  maxLife: 30
+  minLife: 0
+  maxLife: 0
+  matureAge: 0
   speedRange: {x: 0, y: 0}
-  size: 0.1
-  EdibleSizeRange: {x: 0, y: 0}
+  finalGrowthScalar: {x: 0, y: 0}
+  birthScale: 0.1
+  edibleSize: 0
+  energyDecay: 0

@@ -14,6 +14,9 @@ GameObject:
   - component: {fileID: 6021908526270218981}
   - component: {fileID: 4383876870412876564}
   - component: {fileID: 269127877145947208}
+  - component: {fileID: -48392050601710478}
+  - component: {fileID: 3776781411872421886}
+  - component: {fileID: 7711655471191131350}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Untagged
@@ -55,6 +58,8 @@ MonoBehaviour:
   deathAge: 0
   stomachFullness: 0
   energyDecay: 0
+  fertilityReservoir: 0
+  wasteReservoir: 0
   isDead: 0
   cohesion: {fileID: 0}
   alignment: {fileID: 0}
@@ -116,6 +121,48 @@ MonoBehaviour:
   seedProbability: 0.001
   seedMinFertility: 0.05
   foliageType: 1
+--- !u!114 &-48392050601710478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5004668707587316988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 761b8410e51745142b36be56b51377c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fertilityConsumptionRate: 0.001
+  minFertility: 0.05
+--- !u!114 &3776781411872421886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5004668707587316988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b152034261586b641a0403f89b69bc49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brightness: -0.001
+--- !u!114 &7711655471191131350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5004668707587316988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35fcaba57b43b5142b9bcab7aef98059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hydrationRetention: 0.0001
+  minHydration: 0.04
+  maxHydration: 0.9
 --- !u!1001 &3359790334716459960
 PrefabInstance:
   m_ObjectHideFlags: 0
