@@ -100,6 +100,7 @@ MonoBehaviour:
   seedMinFertility: 0.04
   foliageType: 1
   fertilityToChildren: 0
+  growsInWater: 0
 --- !u!114 &2011217251049528309
 MonoBehaviour:
   m_ObjectHideFlags: 0
