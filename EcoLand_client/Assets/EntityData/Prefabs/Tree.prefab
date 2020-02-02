@@ -112,7 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reproduceRadius: 5
   tooCloseToGrowAnyType: 1
-  tooCloseToGrowSameType: 2
+  tooCloseToGrowSameType: 3
   seedProbability: 0.001
   seedMinFertility: 0.05
   foliageType: 1
