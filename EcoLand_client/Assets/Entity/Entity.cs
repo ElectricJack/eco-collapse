@@ -12,7 +12,6 @@ using Vector3 = UnityEngine.Vector3;
 
 namespace EntitySystem
 {
-
     public interface IMoveInfluencer
     {
         float MaxDistance {get;}

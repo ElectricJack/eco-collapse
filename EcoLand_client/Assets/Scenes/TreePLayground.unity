@@ -808,6 +808,7 @@ MonoBehaviour:
   randomTerrainEntities:
   - {fileID: 11400000, guid: 77207842a89084c8e88f477cc7acc51f, type: 2}
   - {fileID: 11400000, guid: 9cb7596e6e1514ea19bc6e935f1de2cd, type: 2}
+  - {fileID: 11400000, guid: 67f8cbeba66b2794296ad49623674f1d, type: 2}
   numRandomSpawns: 30
   randomSpawnVariance: 5
 --- !u!4 &1683026129
