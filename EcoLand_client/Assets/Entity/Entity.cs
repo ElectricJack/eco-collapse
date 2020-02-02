@@ -1,4 +1,4 @@
-using System;
+﻿
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +8,7 @@ using System.Numerics;
 using Quaternion = UnityEngine.Quaternion;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
+
 
 namespace EntitySystem
 {
@@ -19,7 +20,9 @@ namespace EntitySystem
         Vector3 GetInfluenceVector();
     }
 
-    public class Entity : MonoBehaviour, IMoveStep
+
+
+    public class Entity : MonoBehaviour, IMoveStep, IStatusStep
     {
         public GameObject    instance;
         public Vector3       position => transform.position;
@@ -50,6 +53,8 @@ namespace EntitySystem
         public IEdible[] Edibles;
         
         List<Entity> _neighbors = new List<Entity>();
+
+        public float size => transform.localScale.z;
         
 
         public WorldTile     currentTile;
@@ -70,7 +75,7 @@ namespace EntitySystem
             cohesion            = GetComponent<MoveInfluencer_Cohesion>();
             alignment           = GetComponent<MoveInfluencer_Alignment>();
 
-            eats = GetComponent<Eats>();
+            eats    = GetComponent<Eats>();
             Edibles = GetComponents<IEdible>();
 
             // Calculate the maximum neighbor radius from the largest influencing distance
@@ -110,7 +115,7 @@ namespace EntitySystem
                 transform.position = pos;
             }
         }
-        public virtual void Step()
+        public void StatusStep()
         {
             // First check if we have died of old age
             ++currentAge;
@@ -120,15 +125,6 @@ namespace EntitySystem
             }
             else if (currentAge > deathAge)
                 return;
-
-            foreach(var stepable in stepables)
-                stepable.Step();
-            
-            // Update our active neighbors
-            // @Todo ask the world what our neighbors are
-
-            // Apply changes to our position
-            // Update what tile we are in
         }
 
         public virtual void Die(Entity killer = null)

@@ -17,11 +17,16 @@ namespace EntitySystem
                           
         public int        minLife;
 	    public int        maxLife;
+        public int        matureAge;
         
         [MinMax(0.1f, 10f)] public Vector2 speedRange;
         
-        [Range(0.1f, 4f)]
-        public float size;
+        [MinMax(0.1f, 10f)]
+        public Vector2 finalGrowthScalar;
+        public float   birthScale = 0.1f;
+
+        [Range(0.1f, 10f)]
+        public float   edibleSize;
     }
 
 }
