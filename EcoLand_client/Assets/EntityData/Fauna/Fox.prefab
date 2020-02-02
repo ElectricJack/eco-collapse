@@ -61,6 +61,7 @@ MonoBehaviour:
   energyDecay: 0
   fertilityReservoir: 0
   wasteReservoir: 0
+  deathAlert: {fileID: 0}
   isDead: 0
   cohesion: {fileID: 0}
   alignment: {fileID: 0}
@@ -173,6 +174,7 @@ MonoBehaviour:
   Strength: 0.15
   minHydration: 0.2
   maxHydration: 0.9
+  sadAlert: {fileID: 0}
 --- !u!114 &-4152154887505371048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,6 +190,8 @@ MonoBehaviour:
   edibleType: 1
   maxDistance: 1
   EdibleSizeRange: {x: 0.2, y: 0.5}
+  eatAlert: {fileID: 8775984135485307867, guid: d14d4b324eb44904b82034f29349531f,
+    type: 3}
 --- !u!114 &-4501665983245332427
 MonoBehaviour:
   m_ObjectHideFlags: 0

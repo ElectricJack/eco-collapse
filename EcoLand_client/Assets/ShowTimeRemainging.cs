@@ -11,12 +11,10 @@ public class ShowTimeRemainging : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //TODO: Format numbers
-
         var t = Mathf.Clamp(EcoGameMain.TimeRemainging, 0f, EcoGameMain.GameLength);
         
-        var s = (int) (EcoGameMain.TimeRemainging  % 60f);
-        var m = (int) (EcoGameMain.TimeRemainging / 60f);
+        var s = (int) (t  % 60f);
+        var m = (int) (t / 60f);
         TextField.text = $"{m}:{s}";
     }
 }
