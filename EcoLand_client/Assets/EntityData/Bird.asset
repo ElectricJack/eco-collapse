@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e40b9904e560f00478fbf8f376e6f791, type: 3}
   m_Name: Bird
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 7546638744350096499, guid: 0c3c0d30dada24240a19d56f01e4c9b2, type: 3}
   stomachSize: 0
-  hungryThreshold: 0
   minLife: 0
   maxLife: 0
-  minSpeed: 0
-  maxSpeed: 0
+  matureAge: 0
+  speedRange: {x: 0, y: 0}
+  finalGrowthScalar: {x: 0, y: 0}
+  birthScale: 0.1
+  edibleSize: 0
+  energyDecay: 0
