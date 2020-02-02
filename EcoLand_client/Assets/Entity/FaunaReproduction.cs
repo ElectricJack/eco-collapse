@@ -31,6 +31,7 @@ namespace EntitySystem
             World.worldInstance.GatherEntities(entity.currentTile, conceiveRadius, ref entities);
             Entity bestMate = null;
             float highestFertility = 0;
+            entities.Remove(entity);
             foreach(var other in entities)
             {
                 if (entity.typeInfo != other.typeInfo)

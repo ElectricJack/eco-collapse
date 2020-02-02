@@ -167,7 +167,7 @@ namespace EntitySystem
 
         private void UpdateTile() {
             if(Josh.World.worldInstance != null) {
-                Debug.Log($"Updating Tile for {name}");
+                //Debug.Log($"Updating Tile for {name}");
                 Vector2 myPosition = new Vector2(transform.position.x, transform.position.z);
                 Josh.WorldTile newWorldTile = Josh.World.worldInstance.GetCellFromPosition(myPosition).GetWorldTile();
                 if (newWorldTile != currentTile) {

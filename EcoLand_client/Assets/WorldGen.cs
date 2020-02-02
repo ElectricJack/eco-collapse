@@ -11,11 +11,8 @@ namespace Josh
     {
         public GameObject CellPrefab;
 
-        public int worldSize;
-
+        public int   worldSize;
         public World world;
-
-        public AnimationCurve Curve;
 
         public List<EntityProfile> randomTerrainEntities;
         public int numRandomSpawns = 30;
