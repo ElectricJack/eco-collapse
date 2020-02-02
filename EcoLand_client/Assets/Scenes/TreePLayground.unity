@@ -3291,6 +3291,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EcoGameMain: {fileID: 677191280}
   TextField: {fileID: 507679414}
+--- !u!20 &2073933238 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 735969708834084606, guid: 3a86fe2c0e1f940148f328a7e764a253,
+    type: 3}
+  m_PrefabInstance: {fileID: 1879515500}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4069498033554158048
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3312,7 +3318,7 @@ PrefabInstance:
         type: 3}
       propertyPath: mainCamera
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2073933238}
     - target: {fileID: 4069498035202448501, guid: 99477c86e043be44da192fab01a63858,
         type: 3}
       propertyPath: m_LocalPosition.x

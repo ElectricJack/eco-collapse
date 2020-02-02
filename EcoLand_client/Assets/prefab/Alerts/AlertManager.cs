@@ -58,7 +58,7 @@ public class AlertManager : MonoBehaviour
                 if(individualChannelNoise[entity] > priority) {
                     return; // channel noisier than priority
                 }
-                FinallySpawn( entity, behavior);
+                FinallySpawn(entity, behavior);
             } else {
                 toAdd.Add(new NotifyData() {entity = entity, behavior = behavior });
             }
@@ -70,7 +70,7 @@ public class AlertManager : MonoBehaviour
     {
         GameObject clone = Instantiate(behavior.gameObject, entity.transform.position, Quaternion.identity);
         clone.GetComponent<AlertBehavior>().playerCam = playerCam;
-        alertNoise += 0.1f;
+        alertNoise += 0.2f;
         individualChannelNoise[entity] += 1;
     }
 }
