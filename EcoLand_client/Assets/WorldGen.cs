@@ -21,7 +21,7 @@ namespace Josh
         public int numRandomSpawns = 30;
         public int randomSpawnVariance = 5;
         
-        public void Awake()
+        public void Start()
         {
             world = new World(worldSize);
 
@@ -31,12 +31,13 @@ namespace Josh
 
                 var scalarX = 7f * ((float) cell.location.location.x) / worldSize;
                 var scalarY = 7f * ((float) cell.location.location.y) / worldSize;
-                GameObject clone = GameObject.Instantiate(CellPrefab, 
+                GameObject clone = Instantiate(CellPrefab, 
                     new Vector3(
                         cell.location.location.x, 
                         -4 + ((5f * Mathf.PerlinNoise(scalarX, scalarY)) + 5f * Mathf.PerlinNoise(scalarX/4 + 100, scalarY/4 + 100)),
                         cell.location.location.y), 
-                    Quaternion.identity);
+                    Quaternion.identity,
+                    transform);
 
                 cell.cellObject = clone;
                 SetUpCell(cell, scalarX, scalarY);

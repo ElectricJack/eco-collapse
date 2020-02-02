@@ -4,7 +4,19 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Game/Splash.unity
+    guid: ce51a8e90befe4f97945d7d18f538d94
+  - enabled: 1
+    path: Assets/Scenes/Game/MainMenu.unity
+    guid: ff172486f867e4ee0b2b403b351b997e
+  - enabled: 1
+    path: Assets/Scenes/Game/LoadGame.unity
+    guid: 186b56a9c8d45468a88b2fbe5e6061bf
+  - enabled: 1
+    path: Assets/Scenes/TreePLayground.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 037140a19d980428fb3824cf3210b5ab,
       type: 2}
