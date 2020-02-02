@@ -11,13 +11,14 @@ namespace Josh
     {
         public GameObject CellPrefab;
 
-        public int worldSize;
-
+        public int   worldSize;
         public World world;
 
-        public AnimationCurve Curve;
+        public List<EntityProfile> randomTerrainEntities;
+        public int numRandomSpawns = 30;
+        public int randomSpawnVariance = 5;
         
-        public void Awake()
+        public void Start()
         {
             world = new World(worldSize);
 
@@ -27,12 +28,13 @@ namespace Josh
 
                 var scalarX = 7f * ((float) cell.location.location.x) / worldSize;
                 var scalarY = 7f * ((float) cell.location.location.y) / worldSize;
-                GameObject clone = GameObject.Instantiate(CellPrefab, 
+                GameObject clone = Instantiate(CellPrefab, 
                     new Vector3(
                         cell.location.location.x, 
-                        -2 + (5f * Mathf.PerlinNoise(scalarX, scalarY)),
+                        -4 + ((5f * Mathf.PerlinNoise(scalarX, scalarY)) + 5f * Mathf.PerlinNoise(scalarX/4 + 100, scalarY/4 + 100)),
                         cell.location.location.y), 
-                    Quaternion.identity);
+                    Quaternion.identity,
+                    transform);
 
                 cell.cellObject = clone;
                 SetUpCell(cell, scalarX, scalarY);
@@ -99,6 +101,8 @@ namespace Josh
                 mesh.mesh.vertices = vertices;
                 mesh.mesh.RecalculateNormals();
             }
+
+            SpawnRocks();
         }
 
         private float GetAverageHeightDifferenceForCorner(WorldTile me, WorldTile first, WorldTile second, WorldTile third) {
@@ -114,7 +118,7 @@ namespace Josh
         }
 
         private void SetUpCell(Cell cell, float scalarX, float scalarY) {
-            float startingElevation = Mathf.PerlinNoise(scalarX, scalarY); // elevation normalized between 0-1
+            float startingElevation = (Mathf.PerlinNoise(scalarX, scalarY) + Mathf.PerlinNoise(scalarX / 4 + 100, scalarY / 4 + 100)) / 2; // elevation normalized between 0-1
             float startingTemperature = Mathf.PerlinNoise(scalarX + 1000, scalarY + 1000);
             float startingHydration = Mathf.PerlinNoise(scalarX - 1000, scalarY - 1000);
             float startingBrightness = Mathf.PerlinNoise(scalarX/2 + 10000, scalarY/2 + 10000);
@@ -132,6 +136,33 @@ namespace Josh
         public void OnDestroy()
         {
             World.worldInstance = null;
+        }
+
+        private void SpawnRocks() {
+            int numToSpawn = numRandomSpawns + UnityEngine.Random.Range(-randomSpawnVariance, randomSpawnVariance);
+            for (int i = 0; i < numToSpawn; i++) {
+                int spawnID = UnityEngine.Random.Range(0, randomTerrainEntities.Count);
+
+                Vector3 randPos = new Vector3(UnityEngine.Random.Range(0, worldSize), 0, UnityEngine.Random.Range(0, worldSize));
+
+                var cell = World.worldInstance.GetCellFromPosition(randPos);
+                var nw = cell.GetNeighbor(Direction.NorthWest).cellObject.transform.position;
+                var sw = cell.GetNeighbor(Direction.SouthWest).cellObject.transform.position;
+                var ne = cell.GetNeighbor(Direction.NorthEast).cellObject.transform.position;
+                var se = cell.GetNeighbor(Direction.SouthEast).cellObject.transform.position;
+
+                float dx0 = (randPos.x - nw.x) / (ne.x - nw.x); // Along top
+                float dx1 = (randPos.x - sw.x) / (se.x - sw.x); // Along bottom
+
+                float yx0 = Mathf.Lerp(nw.y, ne.y, dx0);
+                float yx1 = Mathf.Lerp(sw.y, se.y, dx1);
+
+                float dz = (randPos.z - sw.z) / (nw.z - sw.z);
+
+                randPos.y = Mathf.Lerp(yx1, yx0, dz) + 0.5f;
+
+                EntityManager.instance.SpawnEntity(randPos, randomTerrainEntities[spawnID]);
+            }
         }
     }
 

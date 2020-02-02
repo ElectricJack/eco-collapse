@@ -34,11 +34,13 @@ namespace EntitySystem
 
         public float         fertilityReservoir = 0f;
         public float         wasteReservoir = 0f;
+
+        public AlertBehavior deathAlert;
         
         [HideInInspector]
         public bool          isDead = false;
         
-        public ISteppable[]  stepables;
+        //public ISteppable[]  stepables;
         public IStatusStep[] StatusSteps;
         public IMoveStep[]   MoveSteps;
         public IEatStep[]    EatSteps;
@@ -52,8 +54,12 @@ namespace EntitySystem
 
         [HideInInspector] public Eats      eats;
         [HideInInspector] public IEdible[] Edibles;
+
+        private Animator animator;
         
         List<Entity> _neighbors = new List<Entity>();
+
+        private bool initialized = false;
 
         //public float size => transform.localScale.z;
         
@@ -66,7 +72,7 @@ namespace EntitySystem
                 .GetWorldTile();
             currentTile?.RegisterEntity(this);
         
-            stepables    = GetComponents<ISteppable>();
+            //stepables    = GetComponents<ISteppable>();
             StatusSteps  = GetComponents<IStatusStep>();
             MoveSteps    = GetComponents<IMoveStep>();
             EatSteps     = GetComponents<IEatStep>();
@@ -80,31 +86,60 @@ namespace EntitySystem
             eats    = GetComponent<Eats>();
             Edibles = GetComponents<IEdible>();
 
+            animator = GetComponentInChildren<Animator>();
+
             // Calculate the maximum neighbor radius from the largest influencing distance
             foreach(var moveInfluencer in movementInfluencers)
                 maxNeighborRadius = Math.Max(maxNeighborRadius, moveInfluencer.MaxDistance);
+
+            initialized = true;
         }
         
         public void MoveStep()
         {
+            if (!initialized)
+                return;
+
             World.worldInstance.GatherEntities(currentTile, maxNeighborRadius, ref _neighbors);
             _neighbors.Remove(this);
+
+            // Randomly choose 5
+            while(_neighbors.Count > 5)
+                _neighbors.RemoveAt((int)UnityEngine.Random.Range(0.0f,_neighbors.Count - 0.1f));
+            
+
             foreach(var moveInfluencer in movementInfluencers)
                 moveInfluencer.Setup(_neighbors);
             
             Vector3 totalInfluence = Vector3.zero;
             foreach(var moveInfluencer in movementInfluencers)
-                totalInfluence += moveInfluencer.GetInfluenceVector();
+            {
+                var influence = moveInfluencer.GetInfluenceVector();
+                if(float.IsNaN(influence.x) || float.IsNaN(influence.y) || float.IsNaN(influence.z))
+                    continue;
+
+                totalInfluence += influence;
+            }
+                
+
 
             velocity += totalInfluence * Time.deltaTime;
             velocity.y = 0;
 
-            if (velocity.sqrMagnitude > typeInfo.speedRange.y * typeInfo.speedRange.y)
+            float sqrMag = velocity.sqrMagnitude;
+            if (!float.IsNaN(sqrMag) && sqrMag > 0.001f && sqrMag > typeInfo.speedRange.y * typeInfo.speedRange.y)
             {
                 velocity = velocity.normalized * typeInfo.speedRange.y;
             }
+
             transform.position += velocity * Time.deltaTime;
-            transform.rotation = Quaternion.FromToRotation(Vector3.forward, velocity);
+            if (!float.IsNaN(sqrMag) && sqrMag > 0.001f)
+                transform.rotation = Quaternion.FromToRotation(Vector3.forward, velocity);
+
+            if (animator != null)
+            {
+                animator.SetFloat("speed", velocity.magnitude);
+            }
 
             if (World.worldInstance != null)
             {
@@ -124,20 +159,24 @@ namespace EntitySystem
         public void StatusStep()
         {
             // First check if we have died of old age
-            ++currentAge;
-            if(currentAge == deathAge)
+            if(deathAge > 0)
             {
-                Die();
+                ++currentAge;
+                if(currentAge >= deathAge)
+                {
+                    Die();
+                }
+                else if (currentAge > deathAge)
+                    return;
             }
-            else if (currentAge > deathAge)
-                return;
+
 
             float stomachDelta = Time.deltaTime * velocity.magnitude * typeInfo.energyDecay;
             stomachFullness -= stomachDelta;
             wasteReservoir += stomachDelta;
 
             if(UnityEngine.Random.Range(0f, 1f) > 0.999f) {
-                float wasteDeposit = Mathf.Clamp(stomachDelta / 100, 0f, fertilityReservoir / 10f);
+                float wasteDeposit = Mathf.Clamp(stomachDelta / 10, 0f, fertilityReservoir / 10f);
                 currentTile.fertility += wasteDeposit;
                 fertilityReservoir -= wasteDeposit;
             }
@@ -145,12 +184,14 @@ namespace EntitySystem
 
         public virtual void Die(Entity killer = null)
         {
-           isDead = true;
+            isDead = true;
+            if(deathAlert != null)
+                AlertManager.instance.SpawnAlertForEntity(this, deathAlert);
         }
 
         private void UpdateTile() {
             if(Josh.World.worldInstance != null) {
-                Debug.Log($"Updating Tile for {name}");
+                //Debug.Log($"Updating Tile for {name}");
                 Vector2 myPosition = new Vector2(transform.position.x, transform.position.z);
                 Josh.WorldTile newWorldTile = Josh.World.worldInstance.GetCellFromPosition(myPosition).GetWorldTile();
                 if (newWorldTile != currentTile) {

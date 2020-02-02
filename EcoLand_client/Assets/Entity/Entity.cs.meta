@@ -3,7 +3,15 @@ guid: f7bce9daba6a75145b5ce14042005fce
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - instance: {instanceID: 0}
+  - typeInfo: {instanceID: 0}
+  - deathAlert: {fileID: 6773221667766759600, guid: 6e1e599324a557841beaee97222bd768,
+      type: 3}
+  - cohesion: {instanceID: 0}
+  - alignment: {instanceID: 0}
+  - floraReproduction: {instanceID: 0}
+  - eats: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

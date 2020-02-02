@@ -31,6 +31,7 @@ namespace EntitySystem
             World.worldInstance.GatherEntities(entity.currentTile, conceiveRadius, ref entities);
             Entity bestMate = null;
             float highestFertility = 0;
+            entities.Remove(entity);
             foreach(var other in entities)
             {
                 if (entity.typeInfo != other.typeInfo)
@@ -54,12 +55,15 @@ namespace EntitySystem
             var midPoint = (entity.position + bestMate.position) * 0.5f;
             // Spawn x children (firtilityPool / required amount per child)
             int   childCount = (int)(highestFertility / requiredFertilityPerChild);
-            float fertilityPerChild = highestFertility / childCount;
-            for(int i=0; i<childCount; ++i)
-            {
-                Vector3 randomOffset = new Vector3(Random.value, 0, Random.value);
-                EntityManager.instance.SpawnEntity(midPoint, entity.typeInfo);
+            if(childCount > 0) {
+                float fertilityPerChild = highestFertility / childCount;
+                for(int i=0; i<childCount; ++i)
+                {
+                    Vector3 randomOffset = new Vector3(Random.value, 0, Random.value);
+                    EntityManager.instance.SpawnEntity(midPoint, entity.typeInfo);
+                }
             }
+            
         }
     }
 }
