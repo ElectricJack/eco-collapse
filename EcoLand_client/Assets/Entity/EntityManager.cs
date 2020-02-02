@@ -71,8 +71,6 @@ namespace EntitySystem
             newEntities.Add(ent);
 
             return ent;
-
-            //entities.Add(ent);
         }
     }
 }
