@@ -55,6 +55,7 @@ MonoBehaviour:
   deathAge: 0
   stomachFullness: 0
   energyDecay: 0
+  fertilityReservoir: 0
   isDead: 0
   cohesion: {fileID: 0}
   alignment: {fileID: 0}
@@ -111,9 +112,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reproduceRadius: 2
-  tooCloseToGrowAnyType: 0.5
-  tooCloseToGrowSameType: 0.5
-  seedProbability: 0.1
+  tooCloseToGrowAnyType: 4
+  tooCloseToGrowSameType: 1.5
+  seedProbability: 0.01
   seedMinFertility: 0.05
   foliageType: 2
 --- !u!1001 &7526505160868699858
