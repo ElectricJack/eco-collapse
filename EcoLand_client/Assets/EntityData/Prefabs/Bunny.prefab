@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3529625124134323850}
   - component: {fileID: 5828982184087872511}
   - component: {fileID: -4476085135627568914}
+  - component: {fileID: -6127749144385773677}
   m_Layer: 0
   m_Name: Bunny
   m_TagString: Untagged
@@ -58,9 +59,11 @@ MonoBehaviour:
   deathAge: 0
   stomachFullness: 0
   energyDecay: 0
+  fertilityReservoir: 0
   isDead: 0
   cohesion: {fileID: 0}
   alignment: {fileID: 0}
+  floraReproduction: {fileID: 0}
   eats: {fileID: 0}
   maxNeighborRadius: 0
 --- !u!114 &7791700321382821720
@@ -149,6 +152,44 @@ MonoBehaviour:
   Strength: 0.15
   minHydration: 0.2
   maxHydration: 0.9
+--- !u!114 &-6127749144385773677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260857102332598017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c936111c05cc44e6a26dc1f4ecfb6fbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MinDistance: 0
+  maxDistance: 10
+  AvoidStrengthByDistance:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.02131594
+      value: 14.993089
+      inSlope: -1.3720362
+      outSlope: -1.3720362
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 9.973999
+      value: 1.3376465
+      inSlope: -1.3720362
+      outSlope: -1.3720362
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &7022338794895197108
 GameObject:
   m_ObjectHideFlags: 0
