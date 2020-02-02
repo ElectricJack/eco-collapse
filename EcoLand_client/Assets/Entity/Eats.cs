@@ -21,7 +21,6 @@ namespace EntitySystem
 
         [SerializeField]
         private float maxDistance;
-        public float MaxDistance  { get {return maxDistance;} }
         
         [MinMax(0.01f, 4f)] public Vector2 EdibleSizeRange;
 
@@ -34,8 +33,9 @@ namespace EntitySystem
                 maxDistance,
                 ref neighbors);
 
+            neighbors.Remove(entity);
             
-            foreach (var target in neighbors.Select(x => WillEat(x)))
+            foreach (var target in neighbors.Select(WillEat))
             {
                 if(target == null)
                     continue;
@@ -57,6 +57,12 @@ namespace EntitySystem
 
             if (prey.isDead)
                 return null;
+
+            if (prey.typeInfo.edibleSize < entity.eats.EdibleSizeRange.x ||
+                prey.typeInfo.edibleSize > entity.eats.EdibleSizeRange.y)
+            {
+                return null;
+            }
             
             foreach(var edible in prey.Edibles)
             {
@@ -85,12 +91,6 @@ namespace EntitySystem
                 target.Item2.OnEaten(entity);
                 entity.stomachFullness += target.Item2.GetFilling();
             }
-
-        }
-
-        public void Step()
-        {
-            // TODO: Do i need to step?
         }
     }
 

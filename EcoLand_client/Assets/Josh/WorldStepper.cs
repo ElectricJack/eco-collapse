@@ -50,7 +50,8 @@ public class WorldStepper : MonoBehaviour
             }
 
             var deads = EntityManager.entities
-                .Where(x => x.isDead);
+                .Where(x => x.isDead)
+                .ToList();
 
             foreach (var dead in deads)
             {
