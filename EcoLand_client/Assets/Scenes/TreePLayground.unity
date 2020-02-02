@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0, g: 0.3333335, b: 1, a: 1}
+  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -38,13 +38,13 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028468, g: 0.22571515, b: 0.30692208, a: 1}
+  m_IndirectSpecularColor: {r: 0.18029581, g: 0.22572817, b: 0.30693024, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -183,8 +183,8 @@ Camera:
   m_GameObject: {fileID: 220358977}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.082013145, g: 0.9150943, b: 0.8994234, a: 0}
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -322,7 +322,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 7.86e-43, y: -4.2343833e-29, z: 4.5905e-41, w: -4.234128e-29}
+  m_BoundingSphereOverride: {x: 1e-45, y: 1.16e-43, z: 0, w: 0.0000000034861554}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -492,18 +492,6 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 220358980}
-    - target: {fileID: 4069498035202448500, guid: 99477c86e043be44da192fab01a63858,
-        type: 3}
-      propertyPath: entityTypes.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: daa6e8805abcf42768ccc030c048beea,
-        type: 2}
-    - target: {fileID: 4069498035202448500, guid: 99477c86e043be44da192fab01a63858,
-        type: 3}
-      propertyPath: entityTypes.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: eef871170893f5e43a2eebe524588109,
-        type: 2}
     - target: {fileID: 4069498035202448501, guid: 99477c86e043be44da192fab01a63858,
         type: 3}
       propertyPath: m_LocalPosition.x
