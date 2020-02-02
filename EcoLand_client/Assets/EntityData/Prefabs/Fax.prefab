@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2137903744934077747}
   - component: {fileID: 3529625124134323850}
   - component: {fileID: -6631891883196743254}
+  - component: {fileID: -6059742245845480455}
   - component: {fileID: -4152154887505371048}
   - component: {fileID: -4501665983245332427}
   m_Layer: 0
@@ -57,7 +58,6 @@ MonoBehaviour:
   currentAge: 0
   deathAge: 0
   stomachFullness: 0
-  energyDecay: 0
   isDead: 0
   cohesion: {fileID: 0}
   alignment: {fileID: 0}
@@ -103,7 +103,8 @@ MonoBehaviour:
   MinDistance: 0
   maxDistance: 1
   Type: 0
-  Strength: 0
+  SeekStrength: 0
+  RepelStrength: 0
 --- !u!114 &-6631891883196743254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,17 +123,52 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.0008136696
-      value: 0.99607074
+      time: -0.03297381
+      value: 3.0645063
+      inSlope: -8.832574
+      outSlope: -8.832574
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.19395036
+    - serializedVersion: 3
+      time: 0.20049018
+      value: 2.00486
+      inSlope: -2.8296828
+      outSlope: -2.8296828
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.6990038
+      value: 0.99324185
       inSlope: 0
       outSlope: 0
       tangentMode: 136
       weightedMode: 0
-      inWeight: 0
-      outWeight: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-6059742245845480455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260857102332598017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 645cf18050f761b4880ac1998776767a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MinDistance: 1
+  maxDistance: 6
+  Strength: 0.15
+  minHydration: 0.2
+  maxHydration: 0.9
 --- !u!114 &-4152154887505371048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,7 +182,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   edibleType: 1
-  EdibleSizeRange: {x: 0.2, y: 0.9}
+  maxDistance: 1
+  EdibleSizeRange: {x: 0.2, y: 0.5}
 --- !u!114 &-4501665983245332427
 MonoBehaviour:
   m_ObjectHideFlags: 0

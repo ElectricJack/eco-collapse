@@ -54,9 +54,8 @@ namespace EntitySystem
         
         List<Entity> _neighbors = new List<Entity>();
 
-        public float size => transform.localScale.z;
+        //public float size => transform.localScale.z;
         
-
         public WorldTile     currentTile;
         public float         maxNeighborRadius = 0;
 
@@ -116,6 +115,8 @@ namespace EntitySystem
                 if (pos.z > size) pos.z -= size;
                 transform.position = pos;
             }
+            
+            //currentTile.myCell.location
         }
         public void StatusStep()
         {
@@ -127,6 +128,10 @@ namespace EntitySystem
             }
             else if (currentAge > deathAge)
                 return;
+
+            stomachFullness -= Time.deltaTime * velocity.magnitude * typeInfo.energyDecay;
+            
+            
         }
 
         public virtual void Die(Entity killer = null)
