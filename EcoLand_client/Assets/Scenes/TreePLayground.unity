@@ -1542,6 +1542,11 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3003944004772710375, guid: 480a9150e235943aeadded1cf20a4270,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3318032237152652548, guid: 480a9150e235943aeadded1cf20a4270,
         type: 3}
       propertyPath: m_RootOrder
@@ -2305,6 +2310,11 @@ PrefabInstance:
     - target: {fileID: 7168054267814850981, guid: 480a9150e235943aeadded1cf20a4270,
         type: 3}
       propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7394599599882900693, guid: 480a9150e235943aeadded1cf20a4270,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7402078837836048691, guid: 480a9150e235943aeadded1cf20a4270,
