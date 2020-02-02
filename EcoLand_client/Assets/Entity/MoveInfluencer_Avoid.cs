@@ -18,6 +18,8 @@ namespace EntitySystem
         List<Vector3> _toInfluencer = new List<Vector3>();
         Vector3       _influence = new Vector3();
 
+        public AlertBehavior avoidAlert;
+
         public void Setup(List<Entity> neighbors)
         {
             _toInfluencer.Clear();
@@ -33,6 +35,7 @@ namespace EntitySystem
                     neighbor.cohesion != null)
                 {
                     _toInfluencer.Add(toNeighbor);
+                    AlertManager.instance.SpawnAlertForEntity(entity, avoidAlert, 4f);
                 }
             }
         }

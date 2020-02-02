@@ -17,7 +17,7 @@ namespace EntitySystem
 
         private List<Josh.Cell> neighborTiles = new List<Josh.Cell>();
 
-
+        public AlertBehavior coldAlert;
 
         public Vector3 GetInfluenceVector() {
             Vector3 maxVector = Vector3.zero;
@@ -45,6 +45,7 @@ namespace EntitySystem
             if (unlivableTemperature) {
                 entity.deathAge -= 10;
                 maxVector *= 10;
+                AlertManager.instance.SpawnAlertForEntity(entity, coldAlert);
             }
 
             return maxVector * Strength;

@@ -12,7 +12,7 @@ namespace EntitySystem
         public float conceiveRadius      = 1.0f;
         public float requiredFertilityPerChild = 0.1f;
 
-
+        public AlertBehavior reproAlert;
         public void StatusStep()
         {
             if (World.worldInstance == null)
@@ -60,7 +60,8 @@ namespace EntitySystem
                 for(int i=0; i<childCount; ++i)
                 {
                     Vector3 randomOffset = new Vector3(Random.value, 0, Random.value);
-                    EntityManager.instance.SpawnEntity(midPoint, entity.typeInfo);
+                    Entity child = EntityManager.instance.SpawnEntity(midPoint, entity.typeInfo);
+                    AlertManager.instance.SpawnAlertForEntity(child, reproAlert, 4f);
                 }
             }
             

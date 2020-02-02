@@ -18,6 +18,8 @@ namespace EntitySystem
 
         private List<Josh.Cell> neighborTiles = new List<Josh.Cell>();
 
+        public AlertBehavior sadAlert;
+
         
 
         public Vector3 GetInfluenceVector() {
@@ -45,6 +47,7 @@ namespace EntitySystem
             // If you are in an unlivible area, prioritize fleeing
             if(unlivableHydration) {
                 maxVector *= 10;
+                AlertManager.instance.SpawnAlertForEntity(entity, sadAlert);
             }
 
             return maxVector * Strength;
