@@ -7,12 +7,18 @@ namespace EntitySystem
 {
     public class EntityManager : MonoBehaviour
     {
+        public static EntityManager instance;
+
         public Camera          mainCamera;
         public EntityProfile[] entityTypes = new EntityProfile[10];
         public List<Entity>   entities    = new List<Entity>();
 
         public List<Entity> pendingDeath = new List<Entity>();
 
+        void Awake()
+        {
+            instance = this;
+        }
         // Update is called once per frame
         void Update()
         {
@@ -38,26 +44,26 @@ namespace EntitySystem
         {
             if (entityType == null)
                 return;
-
-            //Debug.Log("ADD");
                 
             RaycastHit hit;
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
         
             if (Physics.Raycast(ray, out hit)) {
-                var objectHit = hit.point;//hit.transform.position;
-                
-                var instance = Instantiate(entityType.prefab, objectHit, Quaternion.identity);
-                instance.transform.parent = this.transform;
-                var ent = instance.GetComponent<Entity>();
-                ent.deathAge        = Random.Range(entityType.minLife, entityType.maxLife);
-                ent.typeInfo        = entityType;
-                ent.stomachFullness = entityType.stomachSize;
-
-                entities.Add(ent);
+                SpawnEntity(hit.point, entityType);
             }
         }
 
+        public void SpawnEntity(Vector3 pos, EntityProfile entityType)
+        {
+            var instance = Instantiate(entityType.prefab, pos, Quaternion.identity);
+            instance.transform.parent = this.transform;
+            var ent = instance.GetComponent<Entity>();
+            ent.deathAge        = Random.Range(entityType.minLife, entityType.maxLife);
+            ent.typeInfo        = entityType;
+            ent.stomachFullness = entityType.stomachSize;
+
+            entities.Add(ent);
+        }
     }
 }
 
