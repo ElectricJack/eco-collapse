@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class AlertManager : MonoBehaviour
@@ -18,16 +19,35 @@ public class AlertManager : MonoBehaviour
         instance = this;
     }
 
+    private List<NotifyData>          toAdd    = new List<NotifyData>();
+    private List<EntitySystem.Entity> toRemove = new List<EntitySystem.Entity>();
+
     private void Update() {
         alertNoise -= Time.deltaTime;
-        foreach(EntitySystem.Entity entity in individualChannelNoise.Keys) {
+        toRemove.Clear();
+        foreach(var entity in individualChannelNoise.Keys.ToList()) {
             individualChannelNoise[entity] -= Time.deltaTime;
             if(individualChannelNoise[entity] < 0) {
-                individualChannelNoise.Remove(entity);
+                toRemove.Add(entity);
             }
         }
+        foreach(var entity in toRemove)
+            individualChannelNoise.Remove(entity);
+
+        foreach(var data in toAdd)
+        {
+            individualChannelNoise[data.entity] = 1f;
+            FinallySpawn(data.entity, data.behavior);
+        }
+        toAdd.Clear();
+            
     }
 
+    class NotifyData
+    {
+        public EntitySystem.Entity entity;
+        public AlertBehavior       behavior;
+    }
     public void SpawnAlertForEntity(EntitySystem.Entity entity, AlertBehavior behavior, float priority = 1f) {
         if (behavior == null)
             return;
@@ -38,15 +58,19 @@ public class AlertManager : MonoBehaviour
                 if(individualChannelNoise[entity] > priority) {
                     return; // channel noisier than priority
                 }
+                FinallySpawn( entity, behavior);
             } else {
-                individualChannelNoise[entity] = 1f;
+                toAdd.Add(new NotifyData() {entity = entity, behavior = behavior });
             }
-            GameObject clone = Instantiate(behavior.gameObject, entity.transform.position, Quaternion.identity);
-            clone.GetComponent<AlertBehavior>().playerCam = playerCam;
-            alertNoise += 0.1f;
-            individualChannelNoise[entity] += 1;
-            
         }
         
+    }
+
+    private void FinallySpawn(EntitySystem.Entity entity, AlertBehavior behavior)
+    {
+        GameObject clone = Instantiate(behavior.gameObject, entity.transform.position, Quaternion.identity);
+        clone.GetComponent<AlertBehavior>().playerCam = playerCam;
+        alertNoise += 0.1f;
+        individualChannelNoise[entity] += 1;
     }
 }
