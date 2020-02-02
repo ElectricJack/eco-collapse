@@ -9,6 +9,7 @@ using System.Threading;
 using Josh;
 using System.Collections;
 
+
 public class WorldStepper : MonoBehaviour
 {
     public EntityManager EntityManager;
@@ -23,8 +24,8 @@ public class WorldStepper : MonoBehaviour
     
     public void Awake()
     {
-        //StartCoroutine(InitWorld(1500));
-        isReady = true;
+        StartCoroutine(InitWorld(1500));
+        //isReady = true;
     }
     public void Update()
     {

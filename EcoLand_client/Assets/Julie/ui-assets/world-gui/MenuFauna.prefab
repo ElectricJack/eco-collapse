@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 5059430205122751995}
   - component: {fileID: 724842244604773379}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Bugs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -354,7 +354,7 @@ GameObject:
   - component: {fileID: 9049547401759555276}
   - component: {fileID: 223874835474597136}
   m_Layer: 5
-  m_Name: Button (4)
+  m_Name: Bird
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -492,7 +492,7 @@ GameObject:
   - component: {fileID: 7061808335172282061}
   - component: {fileID: 6557817121710191274}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Bunny
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -630,7 +630,7 @@ GameObject:
   - component: {fileID: 1160403304796653571}
   - component: {fileID: 4048910905386541676}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Mouse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -768,7 +768,7 @@ GameObject:
   - component: {fileID: 1744891690867979803}
   - component: {fileID: 6323608233989426301}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: Fox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -32,26 +32,35 @@ public class EcoGamPlayerTools : MonoBehaviour
 
     public void Awake()
     {
+        for(int f = 0; f < FloraTools.Count; f++)
+        {
+            int index = f;
+            FloraTools[index].UI_Link.onClick.AddListener(() =>
+            {
+                UpdateTool(FloraTools[index]);
+            });
+        }
+        
         for(int f = 0; f < FaunaTools.Count; f++)
         {
-            
-            FaunaTools[f].UI_Link.onClick.AddListener(() =>
+            int index = f;
+            FaunaTools[index].UI_Link.onClick.AddListener(() =>
             {
-                UpdateTool(FaunaTools[f]);
+                UpdateTool(FaunaTools[index]);
             });
         }
     }
     
     public void Update()
     {
-        if (!Stepper.isReady || activeTool == null || Stepper.enabled)
+        if (!Stepper.isReady || Stepper.enabled)
             return;
 
         if (Input.GetMouseButtonDown(0))
         {
             if (!IsPointerOverUIElement())
             {
-                if (PlayerEnergy.current >= activeTool.ENERGY_REQUIREMENT)
+                if (PlayerEnergy.current >= activeTool.ENERGY_REQUIREMENT && activeTool != null)
                 {
                     RaycastHit hit;
                     Ray ray = camera.ScreenPointToRay(Input.mousePosition);
@@ -61,6 +70,10 @@ public class EcoGamPlayerTools : MonoBehaviour
 
                         PlayerEnergy.current -= activeTool.ENERGY_REQUIREMENT;
                     }
+                }
+                else
+                {
+                    UpdateTool(null);
                 }
             }
         }
