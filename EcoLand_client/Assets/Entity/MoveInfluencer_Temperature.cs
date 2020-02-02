@@ -43,6 +43,7 @@ namespace EntitySystem
 
             // If you are in an unlivible area, prioritize fleeing
             if (unlivableTemperature) {
+                entity.deathAge -= 10;
                 maxVector *= 10;
             }
 

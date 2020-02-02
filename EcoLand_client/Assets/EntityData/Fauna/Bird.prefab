@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: -6127749144385773677}
   - component: {fileID: 1520580998661446358}
   - component: {fileID: -8062592648456766203}
+  - component: {fileID: -9056021137983012939}
   m_Layer: 0
   m_Name: Bird
   m_TagString: Untagged
@@ -262,6 +263,18 @@ MonoBehaviour:
   edibleType: 0
   maxDistance: 1
   EdibleSizeRange: {x: 0.1, y: 0.3}
+--- !u!114 &-9056021137983012939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260857102332598017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eafb328d68a4e584f974c961590e6672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7022338794895197108
 GameObject:
   m_ObjectHideFlags: 0

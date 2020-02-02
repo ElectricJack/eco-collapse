@@ -14,7 +14,7 @@ namespace EntitySystem
                 entity.fertilityReservoir += fertilityConsumptionRate;
                 entity.currentTile.fertility -= fertilityConsumptionRate;
             } else {
-                entity.deathAge--;
+                entity.deathAge -= 10;
             }
         }
     }

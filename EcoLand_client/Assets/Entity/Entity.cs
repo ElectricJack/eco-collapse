@@ -57,6 +57,8 @@ namespace EntitySystem
         
         List<Entity> _neighbors = new List<Entity>();
 
+        private bool initialized = false;
+
         //public float size => transform.localScale.z;
         
         public WorldTile     currentTile;
@@ -87,10 +89,15 @@ namespace EntitySystem
             // Calculate the maximum neighbor radius from the largest influencing distance
             foreach(var moveInfluencer in movementInfluencers)
                 maxNeighborRadius = Math.Max(maxNeighborRadius, moveInfluencer.MaxDistance);
+
+            initialized = true;
         }
         
         public void MoveStep()
         {
+            if (!initialized)
+                return;
+
             World.worldInstance.GatherEntities(currentTile, maxNeighborRadius, ref _neighbors);
             _neighbors.Remove(this);
             foreach(var moveInfluencer in movementInfluencers)
@@ -135,7 +142,7 @@ namespace EntitySystem
         {
             // First check if we have died of old age
             ++currentAge;
-            if(currentAge == deathAge)
+            if(currentAge >= deathAge)
             {
                 Die();
             }
@@ -147,7 +154,7 @@ namespace EntitySystem
             wasteReservoir += stomachDelta;
 
             if(UnityEngine.Random.Range(0f, 1f) > 0.999f) {
-                float wasteDeposit = Mathf.Clamp(stomachDelta / 100, 0f, fertilityReservoir / 10f);
+                float wasteDeposit = Mathf.Clamp(stomachDelta / 10, 0f, fertilityReservoir / 10f);
                 currentTile.fertility += wasteDeposit;
                 fertilityReservoir -= wasteDeposit;
             }
@@ -160,7 +167,7 @@ namespace EntitySystem
 
         private void UpdateTile() {
             if(Josh.World.worldInstance != null) {
-                Debug.Log($"Updating Tile for {name}");
+                //Debug.Log($"Updating Tile for {name}");
                 Vector2 myPosition = new Vector2(transform.position.x, transform.position.z);
                 Josh.WorldTile newWorldTile = Josh.World.worldInstance.GetCellFromPosition(myPosition).GetWorldTile();
                 if (newWorldTile != currentTile) {
