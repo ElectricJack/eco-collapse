@@ -20,8 +20,6 @@ namespace EntitySystem
         Vector3 GetInfluenceVector();
     }
 
-
-
     public class Entity : MonoBehaviour, IMoveStep, IStatusStep
     {
         public GameObject    instance;
@@ -42,15 +40,15 @@ namespace EntitySystem
         public IMoveStep[]   MoveSteps;
         public IEatStep[]    EatSteps;
         
-
+        [HideInInspector]
         IMoveInfluencer[]               movementInfluencers;
-        public MoveInfluencer_Cohesion  cohesion;
-        public MoveInfluencer_Alignment alignment;
 
-        [HideInInspector]
-        public Eats eats;
-        [HideInInspector]
-        public IEdible[] Edibles;
+        [HideInInspector] public MoveInfluencer_Cohesion  cohesion;
+        [HideInInspector] public MoveInfluencer_Alignment alignment;
+        [HideInInspector] public FloraReproduction        floraReproduction;
+
+        [HideInInspector] public Eats      eats;
+        [HideInInspector] public IEdible[] Edibles;
         
         List<Entity> _neighbors = new List<Entity>();
 
@@ -74,6 +72,8 @@ namespace EntitySystem
             movementInfluencers = GetComponents<IMoveInfluencer>();
             cohesion            = GetComponent<MoveInfluencer_Cohesion>();
             alignment           = GetComponent<MoveInfluencer_Alignment>();
+
+            floraReproduction   = GetComponent<FloraReproduction>();
 
             eats    = GetComponent<Eats>();
             Edibles = GetComponents<IEdible>();

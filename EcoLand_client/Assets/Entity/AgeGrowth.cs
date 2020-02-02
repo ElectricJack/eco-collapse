@@ -7,6 +7,10 @@ namespace EntitySystem
     {
         float matureSize;
         
+        void OnEnable()
+        {
+            entity.transform.localScale = Vector3.zero;
+        }
         protected virtual void Start()
         {
             matureSize = Random.Range(entity.typeInfo.finalGrowthScalar.x, entity.typeInfo.finalGrowthScalar.y);

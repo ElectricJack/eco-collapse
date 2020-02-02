@@ -12,6 +12,10 @@ public class WorldStepper : MonoBehaviour
 {
     public EntityManager EntityManager;
     
+
+    Unity.Profiling.ProfilerMarker moveStep = new Unity.Profiling.ProfilerMarker("MoveStep");
+    Unity.Profiling.ProfilerMarker statusStep = new Unity.Profiling.ProfilerMarker("StatusStep");
+    Unity.Profiling.ProfilerMarker entityStep = new Unity.Profiling.ProfilerMarker("EntityStep");
     public void Update()
     {
         if (Time.frameCount % 5 == 0)
@@ -23,19 +27,26 @@ public class WorldStepper : MonoBehaviour
         }
         else
         {
-            foreach (var statusStep in EntityManager.entities.SelectMany(x => x.StatusSteps))
+            using(statusStep.Auto())
             {
-                statusStep.StatusStep();;
+                foreach (var statusStep in EntityManager.entities.SelectMany(x => x.StatusSteps))
+                {
+                    statusStep.StatusStep();
+                }
             }
-        
-            foreach (var move in EntityManager.entities.SelectMany(x => x.MoveSteps))
+            using(moveStep.Auto())
             {
-                move.MoveStep();
+                foreach (var move in EntityManager.entities.SelectMany(x => x.MoveSteps))
+                {
+                    move.MoveStep();
+                }
             }
-
-            foreach (var eat in EntityManager.entities.SelectMany(x => x.EatSteps))
+            using(entityStep.Auto())
             {
-                eat.EatStep();
+                foreach (var eat in EntityManager.entities.SelectMany(x => x.EatSteps))
+                {
+                    eat.EatStep();
+                }
             }
 
             var deads = EntityManager.entities

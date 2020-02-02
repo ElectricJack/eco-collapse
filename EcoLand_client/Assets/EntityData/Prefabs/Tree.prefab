@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 8725353009136694559}
   - component: {fileID: 1242181345445530456}
   - component: {fileID: 6021908526270218981}
+  - component: {fileID: 4383876870412876564}
+  - component: {fileID: 269127877145947208}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Untagged
@@ -56,6 +58,7 @@ MonoBehaviour:
   isDead: 0
   cohesion: {fileID: 0}
   alignment: {fileID: 0}
+  floraReproduction: {fileID: 0}
   eats: {fileID: 0}
   maxNeighborRadius: 0
 --- !u!114 &1242181345445530456
@@ -83,6 +86,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eafb328d68a4e584f974c961590e6672, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4383876870412876564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5004668707587316988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 990fd12042d24a74fad4a3a456ae9368, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &269127877145947208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5004668707587316988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcf5f109746500c4f9cbaf74456e3802, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reproduceRadius: 5
+  tooCloseToGrowAnyType: 1
+  tooCloseToGrowSameType: 3
+  seedProbability: 0.001
+  seedMinFertility: 0.05
+  foliageType: 1
 --- !u!1001 &3359790334716459960
 PrefabInstance:
   m_ObjectHideFlags: 0
