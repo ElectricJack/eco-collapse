@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -883,75 +883,93 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FloraTools:
   - ToolName: Grass
-    ToolDescription: 
-    mouseIcon: {fileID: 0}
+    ToolDescription: Simple seeds sow strong environments. Support small mammals
+      and larger plants with grass.
+    mouseIcon: {fileID: 21300000, guid: c681fe5690a594d3097139d8a928b926, type: 3}
     ENERGY_REQUIREMENT: 0
     UI_Link: {fileID: 0}
     targetEntity: {fileID: 11400000, guid: d794d4c8aad6e4bc590fc49d044f4520, type: 2}
   - ToolName: Mushroom
-    ToolDescription: 
-    mouseIcon: {fileID: 0}
+    ToolDescription: This mycological miracle supports entire environments on its
+      speckled back. Improved soil, food for hearty animals, water filtration, and
+      more are benefits from this fungi.
+    mouseIcon: {fileID: 21300000, guid: fc57aa7a3c28c4e21b59be553516ce6e, type: 3}
     ENERGY_REQUIREMENT: 0
     UI_Link: {fileID: 0}
     targetEntity: {fileID: 11400000, guid: eef871170893f5e43a2eebe524588109, type: 2}
   - ToolName: Blue Mushroom
-    ToolDescription: 
-    mouseIcon: {fileID: 0}
+    ToolDescription: This mycological miracle supports entire environments on its
+      speckled back. Improved soil, food for hearty animals, water filtration, and
+      more are benefits from this fungi.
+    mouseIcon: {fileID: 21300000, guid: d2e8096b6422a484f96e1db556deb4ef, type: 3}
     ENERGY_REQUIREMENT: 0
     UI_Link: {fileID: 0}
     targetEntity: {fileID: 11400000, guid: f278b80bb00ad4004a19fde3186fd2dd, type: 2}
   - ToolName: Red Flower
-    ToolDescription: 
-    mouseIcon: {fileID: 0}
+    ToolDescription: It takes a lot to maintain these beautiful blooms, but they
+      sustain the rest of the environment.
+    mouseIcon: {fileID: 21300000, guid: aa7742b4807d9461b897d5a5d09c456d, type: 3}
     ENERGY_REQUIREMENT: 0
     UI_Link: {fileID: 0}
     targetEntity: {fileID: 11400000, guid: 0ab184a568a2440cdb72bbf3cf6b98e5, type: 2}
   - ToolName: Blue Flower
-    ToolDescription: 
-    mouseIcon: {fileID: 0}
+    ToolDescription: It takes a lot to maintain these beautiful blooms, but they
+      sustain the rest of the environment.
+    mouseIcon: {fileID: 21300000, guid: 51977d84408044dfda615e5c94b649df, type: 3}
     ENERGY_REQUIREMENT: 0
     UI_Link: {fileID: 0}
     targetEntity: {fileID: 0}
   - ToolName: Birch Tree
-    ToolDescription: 
-    mouseIcon: {fileID: 0}
+    ToolDescription: Trees of all types are the foundation of a healthy ecosystem.
+      Air filtration, shade, and homes for small animals are all contibutions to
+      the environments. These trees take less water but more light to thrive in this
+      ecosystem.
+    mouseIcon: {fileID: 21300000, guid: aeea3d469a24547a6842339206771a42, type: 3}
     ENERGY_REQUIREMENT: 0
     UI_Link: {fileID: 0}
     targetEntity: {fileID: 11400000, guid: daa6e8805abcf42768ccc030c048beea, type: 2}
   - ToolName: Pine Tree
-    ToolDescription: 
-    mouseIcon: {fileID: 0}
+    ToolDescription: Trees of all types are the foundation of a healthy ecosystem.
+      Air filtration, shade, and  homes for small animals are all contibuted from
+      the environements. However these big rewards cost a lot of water!
+    mouseIcon: {fileID: 21300000, guid: 59348de4166ec42f1919795d6bad324a, type: 3}
     ENERGY_REQUIREMENT: 0
     UI_Link: {fileID: 0}
     targetEntity: {fileID: 11400000, guid: d6805665c4fb8984ca3ff3ff2e16a2f7, type: 2}
   FaunaTools:
   - ToolName: Bugs
-    ToolDescription: 
-    mouseIcon: {fileID: 0}
+    ToolDescription: Adding bugs to the enviroment helps prevents pestilence and
+      encourages the life cycles of small animals.
+    mouseIcon: {fileID: 21300000, guid: ce5651ec671ed421fa5653219d4c9c1e, type: 3}
     ENERGY_REQUIREMENT: 5
     UI_Link: {fileID: 0}
     targetEntity: {fileID: 11400000, guid: 77cc339aaa71e0e408f593c0b6c254ae, type: 2}
   - ToolName: Mouse
-    ToolDescription: 
-    mouseIcon: {fileID: 0}
+    ToolDescription: 'The smallest of mammals in the field, mice nibble on small
+      bugs and plants. They need cover to be safe from their skyward predators. '
+    mouseIcon: {fileID: 21300000, guid: 1c8c8ca167dae4e0d96e27a1bb7429ac, type: 3}
     ENERGY_REQUIREMENT: 10
     UI_Link: {fileID: 0}
     targetEntity: {fileID: 11400000, guid: d8f2c3cabc00e4230ab6231bb3cd5cde, type: 2}
   - ToolName: Bunny
-    ToolDescription: 
-    mouseIcon: {fileID: 0}
+    ToolDescription: Look no further than this hoppy herbavore for keeping a tidy
+      field, but make sure they don't get out fo control or there will be no food
+      left for everyone else.
+    mouseIcon: {fileID: 21300000, guid: 542ceb1aab32e4f70af2621b97fbd010, type: 3}
     ENERGY_REQUIREMENT: 20
     UI_Link: {fileID: 0}
     targetEntity: {fileID: 11400000, guid: bc186714d057c7a4c8c5e5f1f576c4bf, type: 2}
   - ToolName: Fox
-    ToolDescription: 
-    mouseIcon: {fileID: 0}
+    ToolDescription: The agile fox is often found in cool shady environments, but
+      beware when the fox gets hungry. No small prey is safe!
+    mouseIcon: {fileID: 21300000, guid: 888a0ce5cc1b840599c7dc7e2e697167, type: 3}
     ENERGY_REQUIREMENT: 40
     UI_Link: {fileID: 0}
     targetEntity: {fileID: 11400000, guid: a2ac8f3209f35409681ba0189211200e, type: 2}
   - ToolName: Bird
-    ToolDescription: 
-    mouseIcon: {fileID: 0}
+    ToolDescription: Safe in the skies these avian flocks hunt small insects and
+      mammals for nourishment, but they become prey when they land.
+    mouseIcon: {fileID: 21300000, guid: e7992ba9e1433411e90ecf364a8b2c4d, type: 3}
     ENERGY_REQUIREMENT: 80
     UI_Link: {fileID: 0}
     targetEntity: {fileID: 11400000, guid: c8f97d07f69154e3eadca31892e75b1a, type: 2}
