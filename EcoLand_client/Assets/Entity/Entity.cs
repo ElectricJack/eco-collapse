@@ -34,6 +34,8 @@ namespace EntitySystem
 
         public float         fertilityReservoir = 0f;
         public float         wasteReservoir = 0f;
+
+        public AlertBehavior deathAlert;
         
         [HideInInspector]
         public bool          isDead = false;
@@ -178,7 +180,9 @@ namespace EntitySystem
 
         public virtual void Die(Entity killer = null)
         {
-           isDead = true;
+            isDead = true;
+            if(deathAlert != null)
+                AlertManager.instance.SpawnAlertForEntity(this, deathAlert);
         }
 
         private void UpdateTile() {
