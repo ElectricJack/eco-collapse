@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e40b9904e560f00478fbf8f376e6f791, type: 3}
-  m_Name: Grass
+  m_Name: Bunny
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4555729731886060194, guid: 9292e02a66d3743a09e9272f459f8a4e, type: 3}
-  stomachSize: 0.3
-  minLife: 1000
-  maxLife: 2000
-  matureAge: 100
-  speedRange: {x: 0, y: 0}
-  finalGrowthScalar: {x: 1, y: 2}
+  prefab: {fileID: 1260857102332598017, guid: 45fe2a1893412094b88a63ad579d68d5, type: 3}
+  stomachSize: 10
+  minLife: 5000
+  maxLife: 10000
+  matureAge: 0
+  speedRange: {x: 0, y: 2}
+  finalGrowthScalar: {x: 1, y: 1.5}
   birthScale: 0.1
-  edibleSize: 0.3
-  energyDecay: 0
+  edibleSize: 0.4
+  energyDecay: 0.01

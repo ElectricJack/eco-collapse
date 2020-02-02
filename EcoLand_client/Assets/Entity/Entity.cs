@@ -52,6 +52,8 @@ namespace EntitySystem
 
         [HideInInspector] public Eats      eats;
         [HideInInspector] public IEdible[] Edibles;
+
+        private Animator animator;
         
         List<Entity> _neighbors = new List<Entity>();
 
@@ -80,6 +82,8 @@ namespace EntitySystem
             eats    = GetComponent<Eats>();
             Edibles = GetComponents<IEdible>();
 
+            animator = GetComponentInChildren<Animator>();
+
             // Calculate the maximum neighbor radius from the largest influencing distance
             foreach(var moveInfluencer in movementInfluencers)
                 maxNeighborRadius = Math.Max(maxNeighborRadius, moveInfluencer.MaxDistance);
@@ -105,6 +109,11 @@ namespace EntitySystem
             }
             transform.position += velocity * Time.deltaTime;
             transform.rotation = Quaternion.FromToRotation(Vector3.forward, velocity);
+
+            if (animator != null)
+            {
+                animator.SetFloat("speed", velocity.magnitude);
+            }
 
             if (World.worldInstance != null)
             {

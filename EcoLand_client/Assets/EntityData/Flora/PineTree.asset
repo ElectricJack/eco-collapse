@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e40b9904e560f00478fbf8f376e6f791, type: 3}
-  m_Name: Bird
+  m_Name: PineTree
   m_EditorClassIdentifier: 
-  prefab: {fileID: 7546638744350096499, guid: 0c3c0d30dada24240a19d56f01e4c9b2, type: 3}
+  prefab: {fileID: 5004668707587316988, guid: e223e7d201db252428f4aae071fffd26, type: 3}
   stomachSize: 0
   minLife: 0
-  maxLife: 0
-  matureAge: 0
+  maxLife: 10000000
+  matureAge: 1000
   speedRange: {x: 0, y: 0}
-  finalGrowthScalar: {x: 0, y: 0}
+  finalGrowthScalar: {x: 1, y: 2}
   birthScale: 0.1
-  edibleSize: 0
+  edibleSize: 10
   energyDecay: 0

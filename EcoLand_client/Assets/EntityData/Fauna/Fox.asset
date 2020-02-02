@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e40b9904e560f00478fbf8f376e6f791, type: 3}
-  m_Name: Tree
+  m_Name: Fox
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5004668707587316988, guid: e223e7d201db252428f4aae071fffd26, type: 3}
-  stomachSize: 0
-  hungryThreshold: 0
-  minLife: 0
-  maxLife: 10000000
-  matureAge: 1000
-  speedRange: {x: 0, y: 0}
-  finalGrowthScalar: {x: 1, y: 2}
+  prefab: {fileID: 1260857102332598017, guid: af0f4944d1ce64a229bc95ccb0f7705e, type: 3}
+  stomachSize: 40
+  minLife: 5000
+  maxLife: 10000
+  matureAge: 0
+  speedRange: {x: 0, y: 4}
+  finalGrowthScalar: {x: 1, y: 1.5}
   birthScale: 0.1
-  edibleSize: 10
+  edibleSize: 1
+  energyDecay: 0.02
