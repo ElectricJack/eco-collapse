@@ -119,7 +119,7 @@ namespace Josh
                 cellMaterial = myCell.cellObject.GetComponentInChildren<MeshRenderer>()?.materials[0];
             }
 
-            cellMaterial.SetFloat("Vector1_hydration", Mathf.Clamp(hydration * 0.05f - 0.03f, 0f, 1f));
+            cellMaterial.SetFloat("Vector1_hydration", Mathf.Clamp(hydration * 0.1f - 0.06f, 0f, 1f));
             cellMaterial.SetFloat("Vector1_fertility", Mathf.Clamp(fertility * 25, 0f, 1f));
             cellMaterial.SetFloat("Vector1_sand", Mathf.Clamp(0.5f - hydration - fertility, 0f, 1f));
             cellMaterial.SetFloat("Vector1_snow", Mathf.Clamp(waterFreezingTemperature - temperature, 0f, 1f));
