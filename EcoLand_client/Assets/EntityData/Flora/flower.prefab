@@ -128,8 +128,8 @@ MonoBehaviour:
   reproduceRadius: 8
   tooCloseToGrowAnyType: 0.3
   tooCloseToGrowSameType: 2
-  seedProbability: 0.0035
-  seedMinFertility: 0.075
+  seedProbability: 0.0015
+  seedMinFertility: 0.085
   foliageType: 3
   fertilityToChildren: 0.01
   growsInWater: 0
