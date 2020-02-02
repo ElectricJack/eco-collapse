@@ -17,6 +17,5 @@ MonoBehaviour:
   hungryThreshold: 5
   minLife: 5000
   maxLife: 10000
-  speedRange: {x: 0, y: 0}
+  speedRange: {x: 0, y: 8}
   size: 1
-  EdibleSizeRange: {x: 0, y: 0}
