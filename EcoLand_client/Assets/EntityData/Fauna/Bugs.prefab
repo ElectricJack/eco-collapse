@@ -64,7 +64,8 @@ MonoBehaviour:
   energyDecay: 0
   fertilityReservoir: 0
   wasteReservoir: 0
-  deathAlert: {fileID: 0}
+  deathAlert: {fileID: 6773221667766759600, guid: e46cac6c617f34043a48c93253235e99,
+    type: 3}
   isDead: 0
   cohesion: {fileID: 0}
   alignment: {fileID: 0}
@@ -99,6 +100,8 @@ MonoBehaviour:
   conceiveProbability: 0.2
   conceiveRadius: 3
   requiredFertilityPerChild: 0.1
+  reproAlert: {fileID: 4866763503803656334, guid: 859fa43b29f746a438a8f391e30522b8,
+    type: 3}
 --- !u!114 &2137903744934077747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,6 +175,7 @@ MonoBehaviour:
   Strength: 0.2
   minHydration: 0.2
   maxHydration: 0.9
+  sadAlert: {fileID: 640374358119746768, guid: 27d99f643bb9fb345a7f3674ed7391ed, type: 3}
 --- !u!114 &-6127749144385773677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,6 +214,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  avoidAlert: {fileID: 0}
 --- !u!114 &1520580998661446358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,6 +268,8 @@ MonoBehaviour:
   edibleType: 0
   maxDistance: 1
   EdibleSizeRange: {x: 0.1, y: 0.3}
+  eatAlert: {fileID: 8775984135485307867, guid: d14d4b324eb44904b82034f29349531f,
+    type: 3}
 --- !u!1 &7022338794895197108
 GameObject:
   m_ObjectHideFlags: 0

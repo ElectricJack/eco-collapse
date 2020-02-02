@@ -61,7 +61,8 @@ MonoBehaviour:
   energyDecay: 0
   fertilityReservoir: 0
   wasteReservoir: 0
-  deathAlert: {fileID: 0}
+  deathAlert: {fileID: 6773221667766759600, guid: e46cac6c617f34043a48c93253235e99,
+    type: 3}
   isDead: 0
   cohesion: {fileID: 0}
   alignment: {fileID: 0}
@@ -174,7 +175,7 @@ MonoBehaviour:
   Strength: 0.15
   minHydration: 0.2
   maxHydration: 0.9
-  sadAlert: {fileID: 0}
+  sadAlert: {fileID: 640374358119746768, guid: 27d99f643bb9fb345a7f3674ed7391ed, type: 3}
 --- !u!114 &-4152154887505371048
 MonoBehaviour:
   m_ObjectHideFlags: 0
