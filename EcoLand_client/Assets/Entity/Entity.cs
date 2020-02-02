@@ -38,7 +38,7 @@ namespace EntitySystem
         [HideInInspector]
         public bool          isDead = false;
         
-        public ISteppable[]  stepables;
+        //public ISteppable[]  stepables;
         public IStatusStep[] StatusSteps;
         public IMoveStep[]   MoveSteps;
         public IEatStep[]    EatSteps;
@@ -68,7 +68,7 @@ namespace EntitySystem
                 .GetWorldTile();
             currentTile?.RegisterEntity(this);
         
-            stepables    = GetComponents<ISteppable>();
+            //stepables    = GetComponents<ISteppable>();
             StatusSteps  = GetComponents<IStatusStep>();
             MoveSteps    = GetComponents<IMoveStep>();
             EatSteps     = GetComponents<IEatStep>();
@@ -108,7 +108,8 @@ namespace EntitySystem
                 velocity = velocity.normalized * typeInfo.speedRange.y;
             }
             transform.position += velocity * Time.deltaTime;
-            transform.rotation = Quaternion.FromToRotation(Vector3.forward, velocity);
+            if (velocity.sqrMagnitude > 0.001f)
+                transform.rotation = Quaternion.FromToRotation(Vector3.forward, velocity);
 
             if (animator != null)
             {

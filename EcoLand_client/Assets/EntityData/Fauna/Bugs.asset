@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e40b9904e560f00478fbf8f376e6f791, type: 3}
-  m_Name: Bird
+  m_Name: Bugs
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1260857102332598017, guid: af35e1f6b3e436241993154ea541e4f7, type: 3}
-  stomachSize: 5
-  minLife: 50000
-  maxLife: 100000
-  matureAge: 1000
-  speedRange: {x: 0, y: 10}
+  prefab: {fileID: 1260857102332598017, guid: fddb6876d4c7bea4ca89356a83549690, type: 3}
+  stomachSize: 1
+  minLife: 1000
+  maxLife: 2000
+  matureAge: 50
+  speedRange: {x: 0, y: 1}
   finalGrowthScalar: {x: 0.8, y: 1.2}
   birthScale: 0.1
   edibleSize: 0.5
