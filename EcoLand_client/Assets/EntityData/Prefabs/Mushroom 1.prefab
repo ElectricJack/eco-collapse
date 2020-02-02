@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1037883666357630245
+--- !u!1 &3048263944917320415
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,55 +8,74 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 421582488319906553}
-  - component: {fileID: 3453001888911677993}
-  - component: {fileID: 2188470255417608626}
-  - component: {fileID: 6630413889734994934}
-  - component: {fileID: 4995022301615964688}
-  - component: {fileID: 5695782891259992464}
-  - component: {fileID: 2011217251049528309}
+  - component: {fileID: 3048263944917320390}
+  - component: {fileID: 3048263944917320385}
+  - component: {fileID: 3048263944917320384}
+  - component: {fileID: 3048263944917320387}
+  - component: {fileID: 3048263944917320386}
+  - component: {fileID: 3048263944917320413}
+  - component: {fileID: 3048263944917320412}
   m_Layer: 0
-  m_Name: Tree2
+  m_Name: Mushroom 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &421582488319906553
+--- !u!4 &3048263944917320390
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1037883666357630245}
+  m_GameObject: {fileID: 3048263944917320415}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1221107752642290703}
+  - {fileID: 8110230734629212375}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3453001888911677993
+--- !u!114 &3048263944917320385
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1037883666357630245}
+  m_GameObject: {fileID: 3048263944917320415}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d584baaae9d13494baaee3337ea6fda9, type: 3}
+  m_Script: {fileID: 11500000, guid: bcf5f109746500c4f9cbaf74456e3802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HowFilling: 0
---- !u!114 &2188470255417608626
+  reproduceRadius: 4
+  tooCloseToGrowAnyType: 0.3
+  tooCloseToGrowSameType: 2
+  seedProbability: 0.1
+  seedMinFertility: 0.1
+  foliageType: 6
+--- !u!114 &3048263944917320384
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1037883666357630245}
+  m_GameObject: {fileID: 3048263944917320415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 761b8410e51745142b36be56b51377c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fertilityConsumptionRate: 0.001
+  minFertility: 0
+--- !u!114 &3048263944917320387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3048263944917320415}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7bce9daba6a75145b5ce14042005fce, type: 3}
@@ -76,149 +95,130 @@ MonoBehaviour:
   floraReproduction: {fileID: 0}
   eats: {fileID: 0}
   maxNeighborRadius: 0
---- !u!114 &6630413889734994934
+--- !u!114 &3048263944917320386
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1037883666357630245}
+  m_GameObject: {fileID: 3048263944917320415}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eafb328d68a4e584f974c961590e6672, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4995022301615964688
+--- !u!114 &3048263944917320413
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1037883666357630245}
+  m_GameObject: {fileID: 3048263944917320415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d584baaae9d13494baaee3337ea6fda9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HowFilling: 0
+--- !u!114 &3048263944917320412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3048263944917320415}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 990fd12042d24a74fad4a3a456ae9368, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5695782891259992464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1037883666357630245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcf5f109746500c4f9cbaf74456e3802, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reproduceRadius: 5
-  tooCloseToGrowAnyType: 1
-  tooCloseToGrowSameType: 6
-  seedProbability: 0.004
-  seedMinFertility: 0.04
-  foliageType: 1
---- !u!114 &2011217251049528309
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1037883666357630245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 761b8410e51745142b36be56b51377c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fertilityConsumptionRate: 0.001
-  minFertility: 0.04
---- !u!1001 &77394711405190091
+--- !u!1001 &3048263945288025690
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 421582488319906553}
+    m_TransformParent: {fileID: 3048263944917320390}
     m_Modifications:
-    - target: {fileID: 1288250617612271556, guid: dfd1abe788cc780488f9150b1faa868a,
+    - target: {fileID: 6539446605433640589, guid: 3c5002a9d47ef1e4f8e83c6bb2cfcae4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.24
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1288250617612271556, guid: dfd1abe788cc780488f9150b1faa868a,
+    - target: {fileID: 6539446605433640589, guid: 3c5002a9d47ef1e4f8e83c6bb2cfcae4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.39
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1288250617612271556, guid: dfd1abe788cc780488f9150b1faa868a,
+    - target: {fileID: 6539446605433640589, guid: 3c5002a9d47ef1e4f8e83c6bb2cfcae4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.09
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1288250617612271556, guid: dfd1abe788cc780488f9150b1faa868a,
+    - target: {fileID: 6539446605433640589, guid: 3c5002a9d47ef1e4f8e83c6bb2cfcae4,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.19859229
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1288250617612271556, guid: dfd1abe788cc780488f9150b1faa868a,
+    - target: {fileID: 6539446605433640589, guid: 3c5002a9d47ef1e4f8e83c6bb2cfcae4,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.6786466
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1288250617612271556, guid: dfd1abe788cc780488f9150b1faa868a,
+    - target: {fileID: 6539446605433640589, guid: 3c5002a9d47ef1e4f8e83c6bb2cfcae4,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.6786465
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1288250617612271556, guid: dfd1abe788cc780488f9150b1faa868a,
+    - target: {fileID: 6539446605433640589, guid: 3c5002a9d47ef1e4f8e83c6bb2cfcae4,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.19859232
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1288250617612271556, guid: dfd1abe788cc780488f9150b1faa868a,
+    - target: {fileID: 6539446605433640589, guid: 3c5002a9d47ef1e4f8e83c6bb2cfcae4,
         type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1288250617612271556, guid: dfd1abe788cc780488f9150b1faa868a,
+    - target: {fileID: 6539446605433640589, guid: 3c5002a9d47ef1e4f8e83c6bb2cfcae4,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1288250617612271556, guid: dfd1abe788cc780488f9150b1faa868a,
+    - target: {fileID: 6539446605433640589, guid: 3c5002a9d47ef1e4f8e83c6bb2cfcae4,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1288250617612271556, guid: dfd1abe788cc780488f9150b1faa868a,
+    - target: {fileID: 6539446605433640589, guid: 3c5002a9d47ef1e4f8e83c6bb2cfcae4,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1288250617612271556, guid: dfd1abe788cc780488f9150b1faa868a,
+    - target: {fileID: 6539446605433640589, guid: 3c5002a9d47ef1e4f8e83c6bb2cfcae4,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 25
+      value: 0.2
       objectReference: {fileID: 0}
-    - target: {fileID: 1288250617612271556, guid: dfd1abe788cc780488f9150b1faa868a,
+    - target: {fileID: 6539446605433640589, guid: 3c5002a9d47ef1e4f8e83c6bb2cfcae4,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 25
+      value: 0.2
       objectReference: {fileID: 0}
-    - target: {fileID: 1288250617612271556, guid: dfd1abe788cc780488f9150b1faa868a,
+    - target: {fileID: 6539446605433640589, guid: 3c5002a9d47ef1e4f8e83c6bb2cfcae4,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 25
+      value: 0.2
       objectReference: {fileID: 0}
-    - target: {fileID: 2863041162093137367, guid: dfd1abe788cc780488f9150b1faa868a,
+    - target: {fileID: 7826009111418856606, guid: 3c5002a9d47ef1e4f8e83c6bb2cfcae4,
         type: 3}
       propertyPath: m_Name
-      value: birch9
+      value: mushroomPink
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: dfd1abe788cc780488f9150b1faa868a, type: 3}
---- !u!4 &1221107752642290703 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 3c5002a9d47ef1e4f8e83c6bb2cfcae4, type: 3}
+--- !u!4 &8110230734629212375 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 1288250617612271556, guid: dfd1abe788cc780488f9150b1faa868a,
+  m_CorrespondingSourceObject: {fileID: 6539446605433640589, guid: 3c5002a9d47ef1e4f8e83c6bb2cfcae4,
     type: 3}
-  m_PrefabInstance: {fileID: 77394711405190091}
+  m_PrefabInstance: {fileID: 3048263945288025690}
   m_PrefabAsset: {fileID: 0}
