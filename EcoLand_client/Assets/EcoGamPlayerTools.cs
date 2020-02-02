@@ -30,6 +30,18 @@ public class EcoGamPlayerTools : MonoBehaviour
         Manager.SetPlayerTool(tool);
     }
 
+    public void Awake()
+    {
+        foreach (var faunaTool in FaunaTools)
+        {
+            var l = faunaTool.targetEntity;
+            faunaTool.UI_Link.onClick.AddListener(() =>
+            {
+                
+            });
+        }
+    }
+    
     public void Update()
     {
         if (!Stepper.isReady || activeTool == null || Stepper.enabled)
@@ -88,7 +100,7 @@ public class Tool
 {
     public string ToolName;
     public string ToolDescription;
-    public Image mouseIcon;
+    public Sprite mouseIcon;
     public float ENERGY_REQUIREMENT;
     public Button UI_Link;
     public EntityProfile targetEntity;
