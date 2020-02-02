@@ -112,8 +112,10 @@ namespace EntitySystem
                 if (pos.z > size) pos.z -= size;
                 transform.position = pos;
             }
-            
-            //currentTile.myCell.location
+
+            var cell = World.worldInstance.GetCellFromPosition(transform.position);
+            if (cell != currentTile.myCell)
+                UpdateTile();
         }
         public void StatusStep()
         {
@@ -143,6 +145,7 @@ namespace EntitySystem
 
         private void UpdateTile() {
             if(Josh.World.worldInstance != null) {
+                Debug.Log($"Updating Tile for {name}");
                 Vector2 myPosition = new Vector2(transform.position.x, transform.position.z);
                 Josh.WorldTile newWorldTile = Josh.World.worldInstance.GetCellFromPosition(myPosition).GetWorldTile();
                 if (newWorldTile != currentTile) {
