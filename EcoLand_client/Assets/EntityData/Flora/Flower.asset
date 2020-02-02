@@ -15,10 +15,10 @@ MonoBehaviour:
   prefab: {fileID: 9165076723050663523, guid: edb1bcd6ae665408a8c2a100bdcd23ee, type: 3}
   stomachSize: 0
   minLife: 1000
-  maxLife: 1000
+  maxLife: 10000
   matureAge: 100
   speedRange: {x: 0, y: 0}
   finalGrowthScalar: {x: 0, y: 0}
   birthScale: 0.1
-  edibleSize: 0
+  edibleSize: 0.3
   energyDecay: 0
