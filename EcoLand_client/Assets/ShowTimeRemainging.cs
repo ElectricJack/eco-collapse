@@ -12,9 +12,11 @@ public class ShowTimeRemainging : MonoBehaviour
     void Update()
     {
         //TODO: Format numbers
+
+        var t = Mathf.Clamp(EcoGameMain.TimeRemainging, 0f, EcoGameMain.GameLength);
         
-        var s = (int) (EcoGameMain.TimeRemainging / 1000f % 60f);
-        var m = (int) (EcoGameMain.TimeRemainging / (1000f * 60f));
+        var s = (int) (EcoGameMain.TimeRemainging  % 60f);
+        var m = (int) (EcoGameMain.TimeRemainging / 60f);
         TextField.text = $"{m}:{s}";
     }
 }

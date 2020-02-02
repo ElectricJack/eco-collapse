@@ -1,7 +1,9 @@
 ﻿
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace EntitySystem
 {
@@ -20,6 +22,12 @@ namespace EntitySystem
         {
             instance = this;
         }
+
+        private void OnDestroy()
+        {
+            instance = null; //TODO: CLEANUP!!!
+        }
+
         // Update is called once per frame
         void Update()
         {
