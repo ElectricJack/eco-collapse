@@ -71,19 +71,21 @@ namespace Josh
         private void RunHydrationSimulation() {
             // Water bleeds out, but only downhill, and only if it's warm enough
             float waterFlowLoss = 0f;
-            float waterLossToAdjacentTile = hydration * waterTileFlowSpeed;
+            float waterLossToAdjacentTile = hydration * waterTileFlowSpeed * (1 - fertility);
             if (temperature < waterFreezingTemperature)
-                waterLossToAdjacentTile *= 0.1f; // if the water is frozen less will flow
+                waterLossToAdjacentTile *= 0.01f; // if the water is frozen less will flow
 
             foreach (Cell neighbor in myCell.GetNeighbors().Values) {
                 if (elevation - neighbor.GetWorldTile().elevation > 0) {
                     float tileFlowLoss = waterLossToAdjacentTile * (elevation - neighbor.GetWorldTile().elevation);
                     neighbor.GetWorldTile().hydration += tileFlowLoss;
+                    neighbor.GetWorldTile().fertility += tileFlowLoss * 0.01f; // small amount of fertility flows away
                     waterFlowLoss += tileFlowLoss;
                 } else if(hydration > 1f && (elevation + (1-hydration)) - neighbor.GetWorldTile().elevation > 0) {
                     // hydration > 1 means underwater tile so add additional hydration to elevation for flow
                     float tileFlowLoss = waterLossToAdjacentTile * ((elevation + (1 - hydration) - neighbor.GetWorldTile().elevation));
                     neighbor.GetWorldTile().hydration += tileFlowLoss;
+                    neighbor.GetWorldTile().fertility += tileFlowLoss * 0.01f; // small amount of fertility flows away
                     waterFlowLoss += tileFlowLoss;
                 }
             }
@@ -94,6 +96,7 @@ namespace Josh
 
             hydration -= evaporation;
             hydration -= waterFlowLoss;
+            fertility -= waterFlowLoss * 0.01f;
         }
 
         private void RunHumiditySimulation() {

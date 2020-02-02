@@ -37,6 +37,80 @@ namespace Josh
                 cell.cellObject = clone;
                 SetUpCell(cell, scalarX, scalarY);
             }
+
+            foreach (var cellPair in world.cells) {
+                Cell cell = cellPair.Value;
+                MeshFilter mesh = cell.cellObject.GetComponentInChildren<MeshFilter>();
+
+                Vector3[] vertices = mesh.mesh.vertices;
+
+                List<int> nwVert = new List<int>();
+                List<int> neVert = new List<int>();
+                List<int> swVert = new List<int>();
+                List<int> seVert = new List<int>();
+
+                for(int i = 0; i < vertices.Length; i++) {
+                    if(vertices[i].y > 0) {
+                        if(vertices[i].x > 0 && vertices[i].z > 0) {
+                            nwVert.Add(i);
+                        } else if(vertices[i].x < 0 && vertices[i].z > 0) {
+                            neVert.Add(i);
+                        } else if(vertices[i].x > 0 && vertices[i].z < 0) {
+                            swVert.Add(i);
+                        } else if(vertices[i].x < 0 && vertices[i].z < 0) {
+                            seVert.Add(i);
+                        }
+                    }
+                }
+
+                float vertex4 = GetAverageHeightDifferenceForCorner(cell.GetWorldTile(), 
+                    cell.GetNeighbor(Direction.West).GetWorldTile(),
+                    cell.GetNeighbor(Direction.NorthWest).GetWorldTile(),
+                    cell.GetNeighbor(Direction.North).GetWorldTile());
+
+                float vertex5 = GetAverageHeightDifferenceForCorner(cell.GetWorldTile(),
+                    cell.GetNeighbor(Direction.East).GetWorldTile(),
+                    cell.GetNeighbor(Direction.NorthEast).GetWorldTile(),
+                    cell.GetNeighbor(Direction.North).GetWorldTile());
+
+                float vertex3 = GetAverageHeightDifferenceForCorner(cell.GetWorldTile(),
+                    cell.GetNeighbor(Direction.West).GetWorldTile(),
+                    cell.GetNeighbor(Direction.SouthWest).GetWorldTile(),
+                    cell.GetNeighbor(Direction.South).GetWorldTile());
+
+                float vertex2 = GetAverageHeightDifferenceForCorner(cell.GetWorldTile(),
+                    cell.GetNeighbor(Direction.East).GetWorldTile(),
+                    cell.GetNeighbor(Direction.SouthEast).GetWorldTile(),
+                    cell.GetNeighbor(Direction.South).GetWorldTile());
+
+                foreach(int i in neVert) {
+                    vertices[i] = new Vector3(vertices[i].x, vertices[i].y - vertex4, vertices[i].z);
+                }
+                foreach (int i in nwVert) {
+                    vertices[i] = new Vector3(vertices[i].x, vertices[i].y - vertex5, vertices[i].z);
+                }
+                foreach (int i in seVert) {
+                    vertices[i] = new Vector3(vertices[i].x, vertices[i].y - vertex3, vertices[i].z);
+                }
+                foreach (int i in swVert) {
+                    vertices[i] = new Vector3(vertices[i].x, vertices[i].y - vertex2, vertices[i].z);
+                }
+
+                mesh.mesh.vertices = vertices;
+                mesh.mesh.RecalculateNormals();
+            }
+        }
+
+        private float GetAverageHeightDifferenceForCorner(WorldTile me, WorldTile first, WorldTile second, WorldTile third) {
+            float myEle = me.myCell.cellObject.transform.position.y;
+
+            float wEle = first.myCell.cellObject.transform.position.y;
+            float nwEle = second.myCell.cellObject.transform.position.y;
+            float nEle = third.myCell.cellObject.transform.position.y;
+
+            float averageEle = ((myEle - wEle) + (myEle - nwEle) + (myEle - nEle)) / 4;
+
+            return averageEle;
         }
 
         private void SetUpCell(Cell cell, float scalarX, float scalarY) {
@@ -192,10 +266,10 @@ namespace Josh
             {Direction.West, new Vector2Int(-1, 0)},
             {Direction.South, new Vector2Int(0, -1)},
             {Direction.East, new Vector2Int(1, 0)},
-            {Direction.NorthEast, new Vector2Int(-1, 1)},
-            {Direction.NorthWest, new Vector2Int(1, 1)},
-            {Direction.SouthEast, new Vector2Int(-1, -1)},
-            {Direction.SouthWest, new Vector2Int(1, -1)},
+            {Direction.NorthEast, new Vector2Int(1, 1)},
+            {Direction.NorthWest, new Vector2Int(-1, 1)},
+            {Direction.SouthEast, new Vector2Int(1, -1)},
+            {Direction.SouthWest, new Vector2Int(-1, -1)},
         };
     
         public Vector2Int location;
