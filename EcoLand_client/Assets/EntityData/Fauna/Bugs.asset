@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 1260857102332598017, guid: fddb6876d4c7bea4ca89356a83549690, type: 3}
   stomachSize: 1
-  minLife: 1000
-  maxLife: 2000
+  minLife: 100
+  maxLife: 500
   matureAge: 50
-  speedRange: {x: 0, y: 1}
+  speedRange: {x: 0, y: 2}
   finalGrowthScalar: {x: 0.8, y: 1.2}
   birthScale: 0.1
   edibleSize: 0.5
-  energyDecay: 0.005
+  energyDecay: 0.0143
+  speedDecay: 0.95
