@@ -71,7 +71,7 @@ namespace EntitySystem
             if(_toInfluencer.Count > 0)
                 _influence /= _toInfluencer.Count;
 
-            return _influence * strengthForHunger.Evaluate(entity.stomachFullness);
+            return _influence * strengthForHunger.Evaluate(Mathf.Clamp01(entity.stomachFullness));
         }
     }
 }

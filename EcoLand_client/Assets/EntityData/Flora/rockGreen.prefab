@@ -53,6 +53,7 @@ MonoBehaviour:
   energyDecay: 0
   fertilityReservoir: 0
   wasteReservoir: 0
+  deathAlert: {fileID: 0}
   isDead: 0
   cohesion: {fileID: 0}
   alignment: {fileID: 0}
@@ -124,17 +125,17 @@ PrefabInstance:
     - target: {fileID: 5071104597363733149, guid: 5f929b242d7afc94381d9261f3beae24,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5071104597363733149, guid: 5f929b242d7afc94381d9261f3beae24,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5071104597363733149, guid: 5f929b242d7afc94381d9261f3beae24,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8087188516391469198, guid: 5f929b242d7afc94381d9261f3beae24,
         type: 3}

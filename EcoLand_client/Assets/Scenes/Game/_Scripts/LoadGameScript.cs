@@ -44,9 +44,21 @@ public class LoadGameScript : MonoBehaviour
             yield return null;
         }
 
+        var gameScene = SceneManager.GetSceneByName("TreePLayground");
+        
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("TreePLayground"));
         
         // TODO: DO GENERATION SHIT HERE!!!
+
+        var core = gameScene.GetRootGameObjects().First(x => x.name == "Core");
+        var worldGen = core.GetComponent<WorldGen>();
+
+        /*
+        while (!worldGen.isReady)
+        {
+            yield return null;
+        }
+        */
         // TODO: DO GENERATION SHIT HERE!!!
         
         yield return new WaitForSeconds(0.5f);

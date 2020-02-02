@@ -19,7 +19,9 @@ GameObject:
   - component: {fileID: -4476085135627568914}
   - component: {fileID: -6127749144385773677}
   - component: {fileID: 1520580998661446358}
+  - component: {fileID: -1820193111446775250}
   - component: {fileID: -8062592648456766203}
+  - component: {fileID: -7605265228027357315}
   m_Layer: 0
   m_Name: Bunny
   m_TagString: Untagged
@@ -64,6 +66,8 @@ MonoBehaviour:
   energyDecay: 0
   fertilityReservoir: 0
   wasteReservoir: 0
+  deathAlert: {fileID: 6773221667766759600, guid: 6e1e599324a557841beaee97222bd768,
+    type: 3}
   isDead: 0
   cohesion: {fileID: 0}
   alignment: {fileID: 0}
@@ -97,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conceiveProbability: 0.5
   conceiveRadius: 1
-  requiredFertilityPerChild: 0.1
+  requiredFertilityPerChild: 0.075
 --- !u!114 &2137903744934077747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,9 +139,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MinDistance: 2
-  maxDistance: 6
+  maxDistance: 5
   Type: 1
-  SeekStrength: 1.5
+  SeekStrength: 0.75
   RepelStrength: 3
 --- !u!114 &5828982184087872511
 MonoBehaviour:
@@ -151,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 216a0b02c5c4d8349adf43524f74eaed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistance: 6
+  maxDistance: 5
   Type: 1
   Strength: 0.25
 --- !u!114 &-4476085135627568914
@@ -167,8 +171,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MinDistance: 1
-  maxDistance: 6
-  Strength: 0.15
+  maxDistance: 3
+  Strength: 0.1
   minHydration: 0.2
   maxHydration: 0.9
 --- !u!114 &-6127749144385773677
@@ -247,6 +251,23 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-1820193111446775250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260857102332598017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed95acbbc91feba42bb15d07566f1e4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MinDistance: 0
+  maxDistance: 3.5
+  Strength: 0.4
+  minTemperature: 0.4
+  maxTemperature: 0.8
 --- !u!114 &-8062592648456766203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,6 +283,18 @@ MonoBehaviour:
   edibleType: 0
   maxDistance: 1
   EdibleSizeRange: {x: 0.1, y: 0.4}
+--- !u!114 &-7605265228027357315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260857102332598017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eafb328d68a4e584f974c961590e6672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7022338794895197108
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,7 +354,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a5437b05819430d45a7506af009abb54, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

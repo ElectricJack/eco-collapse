@@ -63,6 +63,11 @@ namespace EntitySystem
         {
             var instance = Instantiate(entityType.prefab, pos, Quaternion.identity);
             instance.transform.parent = this.transform;
+
+            var rot = instance.transform.localRotation;
+            rot.eulerAngles = new Vector3(0,Random.value*360.0f,0);
+            instance.transform.localRotation = rot;
+
             var ent = instance.GetComponent<Entity>();
             ent.deathAge        = Random.Range(entityType.minLife, entityType.maxLife);
             ent.typeInfo        = entityType;
@@ -71,8 +76,6 @@ namespace EntitySystem
             newEntities.Add(ent);
 
             return ent;
-
-            //entities.Add(ent);
         }
     }
 }

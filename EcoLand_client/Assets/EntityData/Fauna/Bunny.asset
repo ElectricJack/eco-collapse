@@ -19,6 +19,6 @@ MonoBehaviour:
   matureAge: 0
   speedRange: {x: 0, y: 2}
   finalGrowthScalar: {x: 1, y: 1.5}
-  birthScale: 0.1
+  birthScale: 0.5
   edibleSize: 0.4
   energyDecay: 0.01
