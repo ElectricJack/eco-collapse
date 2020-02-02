@@ -94,10 +94,11 @@ MonoBehaviour:
   reproduceRadius: 4
   tooCloseToGrowAnyType: 4
   tooCloseToGrowSameType: 0.5
-  seedProbability: 0.005
+  seedProbability: 0.0075
   seedMinFertility: 0.05
   foliageType: 2
   fertilityToChildren: 0.001
+  growsInWater: 1
 --- !u!114 &5478218445045206440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,6 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fertilityConsumptionRate: 0.001
   minFertility: 0.02
+  starvationRate: 5
 --- !u!114 &8990182962553223556
 MonoBehaviour:
   m_ObjectHideFlags: 0
