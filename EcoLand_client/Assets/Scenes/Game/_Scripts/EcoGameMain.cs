@@ -7,7 +7,9 @@ public class EcoGameMain : MonoBehaviour
 {
     public WorldStepper Stepper;
 
-    public const float GameLength = 60f * 5f;
+    public GameObject EndGameScreen;
+
+    public const float GameLength = 10f;// 60f * 3f;
     public float TimeRemainging => GameLength - (Time.timeSinceLevelLoad - TimeAtStart);
     private float TimeAtStart = 0f;
     
@@ -39,7 +41,8 @@ public class EcoGameMain : MonoBehaviour
         // Game Over
         // Show Gameover Dialog and Look at Ecosystem
         
-        Debug.LogError("GAME OVER");
+        EndGameScreen.SetActive(true);
+        
     }
 }
 
