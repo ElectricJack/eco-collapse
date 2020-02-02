@@ -4,18 +4,18 @@ using UnityEngine;
 
 namespace Josh
 {
-    public class WorldTile : IStepable
+    public class WorldTile : IStatusStep
     {
         private const float temperatureConvectionSpeed =        0.001f;
         private const float temperatureSpaceRadiationSpeed =    0.001f;
         private const float temperatureSunWarmingSpeed =        0.001f;
 
-        private const float waterTileFlowSpeed =                0.002f;
+        private const float waterTileFlowSpeed =                0.01f;
         private const float waterFreezingTemperature =          0.32f;
         private const float waterEvaporationSpeed =             0.001f;
 
         private const float rainfallSpeed =                     0.001f;
-        private const float humidityTransferSpeed =             0.001f;
+        private const float humidityTransferSpeed =             0.02f;
 
         private Material cellMaterial;
 
@@ -71,19 +71,20 @@ namespace Josh
         private void RunHydrationSimulation() {
             // Water bleeds out, but only downhill, and only if it's warm enough
             float waterFlowLoss = 0f;
-            if (temperature > waterFreezingTemperature) {
-                float waterLossToAdjacentTile = hydration * waterTileFlowSpeed;
-                foreach (Cell neighbor in myCell.GetNeighbors().Values) {
-                    if (neighbor.GetWorldTile().elevation - elevation > 0) {
-                        float tileFlowLoss = waterLossToAdjacentTile * (neighbor.GetWorldTile().elevation - elevation);
-                        neighbor.GetWorldTile().hydration += tileFlowLoss;
-                        waterFlowLoss += tileFlowLoss;
-                    } else if(hydration > 1f && neighbor.GetWorldTile().elevation - (elevation + (1-hydration)) > 0) {
-                        // hydration > 1 means underwater tile so add additional hydration to elevation for flow
-                        float tileFlowLoss = waterLossToAdjacentTile * (neighbor.GetWorldTile().elevation - (elevation + (1 - hydration)));
-                        neighbor.GetWorldTile().hydration += tileFlowLoss;
-                        waterFlowLoss += tileFlowLoss;
-                    }
+            float waterLossToAdjacentTile = hydration * waterTileFlowSpeed;
+            if (temperature < waterFreezingTemperature)
+                waterLossToAdjacentTile *= 0.1f; // if the water is frozen less will flow
+
+            foreach (Cell neighbor in myCell.GetNeighbors().Values) {
+                if (elevation - neighbor.GetWorldTile().elevation > 0) {
+                    float tileFlowLoss = waterLossToAdjacentTile * (elevation - neighbor.GetWorldTile().elevation);
+                    neighbor.GetWorldTile().hydration += tileFlowLoss;
+                    waterFlowLoss += tileFlowLoss;
+                } else if(hydration > 1f && (elevation + (1-hydration)) - neighbor.GetWorldTile().elevation > 0) {
+                    // hydration > 1 means underwater tile so add additional hydration to elevation for flow
+                    float tileFlowLoss = waterLossToAdjacentTile * ((elevation + (1 - hydration) - neighbor.GetWorldTile().elevation));
+                    neighbor.GetWorldTile().hydration += tileFlowLoss;
+                    waterFlowLoss += tileFlowLoss;
                 }
             }
 
@@ -111,11 +112,20 @@ namespace Josh
         }
 
         private void UpdateAnimator() {
+            if (cellMaterial == null) {
+                cellMaterial = myCell.cellObject.GetComponentInChildren<MeshRenderer>()?.materials[0];
+            }
+
+            cellMaterial.SetFloat("Vector1_hydration", Mathf.Clamp(hydration - 1, 0f, 1f));
+            cellMaterial.SetFloat("Vector1_fertility", fertility);
+            cellMaterial.SetFloat("Vector1_sand", Mathf.Clamp(0.1f - hydration, 0f, 1f));
+
+
             return;//TODO
-            cellMaterial.SetFloat("hydration", hydration);
+            
             cellMaterial.SetFloat("temperature", temperature);
             cellMaterial.SetFloat("humidity", humidity);
-            cellMaterial.SetFloat("fertility", fertility);
+            
             cellMaterial.SetFloat("brightness", brightness);
             cellMaterial.SetFloat("elevation", elevation);
         }
@@ -132,7 +142,7 @@ namespace Josh
             return entities;
         }
 
-        public void Step()
+        public void StatusStep()
         {
             RunCellularAutomata();
         }

@@ -38,8 +38,8 @@ namespace EntitySystem
                 if (toNeighbor.sqrMagnitude < sqrMax
                     && entity.eats != null
                     && entity.eats.WillEat(neighbor) != null
-                    && entity.eats.EdibleSizeRange.x < neighbor.typeInfo.size                                 
-                    && entity.eats.EdibleSizeRange.y > neighbor.typeInfo.size)
+                    && entity.eats.EdibleSizeRange.x < neighbor.typeInfo.edibleSize                                 
+                    && entity.eats.EdibleSizeRange.y > neighbor.typeInfo.edibleSize)
                 {
                     //Filter based on type
                     _influencers.Add(neighbor);

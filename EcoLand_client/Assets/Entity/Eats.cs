@@ -14,11 +14,15 @@ namespace EntitySystem
     {
         public    VoreType    edibleType;
 
+        [SerializeField]
+        private float maxDistance;
+        public float MaxDistance  { get {return maxDistance;} }
+        
         [MinMax(0.01f, 4f)] public Vector2 EdibleSizeRange;
-
+        
         public void EatStep()
         {
-            // TODO: Is there Something close enough to eat;
+            
         }
 
         public IEdible WillEat(Entity prey)
