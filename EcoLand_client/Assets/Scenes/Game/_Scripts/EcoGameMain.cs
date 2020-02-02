@@ -9,8 +9,8 @@ public class EcoGameMain : MonoBehaviour
 
     public GameObject EndGameScreen;
 
-    public const float GameLength = 10f;// 60f * 3f;
-    public float TimeRemainging => GameLength - (Time.timeSinceLevelLoad - TimeAtStart);
+    public const float GameLength = 60f * 3f;
+    public float TimeRemainging => Stepper.isReady ? GameLength - (Time.timeSinceLevelLoad - TimeAtStart) : GameLength;
     private float TimeAtStart = 0f;
     
     public void Start()
@@ -25,7 +25,7 @@ public class EcoGameMain : MonoBehaviour
             yield return null;
         }
 
-        TimeAtStart = Time.timeSinceLevelLoad;
+        TimeAtStart = Time.timeSinceLevelLoad + 1f;
 
         StartCoroutine(PlayGame());
     }
