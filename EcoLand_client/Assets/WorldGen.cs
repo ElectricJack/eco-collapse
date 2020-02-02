@@ -237,11 +237,11 @@ namespace Josh
     {
         private Dictionary<Direction, Cell> neighbors = new Dictionary<Direction, Cell>();
 
-        private WorldTile tile;
+        private WorldTile  tile;
 
-        public GameObject cellObject;
+        public  GameObject cellObject;
 
-        public Loc location;
+        public  Loc        location;
         
         public Cell(int x, int y)
         {
