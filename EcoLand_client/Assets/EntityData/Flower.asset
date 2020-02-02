@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e40b9904e560f00478fbf8f376e6f791, type: 3}
-  m_Name: Blue Mushroom
+  m_Name: Flower
   m_EditorClassIdentifier: 
-  prefab: {fileID: 737342476967568453, guid: 26d5574859376490c95658be45fb0361, type: 3}
+  prefab: {fileID: 9165076723050663523, guid: edb1bcd6ae665408a8c2a100bdcd23ee, type: 3}
   stomachSize: 0
-  minLife: 0
-  maxLife: 0
-  matureAge: 0
+  minLife: 1000
+  maxLife: 1000
+  matureAge: 100
   speedRange: {x: 0, y: 0}
   finalGrowthScalar: {x: 0, y: 0}
   birthScale: 0.1
