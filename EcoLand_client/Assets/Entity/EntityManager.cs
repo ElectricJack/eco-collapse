@@ -13,6 +13,8 @@ namespace EntitySystem
         public EntityProfile[] entityTypes = new EntityProfile[10];
         public List<Entity>   entities    = new List<Entity>();
 
+        public List<Entity> newEntities = new List<Entity>();
+
         public List<Entity> pendingDeath = new List<Entity>();
 
         void Awake()
@@ -23,6 +25,11 @@ namespace EntitySystem
         void Update()
         {
             AddEntitiesHACK();
+
+            foreach(Entity newEnt in newEntities) {
+                entities.Add(newEnt);
+            }
+            newEntities.Clear();
         }
 
         void AddEntitiesHACK()
@@ -53,7 +60,7 @@ namespace EntitySystem
             }
         }
 
-        public void SpawnEntity(Vector3 pos, EntityProfile entityType)
+        public Entity SpawnEntity(Vector3 pos, EntityProfile entityType)
         {
             var instance = Instantiate(entityType.prefab, pos, Quaternion.identity);
             instance.transform.parent = this.transform;
@@ -62,7 +69,11 @@ namespace EntitySystem
             ent.typeInfo        = entityType;
             ent.stomachFullness = entityType.stomachSize;
 
-            entities.Add(ent);
+            newEntities.Add(ent);
+
+            return ent;
+
+            //entities.Add(ent);
         }
     }
 }
