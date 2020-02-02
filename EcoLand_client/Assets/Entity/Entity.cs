@@ -105,17 +105,27 @@ namespace EntitySystem
             
             Vector3 totalInfluence = Vector3.zero;
             foreach(var moveInfluencer in movementInfluencers)
-                totalInfluence += moveInfluencer.GetInfluenceVector();
+            {
+                var influence = moveInfluencer.GetInfluenceVector();
+                if(float.IsNaN(influence.x) || float.IsNaN(influence.y) || float.IsNaN(influence.z))
+                    continue;
+
+                totalInfluence += influence;
+            }
+                
+
 
             velocity += totalInfluence * Time.deltaTime;
             velocity.y = 0;
 
-            if (velocity.sqrMagnitude > typeInfo.speedRange.y * typeInfo.speedRange.y)
+            float sqrMag = velocity.sqrMagnitude;
+            if (!float.IsNaN(sqrMag) && sqrMag > 0.001f && sqrMag > typeInfo.speedRange.y * typeInfo.speedRange.y)
             {
                 velocity = velocity.normalized * typeInfo.speedRange.y;
             }
+
             transform.position += velocity * Time.deltaTime;
-            if (velocity.sqrMagnitude > 0.001f)
+            if (!float.IsNaN(sqrMag) && sqrMag > 0.001f)
                 transform.rotation = Quaternion.FromToRotation(Vector3.forward, velocity);
 
             if (animator != null)

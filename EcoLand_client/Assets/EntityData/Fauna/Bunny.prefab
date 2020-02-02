@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conceiveProbability: 0.5
   conceiveRadius: 1
-  requiredFertilityPerChild: 0.1
+  requiredFertilityPerChild: 0.01
 --- !u!114 &2137903744934077747
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -65,7 +65,7 @@ namespace EntitySystem
 
             if (!tooClose)
             {
-                Debug.Log("New seedling!");
+                //Debug.Log("New seedling!");
                 EntityManager.instance.SpawnEntity(seedLocation, entity.typeInfo);
             }
         }
