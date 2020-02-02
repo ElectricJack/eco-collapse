@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 421582488319906553}
-  - component: {fileID: 3453001888911677993}
   - component: {fileID: 2188470255417608626}
-  - component: {fileID: 6630413889734994934}
-  - component: {fileID: 4995022301615964688}
+  - component: {fileID: 3453001888911677993}
   - component: {fileID: 5695782891259992464}
   - component: {fileID: 2011217251049528309}
+  - component: {fileID: 6630413889734994934}
+  - component: {fileID: 4995022301615964688}
   - component: {fileID: 1491836894455899604}
   m_Layer: 0
   m_Name: BirchTree
@@ -40,19 +40,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3453001888911677993
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1037883666357630245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d584baaae9d13494baaee3337ea6fda9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HowFilling: 0
 --- !u!114 &2188470255417608626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,7 +68,7 @@ MonoBehaviour:
   floraReproduction: {fileID: 0}
   eats: {fileID: 0}
   maxNeighborRadius: 0
---- !u!114 &6630413889734994934
+--- !u!114 &3453001888911677993
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,21 +77,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1037883666357630245}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eafb328d68a4e584f974c961590e6672, type: 3}
+  m_Script: {fileID: 11500000, guid: d584baaae9d13494baaee3337ea6fda9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4995022301615964688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1037883666357630245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 990fd12042d24a74fad4a3a456ae9368, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  HowFilling: 0
 --- !u!114 &5695782891259992464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,6 +114,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fertilityConsumptionRate: 0.001
   minFertility: 0.04
+--- !u!114 &6630413889734994934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037883666357630245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eafb328d68a4e584f974c961590e6672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4995022301615964688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037883666357630245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 990fd12042d24a74fad4a3a456ae9368, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1491836894455899604
 MonoBehaviour:
   m_ObjectHideFlags: 0

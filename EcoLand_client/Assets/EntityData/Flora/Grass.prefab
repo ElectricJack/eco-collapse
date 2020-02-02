@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4423185778867476215}
   - component: {fileID: 1340752419550534603}
-  - component: {fileID: 8990182962553223556}
-  - component: {fileID: 8424690827029716670}
   - component: {fileID: 4027407925488380298}
   - component: {fileID: 3207922415115387824}
   - component: {fileID: 5478218445045206440}
+  - component: {fileID: 8990182962553223556}
+  - component: {fileID: 8424690827029716670}
   - component: {fileID: 1824499084099470644}
   m_Layer: 0
   m_Name: Grass
@@ -66,30 +66,6 @@ MonoBehaviour:
   floraReproduction: {fileID: 0}
   eats: {fileID: 0}
   maxNeighborRadius: 0
---- !u!114 &8990182962553223556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4555729731886060194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 990fd12042d24a74fad4a3a456ae9368, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8424690827029716670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4555729731886060194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eafb328d68a4e584f974c961590e6672, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4027407925488380298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,7 +94,7 @@ MonoBehaviour:
   reproduceRadius: 4
   tooCloseToGrowAnyType: 4
   tooCloseToGrowSameType: 0.5
-  seedProbability: 0.0035
+  seedProbability: 0.005
   seedMinFertility: 0.05
   foliageType: 2
   fertilityToChildren: 0.001
@@ -136,6 +112,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fertilityConsumptionRate: 0.001
   minFertility: 0.02
+--- !u!114 &8990182962553223556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4555729731886060194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 990fd12042d24a74fad4a3a456ae9368, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8424690827029716670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4555729731886060194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eafb328d68a4e584f974c961590e6672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1824499084099470644
 MonoBehaviour:
   m_ObjectHideFlags: 0

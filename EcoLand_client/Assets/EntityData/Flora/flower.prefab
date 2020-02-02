@@ -43,11 +43,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5408914187212574621}
-  - component: {fileID: 6164701859267897001}
   - component: {fileID: 1915701183950243963}
-  - component: {fileID: 849084048564772239}
   - component: {fileID: 4505624449862976427}
   - component: {fileID: 8505455762614751896}
+  - component: {fileID: 6164701859267897001}
+  - component: {fileID: 849084048564772239}
   - component: {fileID: 4647486492159036264}
   - component: {fileID: 8511219434044635901}
   m_Layer: 0
@@ -72,20 +72,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6164701859267897001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9165076723050663523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 761b8410e51745142b36be56b51377c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fertilityConsumptionRate: 0.001
-  minFertility: 0
 --- !u!114 &1915701183950243963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,18 +100,6 @@ MonoBehaviour:
   floraReproduction: {fileID: 0}
   eats: {fileID: 0}
   maxNeighborRadius: 0
---- !u!114 &849084048564772239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9165076723050663523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 990fd12042d24a74fad4a3a456ae9368, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4505624449862976427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d584baaae9d13494baaee3337ea6fda9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HowFilling: 0
+  HowFilling: 0.05
 --- !u!114 &8505455762614751896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,13 +125,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcf5f109746500c4f9cbaf74456e3802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reproduceRadius: 4
+  reproduceRadius: 8
   tooCloseToGrowAnyType: 0.3
   tooCloseToGrowSameType: 2
-  seedProbability: 0.1
+  seedProbability: 0.001
   seedMinFertility: 0.1
-  foliageType: 6
-  fertilityToChildren: 0
+  foliageType: 3
+  fertilityToChildren: 0.01
+--- !u!114 &6164701859267897001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9165076723050663523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 761b8410e51745142b36be56b51377c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fertilityConsumptionRate: 0.001
+  minFertility: 0.05
+--- !u!114 &849084048564772239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9165076723050663523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 990fd12042d24a74fad4a3a456ae9368, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4647486492159036264
 MonoBehaviour:
   m_ObjectHideFlags: 0
