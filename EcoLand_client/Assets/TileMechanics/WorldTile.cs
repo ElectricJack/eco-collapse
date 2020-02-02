@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Josh
 {
-    public class WorldTile : IStepable
+    public class WorldTile : IStatusStep
     {
         private const float temperatureConvectionSpeed =        0.001f;
         private const float temperatureSpaceRadiationSpeed =    0.001f;
@@ -142,7 +142,7 @@ namespace Josh
             return entities;
         }
 
-        public void Step()
+        public void StatusStep()
         {
             RunCellularAutomata();
         }

@@ -18,7 +18,7 @@ public class WorldStepper : MonoBehaviour
         {
             foreach (var cell in World.worldInstance.cells)
             {
-                cell.Value.GetWorldTile().Step();
+                cell.Value.GetWorldTile().StatusStep();
             }
         }
         else
@@ -44,27 +44,25 @@ public class WorldStepper : MonoBehaviour
             foreach (var dead in deads)
             {
                 EntityManager.entities.Remove(dead);
+                Destroy(dead.gameObject);
             }
         }
     }
 }
 
-public interface IStepable
-{
-    void Step();
-}
 
-public interface IMoveStep : IStepable
+
+public interface IMoveStep
 {
     void MoveStep();
 }
 
-public interface IEatStep : IStepable
+public interface IEatStep
 {
     void EatStep();
 }
 
-public interface IStatusStep : IStepable
+public interface IStatusStep
 {
     void StatusStep();
 }

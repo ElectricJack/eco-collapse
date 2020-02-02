@@ -8,7 +8,7 @@ namespace EntitySystem
         protected Entity    entity;
         protected WorldTile tile;
 
-        private void Awake()
+        protected virtual void Awake()
         {
             entity = this.gameObject.GetComponent<Entity>();
         }
