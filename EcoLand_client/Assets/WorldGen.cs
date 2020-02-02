@@ -18,8 +18,8 @@ namespace Josh
         public AnimationCurve Curve;
 
         public List<EntityProfile> randomTerrainEntities;
-        public int numRandomSpawns = 10;
-        public int randomSpawnVariance = 3;
+        public int numRandomSpawns = 30;
+        public int randomSpawnVariance = 5;
         
         public void Awake()
         {
