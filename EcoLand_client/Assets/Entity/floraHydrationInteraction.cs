@@ -19,7 +19,7 @@ namespace EntitySystem
                 }
             }
             else {
-                entity.deathAge--;
+                entity.deathAge -= 10;
             }
         }
     }
