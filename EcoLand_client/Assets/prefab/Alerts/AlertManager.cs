@@ -68,7 +68,7 @@ public class AlertManager : MonoBehaviour
 
     private void FinallySpawn(EntitySystem.Entity entity, AlertBehavior behavior)
     {
-        if (behavior == null || behavior.gameObject == null)
+        if (behavior == null || behavior.gameObject == null || entity == null)
             return;
 
         GameObject clone = Instantiate(behavior.gameObject, entity.transform.position, Quaternion.identity);

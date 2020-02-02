@@ -88,7 +88,7 @@ namespace EntitySystem
             {
                 var animActive = active.GetComponentInParent<Animator>();
                 if (animActive != null)
-                    animActive.gameObject.SetActive(false);
+                    animActive.enabled = false;
                 active.enabled = false;
             }
                 
@@ -97,7 +97,7 @@ namespace EntitySystem
             active.enabled = true;
                 var anim = active.GetComponentInParent<Animator>();
                 if (anim != null)
-                    anim.gameObject.SetActive(true);
+                    anim.enabled = true;
         }
     }
 }

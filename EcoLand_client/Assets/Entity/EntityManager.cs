@@ -31,14 +31,14 @@ namespace EntitySystem
         // Update is called once per frame
         void Update()
         {
-            AddEntitiesHACK();
+            //AddEntitiesHACK();
 
             foreach(Entity newEnt in newEntities) {
                 entities.Add(newEnt);
             }
             newEntities.Clear();
         }
-
+        /*
         void AddEntitiesHACK()
         {
             // Do something with the object that was hit by the raycast.
@@ -65,7 +65,7 @@ namespace EntitySystem
             if (Physics.Raycast(ray, out hit)) {
                 SpawnEntity(hit.point, entityType);
             }
-        }
+        }*/
 
         public Entity SpawnEntity(Vector3 pos, EntityProfile entityType)
         {
