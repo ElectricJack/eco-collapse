@@ -35,7 +35,7 @@ namespace EntitySystem
 
             neighbors.Remove(entity);
             
-            foreach (var target in neighbors.Select(WillEat))
+            foreach (var target in neighbors.Select(x => WillEat(x)))
             {
                 if(target == null)
                     continue;
@@ -50,7 +50,7 @@ namespace EntitySystem
             }
         }
 
-        public Tuple<Entity, IEdible> WillEat(Entity prey)
+        public Tuple<Entity, IEdible> WillEat(Entity prey, bool ignoreDist = false)
         {
             if (prey.Edibles == null)
                 return null;
@@ -58,8 +58,9 @@ namespace EntitySystem
             if (prey.isDead)
                 return null;
 
-            if (prey.typeInfo.edibleSize < entity.eats.EdibleSizeRange.x ||
-                prey.typeInfo.edibleSize > entity.eats.EdibleSizeRange.y)
+            if (!ignoreDist 
+                && (prey.typeInfo.edibleSize < entity.eats.EdibleSizeRange.x 
+                    || prey.typeInfo.edibleSize > entity.eats.EdibleSizeRange.y))
             {
                 return null;
             }
