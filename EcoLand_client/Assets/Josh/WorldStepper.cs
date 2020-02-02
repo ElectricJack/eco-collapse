@@ -24,8 +24,8 @@ public class WorldStepper : MonoBehaviour
     
     public void Awake()
     {
-        StartCoroutine(InitWorld(750));
-        //isReady = true;
+        //StartCoroutine(InitWorld(750));
+        isReady = true;
     }
     public void Update()
     {

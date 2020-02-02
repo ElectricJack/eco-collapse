@@ -24,8 +24,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7190056438319203868}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.22, z: -0.127}
+  m_LocalScale: {x: 4.5834, y: 4.5834, z: 4.5834}
   m_Children:
   - {fileID: 8131042885752787222}
   - {fileID: 5320286112273398252}
@@ -128,10 +128,11 @@ MonoBehaviour:
   reproduceRadius: 8
   tooCloseToGrowAnyType: 0.3
   tooCloseToGrowSameType: 2
-  seedProbability: 0.001
-  seedMinFertility: 0.1
+  seedProbability: 0.0015
+  seedMinFertility: 0.085
   foliageType: 3
   fertilityToChildren: 0.01
+  growsInWater: 0
 --- !u!114 &6164701859267897001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,6 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fertilityConsumptionRate: 0.001
   minFertility: 0.05
+  starvationRate: 5
 --- !u!114 &849084048564772239
 MonoBehaviour:
   m_ObjectHideFlags: 0

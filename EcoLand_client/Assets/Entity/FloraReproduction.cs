@@ -17,6 +17,7 @@ namespace EntitySystem
         public int   foliageType;
 
         public float fertilityToChildren;
+        public bool  growsInWater = true;
 
 
         public void StatusStep()
@@ -44,6 +45,9 @@ namespace EntitySystem
 
             // If this location isn't fertile enough then bail
             if (tile.fertility < seedMinFertility)
+                return;
+
+            if (!growsInWater && tile.hydration > 0.9)
                 return;
 
             List<Entity> entities = new List<Entity>();

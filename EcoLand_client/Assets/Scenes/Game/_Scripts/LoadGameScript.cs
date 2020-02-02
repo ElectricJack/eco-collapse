@@ -51,14 +51,14 @@ public class LoadGameScript : MonoBehaviour
         // TODO: DO GENERATION SHIT HERE!!!
 
         var core = gameScene.GetRootGameObjects().First(x => x.name == "Core");
-        var worldGen = core.GetComponent<WorldGen>();
+        var stepper = core.GetComponent<WorldStepper>();
 
-        /*
-        while (!worldGen.isReady)
+        
+        while (!stepper.isReady)
         {
             yield return null;
         }
-        */
+        
         // TODO: DO GENERATION SHIT HERE!!!
         
         yield return new WaitForSeconds(0.5f);
