@@ -7,6 +7,24 @@ using Vector3 = UnityEngine.Vector3;
 
 namespace EntitySystem
 {
+    public class FaunaReproduction : BaseComponent, IStatusStep
+    {
+        public float seedProbability;
+
+        public void StatusStep()
+        {
+            if (World.worldInstance == null)
+                return;
+
+            // Make sure we are mature enough
+            if (entity.currentAge < entity.typeInfo.matureAge * 0.7f)
+                return;
+
+            // If we didn't hit our seed probability, then just skip this update
+            if (UnityEngine.Random.value >= seedProbability)
+                return;
+        }
+    }
     public class FloraReproduction : BaseComponent, IStatusStep
     {
         public float reproduceRadius;
