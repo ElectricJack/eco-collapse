@@ -34,17 +34,19 @@ public class EcoGamPlayerTools : MonoBehaviour
     {
         for(int f = 0; f < FloraTools.Count; f++)
         {
-            FloraTools[f].UI_Link.onClick.AddListener(() =>
+            int index = f;
+            FloraTools[index].UI_Link.onClick.AddListener(() =>
             {
-                UpdateTool(FloraTools[f]);
+                UpdateTool(FloraTools[index]);
             });
         }
         
         for(int f = 0; f < FaunaTools.Count; f++)
         {
-            FaunaTools[f].UI_Link.onClick.AddListener(() =>
+            int index = f;
+            FaunaTools[index].UI_Link.onClick.AddListener(() =>
             {
-                UpdateTool(FaunaTools[f]);
+                UpdateTool(FaunaTools[index]);
             });
         }
     }
