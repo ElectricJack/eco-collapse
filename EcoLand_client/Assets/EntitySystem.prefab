@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
   entityTypes:
-  - {fileID: 11400000, guid: eef871170893f5e43a2eebe524588109, type: 2}
+  - {fileID: 11400000, guid: d794d4c8aad6e4bc590fc49d044f4520, type: 2}
   - {fileID: 11400000, guid: bc186714d057c7a4c8c5e5f1f576c4bf, type: 2}
   - {fileID: 11400000, guid: a2ac8f3209f35409681ba0189211200e, type: 2}
   - {fileID: 11400000, guid: d6805665c4fb8984ca3ff3ff2e16a2f7, type: 2}
