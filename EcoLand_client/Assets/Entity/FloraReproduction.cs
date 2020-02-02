@@ -53,7 +53,7 @@ namespace EntitySystem
             foreach(var ent in entities)
             {
                 // Only care about growing too close to the same type?
-                if (ent.floraReproduction == null)
+                if (ent == entity || ent.floraReproduction == null)
                     continue;
 
                 var distToOther = (ent.transform.position - seedLocation).magnitude;
@@ -66,7 +66,7 @@ namespace EntitySystem
             if (!tooClose)
             {
                 Debug.Log("New seedling!");
-                
+                EntityManager.instance.SpawnEntity(seedLocation, entity.typeInfo);
             }
         }
 

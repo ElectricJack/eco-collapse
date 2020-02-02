@@ -1,6 +1,6 @@
 ﻿namespace EntitySystem
 {
-    class Poisonable : BaseComponent, ISteppable
+    class Poisonable : BaseComponent, IStatusStep
     {
         private int poisonVal = 0;
 
@@ -9,7 +9,7 @@
             poisonVal += potency;
         }
 
-        public void Step()
+        public void StatusStep()
         {
             if (poisonVal > 0)
             {

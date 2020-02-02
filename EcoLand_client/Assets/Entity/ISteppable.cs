@@ -1,8 +1,8 @@
 ﻿namespace EntitySystem
 {
-    public interface ISteppable
+    /*public interface ISteppable
     {
         void Step();
-    }
+    }*/
 }
 

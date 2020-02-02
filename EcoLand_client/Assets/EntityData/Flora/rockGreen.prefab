@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1753635226251502997}
   - component: {fileID: 4991945964560704529}
+  - component: {fileID: 1861756919601270171}
   m_Layer: 0
   m_Name: rockGreen
   m_TagString: Untagged
@@ -59,6 +60,18 @@ MonoBehaviour:
   floraReproduction: {fileID: 0}
   eats: {fileID: 0}
   maxNeighborRadius: 0
+--- !u!114 &1861756919601270171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5106729896386719068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eafb328d68a4e584f974c961590e6672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1474417942324910607
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -124,17 +137,17 @@ PrefabInstance:
     - target: {fileID: 5071104597363733149, guid: 5f929b242d7afc94381d9261f3beae24,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5071104597363733149, guid: 5f929b242d7afc94381d9261f3beae24,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5071104597363733149, guid: 5f929b242d7afc94381d9261f3beae24,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8087188516391469198, guid: 5f929b242d7afc94381d9261f3beae24,
         type: 3}
