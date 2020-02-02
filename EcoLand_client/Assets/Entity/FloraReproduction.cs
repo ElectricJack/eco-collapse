@@ -10,7 +10,7 @@ namespace EntitySystem
     public class FaunaReproduction : BaseComponent, IStatusStep
     {
         public float seedProbability;
-
+        
         public void StatusStep()
         {
             if (World.worldInstance == null)
@@ -33,6 +33,8 @@ namespace EntitySystem
         public float seedProbability;
         public float seedMinFertility;
         public int   foliageType;
+
+        public float fertilityToChildren;
 
 
         public void StatusStep()
@@ -88,10 +90,10 @@ namespace EntitySystem
 
         public void SpawnChild(Vector3 seedLocation) {
             FloraFertilityInteraction floraFert = GetComponent<FloraFertilityInteraction>();
-            if (floraFert != null && entity.fertilityReservoir > floraFert.fertilityConsumptionRate / 10) {
-                entity.fertilityReservoir -= floraFert.fertilityConsumptionRate / 10;
+            if (floraFert != null && entity.fertilityReservoir > fertilityToChildren) {
+                entity.fertilityReservoir -= fertilityToChildren;
                 Entity newEnt = EntityManager.instance.SpawnEntity(seedLocation, entity.typeInfo);
-                newEnt.fertilityReservoir += floraFert.fertilityConsumptionRate / 10;
+                newEnt.fertilityReservoir += fertilityToChildren;
             } else if(floraFert == null) {
                 // This plant ignores fertility for some reason, spawn it, I guess
                 Entity newEnt = EntityManager.instance.SpawnEntity(seedLocation, entity.typeInfo);
