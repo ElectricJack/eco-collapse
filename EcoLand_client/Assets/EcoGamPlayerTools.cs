@@ -25,7 +25,7 @@ public class EcoGamPlayerTools : MonoBehaviour
 
     public void Update()
     {
-        if (!Stepper.isReady)
+        if (!Stepper.isReady || activeTool == null || Stepper.enabled)
             return;
     }
 }
@@ -33,6 +33,8 @@ public class EcoGamPlayerTools : MonoBehaviour
 [System.Serializable]
 public class Tool
 {
+    public string ToolName;
+    public string ToolDescription;
     public Image mouseIcon;
     public float ENERGY_REQUIREMENT;
     public Button UI_Link;
