@@ -1945,7 +1945,7 @@ PrefabInstance:
     - target: {fileID: 4686939778240692151, guid: 480a9150e235943aeadded1cf20a4270,
         type: 3}
       propertyPath: regen
-      value: 100
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4878266707076316158, guid: 480a9150e235943aeadded1cf20a4270,
         type: 3}
