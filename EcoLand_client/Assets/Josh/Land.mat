@@ -20,6 +20,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_DD705ACC:
+        m_Texture: {fileID: 2800000, guid: 038bfbf2170b6214cb862a92b5649ac3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -82,7 +86,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_8C9A3741: 1
+    - Vector1_A417EF8: 0.807
+    - Vector1_B2CD07B4: 0.735
+    - Vector1_B57AAF0C: 0.381
+    - Vector1_CDD6B513: 0.419
     - Vector1_D0DAB728: 3
+    - Vector1_E1AB31CA: 0
+    - Vector1_E36D8942: 0
     - _AlphaClip: 0
     - _AtmosphereDensity: 0
     - _Blend: 0
@@ -118,8 +128,12 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - Color_52F78342: {r: 0.012865782, g: 1, b: 0, a: 1}
+    - Color_A24BDFC6: {r: 0.7516385, g: 1, b: 0.10849059, a: 0}
     - Color_A888D450: {r: 0.5093005, g: 0.9690052, b: 0.990566, a: 0}
     - Color_F587FDED: {r: 0, g: 0.73850524, b: 0.9150943, a: 0}
+    - Vector3_18B810: {r: 0, g: 0, b: 0, a: 0}
+    - Vector3_52C942AD: {r: 0, g: 0, b: 0, a: 0}
+    - Vector3_C7DD23C9: {r: 0, g: 0, b: 0, a: 0}
     - _AtmosphereColor: {r: 0.4411765, g: 0.6300204, b: 1, a: 1}
     - _BaseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _CityLightColor: {r: 1, g: 1, b: 1, a: 1}
