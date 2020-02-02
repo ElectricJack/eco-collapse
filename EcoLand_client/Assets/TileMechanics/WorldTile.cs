@@ -10,7 +10,7 @@ namespace Josh
         private const float temperatureSpaceRadiationSpeed =    0.001f;
         private const float temperatureSunWarmingSpeed =        0.001f;
 
-        private const float waterTileFlowSpeed =                0.002f;
+        private const float waterTileFlowSpeed =                0.02f;
         private const float waterFreezingTemperature =          0.32f;
         private const float waterEvaporationSpeed =             0.001f;
 
@@ -111,8 +111,13 @@ namespace Josh
         }
 
         private void UpdateAnimator() {
-            //cellMaterial.SetFloat("Water Strength", hydration);
-            //cellMaterial.SetFloat("Earth Strength", fertility);
+            if (cellMaterial == null) {
+                cellMaterial = myCell.cellObject.GetComponentInChildren<MeshRenderer>()?.materials[0];
+            }
+
+            cellMaterial.SetFloat("Vector1_hydration", Mathf.Clamp(hydration - 1, 0f, 1f));
+            cellMaterial.SetFloat("Vector1_fertility", fertility);
+
 
             return;//TODO
             

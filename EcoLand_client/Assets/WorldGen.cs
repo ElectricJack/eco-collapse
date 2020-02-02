@@ -45,7 +45,7 @@ namespace Josh
             float startingHydration = Mathf.PerlinNoise(scalarX - 1000, scalarY - 1000);
             float startingBrightness = Mathf.PerlinNoise(scalarX/10 + 10000, scalarY/10 + 10000);
             float startingHumidity = 0.0001f;
-            float startingFertility = 0.0001f;
+            float startingFertility = 0.1f;
 
             cell.GetWorldTile().elevation = startingElevation;
             cell.GetWorldTile().temperature = startingTemperature;
