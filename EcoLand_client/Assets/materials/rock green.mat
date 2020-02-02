@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: rock
+  m_Name: rock green
   m_Shader: {fileID: -6465566751694194690, guid: ef4c022a6328e884eb88de369da2c430,
     type: 3}
   m_ShaderKeywords: 
@@ -27,5 +27,5 @@ Material:
     m_Floats:
     - Vector1_C399C1AD: 0.57
     m_Colors:
-    - Color_A1852637: {r: 0.7735849, g: 0.61505675, b: 0.46342114, a: 0}
+    - Color_A1852637: {r: 0.6252319, g: 0.6431373, b: 0.3529412, a: 0}
     - Color_FF170D95: {r: 0, g: 0, b: 0, a: 0}
