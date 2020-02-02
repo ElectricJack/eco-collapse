@@ -30,6 +30,9 @@ namespace EntitySystem
 	    public int           currentAge;
 	    public int           deathAge;
         public float         stomachFullness;
+        public float         energyDecay;
+
+        public float         fertilityReservoir = 0f;
         
         [HideInInspector]
         public bool          isDead = false;
@@ -159,6 +162,12 @@ namespace EntitySystem
         public virtual void OnDestroy()
         {
             currentTile.UnregisterEntity(this);
+            DepositFertility();
+        }
+
+        private void DepositFertility() {
+            currentTile.fertility += fertilityReservoir;
+            fertilityReservoir = 0f;
         }
     }
 }
