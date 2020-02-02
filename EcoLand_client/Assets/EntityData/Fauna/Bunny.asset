@@ -20,5 +20,6 @@ MonoBehaviour:
   speedRange: {x: 0, y: 2}
   finalGrowthScalar: {x: 1, y: 1.5}
   birthScale: 0.5
-  edibleSize: 0.4
+  edibleSize: 1
   energyDecay: 0.01
+  speedDecay: 1

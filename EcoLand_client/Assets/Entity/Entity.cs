@@ -172,6 +172,8 @@ namespace EntitySystem
 
             float stomachDelta = Time.deltaTime * velocity.magnitude * typeInfo.energyDecay;
             stomachFullness -= stomachDelta;
+            stomachFullness -=  Time.deltaTime * typeInfo.energyDecay;
+
             wasteReservoir += stomachDelta;
 
             if(UnityEngine.Random.Range(0f, 1f) > 0.999f) {

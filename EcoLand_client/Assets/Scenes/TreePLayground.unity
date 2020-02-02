@@ -991,7 +991,7 @@ MonoBehaviour:
   Manager: {fileID: 1806486333}
   Stepper: {fileID: 1683026130}
   entityManager: {fileID: 82184207}
-  camera: {fileID: 0}
+  camera: {fileID: 2073933238}
   PlayerEnergy: {fileID: 677191275}
 --- !u!114 &1890750285
 MonoBehaviour:

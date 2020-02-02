@@ -83,11 +83,21 @@ namespace EntitySystem
         }
         private void ActivateModel(MeshRenderer mesh)
         {
+            
             if (active != null)
+            {
+                var animActive = active.GetComponentInParent<Animator>();
+                if (animActive != null)
+                    animActive.enabled = false;
                 active.enabled = false;
+            }
+                
 
             active = mesh;
             active.enabled = true;
+                var anim = active.GetComponentInParent<Animator>();
+                if (anim != null)
+                    anim.enabled = true;
         }
     }
 }

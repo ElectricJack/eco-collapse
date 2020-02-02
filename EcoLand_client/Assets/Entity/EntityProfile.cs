@@ -29,6 +29,8 @@ namespace EntitySystem
         
         [Range(0.0001f, 0.05f)]
         public float         energyDecay;
+
+        public float speedDecay = 1.0f;
     }
 
 }
