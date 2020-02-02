@@ -120,10 +120,10 @@ namespace Josh
         private void SetUpCell(Cell cell, float scalarX, float scalarY) {
             float startingElevation = (Mathf.PerlinNoise(scalarX, scalarY) + Mathf.PerlinNoise(scalarX / 4 + 100, scalarY / 4 + 100)) / 2; // elevation normalized between 0-1
             float startingTemperature = Mathf.PerlinNoise(scalarX + 1000, scalarY + 1000);
-            float startingHydration = Mathf.PerlinNoise(scalarX - 1000, scalarY - 1000);
+            float startingHydration = Mathf.PerlinNoise(scalarX - 1000, scalarY - 1000) + 0.05f;
             float startingBrightness = Mathf.PerlinNoise(scalarX/2 + 10000, scalarY/2 + 10000);
-            float startingHumidity = 0.0001f;
-            float startingFertility = 0.1f;
+            float startingHumidity = 0.001f;
+            float startingFertility = 0.15f * (Mathf.Clamp(1.5f - startingElevation* 2f, 0f, 2f));
 
             cell.GetWorldTile().elevation = startingElevation;
             cell.GetWorldTile().temperature = startingTemperature;
