@@ -7,23 +7,48 @@ using UnityEngine.SceneManagement;
 using System.Threading.Tasks;
 using System.Threading;
 using Josh;
+using System.Collections;
 
 public class WorldStepper : MonoBehaviour
 {
     public EntityManager EntityManager;
     
+    [HideInInspector]
+    public bool isReady = false;
 
     Unity.Profiling.ProfilerMarker moveStep = new Unity.Profiling.ProfilerMarker("MoveStep");
     Unity.Profiling.ProfilerMarker statusStep = new Unity.Profiling.ProfilerMarker("StatusStep");
     Unity.Profiling.ProfilerMarker entityStep = new Unity.Profiling.ProfilerMarker("EntityStep");
+
+    
+    public void Awake()
+    {
+        StartCoroutine(InitWorld(1500));
+    }
     public void Update()
     {
-        if (Time.frameCount % 5 == 0)
+        if (!isReady) return;
+        Step();
+    }
+    private IEnumerator InitWorld(int steps)
+    {
+        for(int i=0; i<steps; ++i)
         {
-            foreach (var cell in World.worldInstance.cells)
-            {
-                cell.Value.GetWorldTile().StatusStep();
-            }
+            StepWorld();
+            if (i % 50 == 0)
+                yield return null;
+        }
+
+        isReady = true;
+    }
+
+    int stepCount = 0;
+    private void Step()
+    {
+        ++stepCount;
+        if (stepCount % 5 == 0)
+        {
+            StepWorld();
         }
         else
         {
@@ -58,6 +83,17 @@ public class WorldStepper : MonoBehaviour
                 EntityManager.entities.Remove(dead);
                 Destroy(dead.gameObject);
             }
+        }
+    }
+
+    private void StepWorld()
+    {
+        if (World.worldInstance == null) 
+            return;
+
+        foreach (var cell in World.worldInstance.cells)
+        {
+            cell.Value.GetWorldTile().StatusStep();
         }
     }
 }
