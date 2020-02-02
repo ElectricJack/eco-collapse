@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 9165076723050663523, guid: edb1bcd6ae665408a8c2a100bdcd23ee, type: 3}
   stomachSize: 0
-  minLife: 1000
-  maxLife: 10000
+  minLife: 10000
+  maxLife: 20000
   matureAge: 100
   speedRange: {x: 0, y: 0}
   finalGrowthScalar: {x: 0, y: 0}
