@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e40b9904e560f00478fbf8f376e6f791, type: 3}
-  m_Name: rockGreen
+  m_Name: Bugs
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5106729896386719068, guid: 462be9b99fb2544588b9b1cc7b8438d6, type: 3}
-  stomachSize: 0
-  minLife: 0
-  maxLife: 0
-  matureAge: 0
-  speedRange: {x: 0, y: 0}
-  finalGrowthScalar: {x: 1, y: 10}
-  birthScale: 1
-  edibleSize: 0
-  energyDecay: 0
+  prefab: {fileID: 1260857102332598017, guid: fddb6876d4c7bea4ca89356a83549690, type: 3}
+  stomachSize: 1
+  minLife: 1000
+  maxLife: 2000
+  matureAge: 50
+  speedRange: {x: 0, y: 1}
+  finalGrowthScalar: {x: 0.8, y: 1.2}
+  birthScale: 0.1
+  edibleSize: 0.5
+  energyDecay: 0.005
