@@ -33,6 +33,7 @@ namespace EntitySystem
         public float         energyDecay;
 
         public float         fertilityReservoir = 0f;
+        public float         wasteReservoir = 0f;
         
         [HideInInspector]
         public bool          isDead = false;
@@ -131,9 +132,15 @@ namespace EntitySystem
             else if (currentAge > deathAge)
                 return;
 
-            stomachFullness -= Time.deltaTime * velocity.magnitude * typeInfo.energyDecay;
-            
-            
+            float stomachDelta = Time.deltaTime * velocity.magnitude * typeInfo.energyDecay;
+            stomachFullness -= stomachDelta;
+            wasteReservoir += stomachDelta;
+
+            if(UnityEngine.Random.Range(0f, 1f) > 0.999f) {
+                float wasteDeposit = Mathf.Clamp(stomachDelta / 100, 0f, fertilityReservoir / 10f);
+                currentTile.fertility += wasteDeposit;
+                fertilityReservoir -= wasteDeposit;
+            }
         }
 
         public virtual void Die(Entity killer = null)
